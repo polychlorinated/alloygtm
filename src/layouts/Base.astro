@@ -14,7 +14,9 @@ const { title, description, active = "home" } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
@@ -30,13 +32,8 @@ const { title, description, active = "home" } = Astro.props;
     <a class="skip-link" href="#content">Skip to content</a>
 
     <header class="nav">
-      <a class="nav__wordmark" href="/" aria-label="alloygtm home">
-        alloygtm
-        <svg class="nav__path" viewBox="0 0 72 8" aria-hidden="true">
-          <path d="M0 4h26" stroke="var(--reagent-blue-bright)" stroke-width="1.5"></path>
-          <path d="M26 4h22" stroke="var(--reaction-orange)" stroke-width="3"></path>
-          <path d="M48 4h24" stroke="var(--paper)" stroke-width="5"></path>
-        </svg>
+      <a class="nav__wordmark" href="/">
+        <img src="/alloy-basic-white-logo.webp" alt="Alloy GTM — home" width="674" height="179" />
       </a>
 
       <nav class="nav__links" aria-label="Primary">
@@ -66,7 +63,9 @@ const { title, description, active = "home" } = Astro.props;
     <footer class="footer">
       <div class="footer__inner">
         <div class="footer__brand">
-          <span class="footer__wordmark">alloygtm</span>
+          <a class="footer__wordmark" href="/">
+            <img src="/alloy-basic-white-logo.webp" alt="Alloy GTM — home" width="674" height="179" />
+          </a>
           <p class="footer__line label">
             B2B growth signal engineering<br />
             Powered by <a href="https://polychlorinated.com">Polychlorinated Ventures LLC</a>
@@ -110,22 +109,15 @@ const { title, description, active = "home" } = Astro.props;
   }
 
   .nav__wordmark {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.5rem;
-    letter-spacing: -0.01em;
-    line-height: 1;
-    text-decoration: none;
-    color: var(--paper);
     display: flex;
-    flex-direction: column;
-    gap: 3px;
+    align-items: center;
     margin-right: auto;
+    text-decoration: none;
   }
 
-  .nav__path {
-    width: 72px;
-    height: 8px;
+  .nav__wordmark img {
+    height: 26px;
+    width: auto;
   }
 
   .nav__links {
@@ -249,10 +241,12 @@ const { title, description, active = "home" } = Astro.props;
   }
 
   .footer__wordmark {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.5rem;
-    line-height: 1;
+    display: inline-block;
+  }
+
+  .footer__wordmark img {
+    height: 24px;
+    width: auto;
   }
 
   .footer__line {

@@ -92,3 +92,11 @@
 {"message":"[200] /audit/ 7ms","label":null,"level":"info"}
 {"message":"[200] / 25ms","label":null,"level":"info"}
 {"message":"[200] /audit/ 13ms","label":null,"level":"info"}
+{"message":"src/layouts/Base.astro","label":"watch","level":"info"}
+{"message":"src/layouts/Base.astro","label":"watch","level":"info"}
+{"message":"src/layouts/Base.astro","label":"watch","level":"info"}
+{"message":"src/layouts/Base.astro","label":"watch","level":"info"}
+{"message":"src/layouts/Base.astro","label":"watch","level":"info"}
+{"message":"src/layouts/Base.astro","label":"watch","level":"info"}
+{"message":"[200] / 26ms","label":null,"level":"info"}
+{"message":"[200] / 2ms","label":null,"level":"info"}

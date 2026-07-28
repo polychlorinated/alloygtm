@@ -117,7 +117,7 @@ The system pairs oversized operator-first storytelling with authentic working re
 
 ## Naming
 
-The mark is one word: **alloygtm**. Wordmarks, the favicon, and the domain always render it as a single lowercase word. In body copy, the first reference is "Alloy GTM" and subsequent references are "Alloy." Polychlorinated Ventures LLC appears only as the footer credit. Diagnose, Build, and Operate are never styled as product logos or sub-brands.
+The mark is the supplied logo asset (`public/alloy-basic-white-logo.webp`): the gold Λ glyph beside "Alloy" in white, always rendered on ink or dark fields. In body copy, the first reference is "Alloy GTM" and subsequent references are "Alloy." Polychlorinated Ventures LLC appears only as the footer credit. Diagnose, Build, and Operate are never styled as product logos or sub-brands.
 
 ## Colors
 
@@ -171,7 +171,7 @@ Controls and records use restrained, nearly square corners. Irregularity comes f
 
 ### Navigation
 
-The navigation is an inky fixed bar with the lowercase alloygtm wordmark in condensed type, mono links, orange active state, and a square mobile menu. The primary contact action is the only filled control in the bar.
+The navigation is an inky fixed bar with the Alloy logo at left, mono links, orange active state, and a square mobile menu. The primary contact action is the only filled control in the bar.
 
 ### Ownership Path
 
@@ -183,7 +183,7 @@ Instrument plots (resonance traces, spectrograms) are authored SVG with a mono t
 
 ## Marks
 
-The favicon is the reaction path: a horizontal route of nodes whose segments gain weight left to right, reading as Diagnose to Build to Operate. It renders in the functional palette on ink and is shared by every alloygtm mark context.
+The favicon is the gold Λ glyph (`public/favicon.svg`), rendered on ink for the PNG and ICO derivatives (`favicon-32.png`, `favicon.ico`, `apple-touch-icon.png`). The site logo is `public/alloy-basic-white-logo.webp`, used in the navigation and footer. One word, always: the mark never splits into two words, and Polychlorinated Ventures never appears as the site's subject.
 
 ## Do's and Don'ts
 

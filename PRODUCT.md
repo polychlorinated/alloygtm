@@ -44,7 +44,7 @@ Engagements use one universal ownership ladder: Diagnose, Build, or Operate. The
 
 ## Brand Commitments
 
-- The brand mark is one word: alloygtm. Wordmarks, logos, favicons, and domains always render it as a single word.
+- The brand mark is the supplied logo asset (`public/alloy-basic-white-logo.webp`): the gold Λ glyph beside "Alloy" in white. The favicon family (`favicon.svg` plus its PNG/ICO derivatives) renders the Λ glyph on ink. Marks are never split into two words.
 - In copy, the first reference is "Alloy GTM"; subsequent references are "Alloy."
 - Polychlorinated Ventures LLC appears only in the footer credit ("Powered by Polychlorinated Ventures LLC") and legal contexts.
 - Preserve Andrew Campbell's central role as founder and his direct, credible presence in the product.
@@ -58,7 +58,7 @@ Engagements use one universal ownership ladder: Diagnose, Build, or Operate. The
 - Andrew Campbell's chemistry Ph.D. credential and the claim of 12+ client engagements are approved for public use.
 - The current client roster — Quiltt, SS&C Blue Prism, Breakroom, Catalyst Education, GLYNT, Sinfonia, and Ebit — with links and logo permissions is approved. Source data is in `src/data/clients.ts`, with logo assets in `public/logos/`.
 - Approved engagement-level names and descriptions are in `src/data/engagements.ts`.
-- Existing brand assets include `public/favicon.svg` (reaction-path mark) and the alloygtm wordmark rendered in type.
+- Existing brand assets include `public/alloy-basic-white-logo.webp` (site logo) and `public/favicon.svg` (Λ glyph) with its generated derivatives `favicon-32.png`, `favicon.ico`, and `apple-touch-icon.png`.
 - Copy migrated from the previous alloygtm.com (homepage narrative, audit explanation, FAQ, founder bio) is approved source material.
 - The site does not contain approved testimonials, case-study outcomes, or quantified client results. Future work must not fabricate them. Demonstration data in the audit report UI must be labeled synthetic.
 
