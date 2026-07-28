@@ -1,0 +1,281 @@
+/* Alloy GTM — Reaction Log design system (DESIGN.md is normative) */
+
+:root {
+  --ink: #071b24;
+  --ink-raised: #102f3a;
+  --paper: #f2f2ec;
+  --paper-bright: #fffdf7;
+  --reaction-orange: #f06432;
+  --reagent-blue: #155eef;
+  --reagent-blue-bright: #4d86ff;
+  --mist: #8ca0a7;
+  --rule-dark: #294651;
+  --rule-light: #c7d0d0;
+  --ink-muted: #5a6c74;
+  --ink-subtle: #3d545e;
+  --paper-muted: #cfdbdb;
+  --reaction-orange-ink: #b5431a;
+  --reaction-orange-bright: #ff8a5c;
+
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  --space-unit: 8px;
+  --space-field: 32px;
+  --space-section: 80px;
+
+  --rail: 88px;
+  --gutter: clamp(20px, 5vw, 72px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--reaction-orange);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--reaction-orange);
+  outline-offset: 3px;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+/* ---------- Type ---------- */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.75rem, 8vw, 6rem);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  margin: 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  margin: 0;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.body-text {
+  max-width: 68ch;
+}
+
+/* ---------- Fields (paper / ink) threaded by the reaction path ---------- */
+
+.field {
+  position: relative;
+  padding: var(--space-section) var(--gutter);
+}
+
+.field--paper {
+  background: var(--paper);
+  color: var(--ink);
+  --rule: var(--rule-light);
+  --thread: var(--rule-dark);
+}
+
+.field--ink {
+  background: var(--ink);
+  color: var(--paper);
+  --rule: var(--rule-dark);
+  --thread: var(--rule-dark);
+}
+
+/* The continuous reaction path: a gutter line that gains weight as
+   ownership accumulates down the page. Wide screens only. */
+@media (min-width: 1100px) {
+  .field[data-thread] {
+    padding-left: calc(var(--rail) + var(--gutter));
+  }
+  .field[data-thread]::before {
+    content: "";
+    position: absolute;
+    left: var(--rail);
+    top: 0;
+    bottom: 0;
+    width: var(--thread-w, 2px);
+    background: var(--thread);
+  }
+  .field[data-thread]::after {
+    content: "";
+    position: absolute;
+    left: calc(var(--rail) + (var(--thread-w, 2px) / 2));
+    top: var(--space-section);
+    translate: -50% 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    background: var(--thread);
+  }
+  .field[data-thread="hot"]::after {
+    background: var(--reaction-orange);
+  }
+}
+
+/* ---------- Buttons & links ---------- */
+
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 16px 24px;
+  background: var(--reaction-orange);
+  color: var(--ink);
+  border: 1px solid var(--reaction-orange);
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.button-primary:hover {
+  background: transparent;
+  color: var(--reaction-orange);
+}
+
+.field--paper .button-primary:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+  background: transparent;
+}
+
+.link-secondary {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 160ms ease;
+}
+
+.link-secondary:hover {
+  color: var(--reaction-orange);
+}
+
+/* ---------- Inputs ---------- */
+
+.input,
+textarea.input {
+  width: 100%;
+  background: var(--paper-bright);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.input:focus {
+  border-color: var(--reaction-orange);
+  outline: 2px solid var(--reaction-orange);
+  outline-offset: 3px;
+}
+
+.input::placeholder {
+  color: var(--ink-muted);
+}
+
+/* ---------- Ruled records ---------- */
+
+.rule-top {
+  border-top: 1px solid var(--rule, var(--rule-light));
+}
+
+/* Accent text: bright on ink fields, deepened on paper (contrast floor). */
+.accent {
+  color: var(--reaction-orange);
+}
+
+.field--paper .accent {
+  color: var(--reaction-orange-ink);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--reaction-orange);
+  color: var(--ink);
+  padding: 12px 16px;
+  z-index: 100;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.skip-link:focus {
+  left: 0;
+}

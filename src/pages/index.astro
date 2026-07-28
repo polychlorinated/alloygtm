@@ -1,0 +1,452 @@
+---
+// DIRECTION CONTRACT — alloygtm.com home (Persuade)
+// THESIS: Growth failure is framed as a measurable signal gap, not a messaging
+//   problem; the page refuses the consulting category's hero-plus-logo-plus-cards
+//   arrangement and instead reads as one continuous lab run.
+// OWN-WORLD: The Reaction Log (DESIGN.md). Off-white notebook fields alternate
+//   with deep-ink operational fields; Barlow Condensed declarations, Manrope
+//   evidence, DM Mono run identifiers; reaction orange = intervention, reagent
+//   blue = measurement; square records, ruled rows, authored SVG instrument
+//   figures; a gutter reaction path thickens 2px→12px down the page as
+//   ownership accumulates toward Diagnose→Build→Operate.
+// STORY: A founder who won Act I recognizes the Act II problem in the first
+//   viewport (declaration + resonance figure), sees their chaos named as three
+//   field observations, trusts the calibration set, understands the 3-step
+//   procedure, chooses an ownership level, meets Andrew, and acts.
+// FIRST VIEWPORT: Ink fixed bar (alloygtm wordmark + reaction-path underline).
+//   Paper field: RUN 001 mono kicker, 4-line display "FIND THE SIGNAL. AMPLIFY
+//   THE GROWTH.", lede, orange primary CTA "Run a free signal audit" +
+//   secondary "Work with Andrew →"; right column FIG. 1 resonance trace in a
+//   shadowed paper record.
+// FORM: Grounded candidate 7 (alternating paper/ink fields threaded by a
+//   continuous, weight-gaining reaction path), assigned by concept-seed
+//   (key 328d8fbc); the dealt roving-sweep staging was rejected — timed
+//   attention steals the self-qualification reading this page depends on.
+
+import Base from "../layouts/Base.astro";
+import SignalFigure from "../components/SignalFigure.astro";
+import OwnershipPath from "../components/OwnershipPath.astro";
+import { clients } from "../data/clients";
+
+const observations = [
+  {
+    id: "OBS-01",
+    name: "Customer Intel Gaps",
+    text: "Growth engines struggle to keep producing the same results when new prospects are different from early adopters.",
+  },
+  {
+    id: "OBS-02",
+    name: "Signal Limitations",
+    text: "Your buyer journey has leaks you can't see without proper instrumentation.",
+  },
+  {
+    id: "OBS-03",
+    name: "Rapid Validation",
+    text: "Teams debate opinions instead of running concurrent experiments.",
+  },
+];
+
+const steps = [
+  {
+    n: "1",
+    name: "Connect",
+    text: "Reach out. Let's talk about your goals, your challenges, and how signal science can bridge the gap. Bring your questions too — no prep needed.",
+  },
+  {
+    n: "2",
+    name: "Preview",
+    text: "Once we've met, you'll know more about the approach. Demo materials — excerpts from real client audits with company- and industry-specific details removed — are in preparation.",
+    note: "Demo materials coming soon",
+  },
+  {
+    n: "3",
+    name: "Audit",
+    text: "The partnership begins. Your custom research portal enriches market insights with your own pipeline, and in 2–4 weeks you hold a direct, actionable report: where your signal gaps are, what they're costing, and the proposed corrections. Hand it to your product marketer — or talk to Andrew about a deeper partnership.",
+  },
+];
+---
+
+<Base
+  title="Alloy GTM — Find & Amplify Your B2B Growth Signal"
+  description="Alloy GTM audits the gap between the signal your company broadcasts and the signal your market broadcasts, then builds and runs the GTM systems that close it. Diagnose, Build, Operate."
+  active="home"
+>
+  <!-- HERO -->
+  <section class="field field--paper hero" data-thread style="--thread-w: 2px;">
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <p class="label hero__run"><span class="accent">RUN 001</span> — SIGNAL ACQUISITION</p>
+        <h1 class="display">Find the signal. Amplify the growth.</h1>
+        <p class="hero__lede">
+          You crushed growth on your first product — prospects just <em>got it</em>. But the systems
+          that worked for Act I don't always transfer to the next segment, the next product, or the
+          next company. Alloy GTM audits signal from real customer behavior across the entire
+          lifecycle — discovery, acquisition, retention — then rapidly tests theories and tunes GTM
+          motions to amplify high-signal actions. Inbound, outbound, human-bound.
+        </p>
+        <div class="hero__actions">
+          <a class="button-primary" href="/audit/">Run a free signal audit</a>
+          <a class="link-secondary" href="/contact/">Work with Andrew →</a>
+        </div>
+      </div>
+      <div class="hero__figure">
+        <SignalFigure />
+      </div>
+    </div>
+  </section>
+
+  <!-- OBSERVATIONS -->
+  <section class="field field--ink" data-thread style="--thread-w: 3px;">
+    <p class="label section-kicker"><span class="accent">FIELD OBSERVATIONS</span></p>
+    <h2 class="title section-title">It's hard to process chaos when you're growing fast.</h2>
+    <div class="obs">
+      {
+        observations.map((o) => (
+          <div class="obs__row">
+            <p class="label obs__id">{o.id}</p>
+            <h3 class="obs__name">{o.name}</h3>
+            <p class="obs__text">{o.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- CLIENT ROSTER -->
+  <section class="field field--ink roster" data-thread style="--thread-w: 4px;">
+    <p class="label section-kicker"><span class="accent">CALIBRATION SET</span> — GTM SYSTEMS AUDITED & ENGINEERED ACROSS 12+ ENGAGEMENTS</p>
+    <ul class="roster__grid" role="list">
+      {
+        clients.map((c) => (
+          <li class="roster__cell">
+            <a href={c.url} target="_blank" rel="noopener noreferrer" aria-label={`${c.name} (opens in new tab)`}>
+              <img src={c.logo} alt={`${c.name} logo`} loading="lazy" />
+            </a>
+          </li>
+        ))
+      }
+      <li class="roster__cell roster__cell--cta">
+        <a href="/contact/">
+          <span class="label">Your company →</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- PROTOCOL -->
+  <section class="field field--paper" data-thread style="--thread-w: 5px;">
+    <p class="label section-kicker"><span class="accent">PROCEDURE</span></p>
+    <h2 class="title section-title">Three steps to better pipeline.</h2>
+    <ol class="protocol" role="list">
+      {
+        steps.map((s) => (
+          <li class="protocol__step">
+            <p class="protocol__n label">STEP {s.n}</p>
+            <h3 class="protocol__name">{s.name}</h3>
+            <p class="protocol__text">{s.text}</p>
+            {s.note && <p class="label protocol__note">{s.note}</p>}
+          </li>
+        ))
+      }
+    </ol>
+    <p class="protocol__foot">
+      No long, repetitive surveys. In an era when so much data is accessible through a simple API
+      request, the entire process — not only the results — should be seamless and efficient.
+    </p>
+  </section>
+
+  <!-- OWNERSHIP PATH -->
+  <section class="field field--ink" data-thread="hot" style="--thread-w: 8px;">
+    <p class="label section-kicker"><span class="accent">THE OWNERSHIP LADDER</span></p>
+    <h2 class="title section-title">How we work.</h2>
+    <p class="section-lede">
+      One ladder, three levels of ownership. Each rung describes how much execution Alloy owns —
+      never a separate product, never a sub-brand. Select a level to see what changes hands.
+    </p>
+    <OwnershipPath />
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="field field--paper" data-thread style="--thread-w: 10px;">
+    <p class="label section-kicker"><span class="accent">THE OPERATOR</span></p>
+    <blockquote class="founder__pull">
+      <p class="founder__statement">Product-market fit isn't a pure metal. It's an alloy.</p>
+    </blockquote>
+    <div class="founder__body">
+      <p>
+        The compound of your solution, your customer's needs, and the broader ecosystem they operate
+        in. Shift the product or the segment, and the entire GTM foundation shifts with it — that's
+        where I come in.
+      </p>
+      <p>
+        I'm Andrew Campbell. I journeyed from the chemistry lab to edtech, SaaS, and AI automation,
+        touching every stage of growth along the way. Most of the time, when something that
+        <em>should</em> work isn't landing, the problem is the context, not the product. The right
+        customers exist; they just haven't been shown why your solution fits their world yet. I map
+        your customer journey and GTM motions to find that signal, then work backwards into the
+        systems and messaging that make the connection undeniable.
+      </p>
+      <p class="founder__sig label">— Andrew Campbell, Ph.D. · Founder, Alloy GTM · 2–3 companies at a time</p>
+      <a class="link-secondary" href="/contact/">Work with Andrew →</a>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="field field--ink cta" data-thread="hot" style="--thread-w: 12px;">
+    <p class="label section-kicker"><span class="accent">NEXT ACTION</span></p>
+    <h2 class="display cta__display">Bring the problem. We'll find the signal.</h2>
+    <div class="cta__actions">
+      <a class="button-primary" href="/contact/">Start a conversation</a>
+      <a class="link-secondary" href="/audit/">Run the free audit →</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .section-kicker {
+    margin: 0 0 20px;
+    color: var(--mist);
+  }
+
+  .field--paper .section-kicker {
+    color: var(--ink-muted);
+  }
+
+  .section-title {
+    margin: 0 0 var(--space-field);
+    max-width: 18ch;
+  }
+
+  .section-lede {
+    max-width: 62ch;
+    color: var(--paper-muted);
+    margin: 0 0 var(--space-field);
+  }
+
+  /* Hero */
+  .hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(32px, 6vw, 88px);
+    align-items: center;
+  }
+
+  .hero__run {
+    margin: 0 0 24px;
+    color: var(--ink-muted);
+  }
+
+  .hero h1 {
+    max-width: 9ch;
+    margin-bottom: 28px;
+  }
+
+  .hero__lede {
+    max-width: 58ch;
+    font-size: 1.0625rem;
+    margin: 0 0 var(--space-field);
+  }
+
+  .hero__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-field);
+    flex-wrap: wrap;
+  }
+
+  /* Observations */
+  .obs {
+    border-top: 1px solid var(--rule-dark);
+  }
+
+  .obs__row {
+    display: grid;
+    grid-template-columns: 110px minmax(180px, 0.6fr) 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule-dark);
+  }
+
+  .obs__id {
+    color: var(--reagent-blue-bright);
+    margin: 0;
+  }
+
+  .obs__name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.375rem;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .obs__text {
+    margin: 0;
+    color: var(--paper-muted);
+    max-width: 56ch;
+  }
+
+  /* Roster */
+  .roster {
+    padding-top: 0;
+  }
+
+  .roster__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--rule-dark);
+    border-left: 1px solid var(--rule-dark);
+  }
+
+  .roster__cell {
+    border-right: 1px solid var(--rule-dark);
+    border-bottom: 1px solid var(--rule-dark);
+  }
+
+  .roster__cell a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    padding: 20px 28px;
+    transition: background-color 160ms ease;
+  }
+
+  .roster__cell a:hover {
+    background: var(--ink-raised);
+  }
+
+  .roster__cell img {
+    max-height: 56px;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .roster__cell--cta a {
+    color: var(--mist);
+    text-decoration: none;
+  }
+
+  .roster__cell--cta a:hover {
+    color: var(--reaction-orange);
+  }
+
+  /* Protocol */
+  .protocol {
+    list-style: none;
+    margin: 0 0 var(--space-field);
+    padding: 0;
+    border-top: 1px solid var(--rule-light);
+  }
+
+  .protocol__step {
+    display: grid;
+    grid-template-columns: 90px minmax(140px, 0.4fr) 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule-light);
+  }
+
+  .protocol__n {
+    color: var(--reaction-orange-ink);
+    margin: 0;
+  }
+
+  .protocol__name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.375rem;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .protocol__text {
+    margin: 0;
+    max-width: 62ch;
+  }
+
+  .protocol__note {
+    grid-column: 3;
+    color: var(--reagent-blue);
+    margin: 0;
+  }
+
+  .protocol__foot {
+    max-width: 62ch;
+    color: var(--ink-subtle);
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* Founder */
+  .founder__pull {
+    margin: 0 0 var(--space-field);
+  }
+
+  .founder__statement {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    text-wrap: balance;
+    max-width: 16ch;
+    margin: 0;
+  }
+
+  .founder__body {
+    max-width: 68ch;
+  }
+
+  .founder__body p {
+    margin: 0 0 20px;
+  }
+
+  .founder__sig {
+    color: var(--ink-muted);
+    margin-bottom: 28px !important;
+  }
+
+  /* Final CTA */
+  .cta__display {
+    max-width: 12ch;
+    margin-bottom: var(--space-field);
+  }
+
+  .cta__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-field);
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 1000px) {
+    .hero__grid {
+      grid-template-columns: 1fr;
+    }
+    .hero h1 {
+      max-width: 12ch;
+    }
+    .obs__row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .protocol__step {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .protocol__note {
+      grid-column: 1;
+    }
+    .roster__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

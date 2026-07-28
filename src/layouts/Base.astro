@@ -1,0 +1,294 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  active?: "home" | "audit" | "contact";
+}
+
+const { title, description, active = "home" } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800;900&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <header class="nav">
+      <a class="nav__wordmark" href="/" aria-label="alloygtm home">
+        alloygtm
+        <svg class="nav__path" viewBox="0 0 72 8" aria-hidden="true">
+          <path d="M0 4h26" stroke="var(--reagent-blue-bright)" stroke-width="1.5"></path>
+          <path d="M26 4h22" stroke="var(--reaction-orange)" stroke-width="3"></path>
+          <path d="M48 4h24" stroke="var(--paper)" stroke-width="5"></path>
+        </svg>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/" aria-current={active === "home" ? "page" : undefined}>Home</a>
+        <a href="/audit/" aria-current={active === "audit" ? "page" : undefined}>Audit</a>
+        <a href="/contact/" aria-current={active === "contact" ? "page" : undefined}>Contact</a>
+      </nav>
+
+      <a class="button-primary nav__cta" href="/contact/">Start a conversation</a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <div class="nav__menu" id="nav-menu" hidden>
+      <a href="/" aria-current={active === "home" ? "page" : undefined}>Home</a>
+      <a href="/audit/" aria-current={active === "audit" ? "page" : undefined}>Audit</a>
+      <a href="/contact/" aria-current={active === "contact" ? "page" : undefined}>Contact</a>
+      <a class="button-primary" href="/contact/">Start a conversation</a>
+    </div>
+
+    <main id="content">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="footer__wordmark">alloygtm</span>
+          <p class="footer__line label">
+            B2B growth signal engineering<br />
+            Powered by <a href="https://polychlorinated.com">Polychlorinated Ventures LLC</a>
+          </p>
+        </div>
+        <nav class="footer__nav label" aria-label="Footer">
+          <a href="/">Home</a>
+          <a href="/audit/">Audit</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+        <p class="footer__copy label">© 2025–2026</p>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector(".nav__toggle");
+      const menu = document.querySelector(".nav__menu");
+      toggle?.addEventListener("click", () => {
+        const open = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!open));
+        toggle.setAttribute("aria-label", open ? "Open menu" : "Close menu");
+        if (menu) menu.hidden = open;
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: var(--space-field);
+    height: 64px;
+    padding: 0 var(--gutter);
+    background: var(--ink);
+    border-bottom: 1px solid var(--rule-dark);
+    color: var(--paper);
+  }
+
+  .nav__wordmark {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    text-decoration: none;
+    color: var(--paper);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-right: auto;
+  }
+
+  .nav__path {
+    width: 72px;
+    height: 8px;
+  }
+
+  .nav__links {
+    display: flex;
+    gap: var(--space-field);
+  }
+
+  .nav__links a {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--mist);
+    padding: 8px 0;
+    transition: color 160ms ease;
+  }
+
+  .nav__links a:hover {
+    color: var(--paper);
+  }
+
+  .nav__links a[aria-current="page"] {
+    color: var(--reaction-orange);
+  }
+
+  .nav__cta {
+    min-height: 44px;
+    padding: 10px 18px;
+  }
+
+  .nav__toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid var(--rule-dark);
+    border-radius: 0;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .nav__toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--paper);
+  }
+
+  .nav__menu {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    z-index: 49;
+    background: var(--ink);
+    border-bottom: 1px solid var(--rule-dark);
+    padding: var(--space-field) var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nav__menu[hidden] {
+    display: none;
+  }
+
+  .nav__menu a:not(.button-primary) {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--paper);
+  }
+
+  .nav__menu a[aria-current="page"] {
+    color: var(--reaction-orange);
+  }
+
+  main {
+    padding-top: 64px;
+  }
+
+  @media (max-width: 900px) {
+    .nav__links,
+    .nav__cta {
+      display: none;
+    }
+    .nav__toggle {
+      display: flex;
+    }
+  }
+
+  @media (min-width: 901px) {
+    .nav__menu {
+      display: none;
+    }
+  }
+
+  .footer {
+    background: var(--ink);
+    color: var(--paper);
+    border-top: 1px solid var(--rule-dark);
+    padding: var(--space-field) var(--gutter);
+  }
+
+  .footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--space-field);
+  }
+
+  .footer__brand {
+    margin-right: auto;
+  }
+
+  .footer__wordmark {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .footer__line {
+    color: var(--mist);
+    margin: 12px 0 0;
+    text-transform: none;
+    letter-spacing: 0.06em;
+  }
+
+  .footer__line a {
+    color: var(--paper);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  .footer__line a:hover {
+    color: var(--reaction-orange);
+  }
+
+  .footer__nav {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer__nav a {
+    color: var(--mist);
+    text-decoration: none;
+  }
+
+  .footer__nav a:hover {
+    color: var(--reaction-orange);
+  }
+
+  .footer__copy {
+    color: var(--mist);
+    margin: 0;
+  }
+</style>
