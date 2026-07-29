@@ -8,6 +8,8 @@ interface Props {
 }
 
 const { title, description, active = "home" } = Astro.props;
+const logoSrc = "/alloy-basic-white-logo.webp";
+const logoAlt = "Alloy GTM home";
 ---
 
 <html lang="en">
@@ -33,7 +35,7 @@ const { title, description, active = "home" } = Astro.props;
 
     <header class="nav">
       <a class="nav__wordmark" href="/">
-        <img src="/alloy-basic-white-logo.webp" alt="Alloy GTM — home" width="674" height="179" />
+        <img src={logoSrc} alt={logoAlt} width="674" height="179" />
       </a>
 
       <nav class="nav__links" aria-label="Primary">
@@ -50,6 +52,9 @@ const { title, description, active = "home" } = Astro.props;
     </header>
 
     <div class="nav__menu" id="nav-menu" hidden>
+      <a class="nav__menu-wordmark" href="/">
+        <img src={logoSrc} alt={logoAlt} width="674" height="179" />
+      </a>
       <a href="/" aria-current={active === "home" ? "page" : undefined}>Home</a>
       <a href="/audit/" aria-current={active === "audit" ? "page" : undefined}>Audit</a>
       <a href="/contact/" aria-current={active === "contact" ? "page" : undefined}>Contact</a>
@@ -64,7 +69,7 @@ const { title, description, active = "home" } = Astro.props;
       <div class="footer__inner">
         <div class="footer__brand">
           <a class="footer__wordmark" href="/">
-            <img src="/alloy-basic-white-logo.webp" alt="Alloy GTM — home" width="674" height="179" />
+            <img src={logoSrc} alt={logoAlt} width="674" height="179" />
           </a>
           <p class="footer__line label">
             B2B growth signal engineering<br />
@@ -113,11 +118,18 @@ const { title, description, active = "home" } = Astro.props;
     align-items: center;
     margin-right: auto;
     text-decoration: none;
+    line-height: 0;
+  }
+
+  .nav__wordmark img,
+  .nav__menu-wordmark img,
+  .footer__wordmark img {
+    display: block;
+    width: auto;
   }
 
   .nav__wordmark img {
     height: 26px;
-    width: auto;
   }
 
   .nav__links {
@@ -198,6 +210,16 @@ const { title, description, active = "home" } = Astro.props;
     color: var(--paper);
   }
 
+  .nav__menu-wordmark {
+    display: block;
+    width: fit-content;
+    line-height: 0;
+  }
+
+  .nav__menu-wordmark img {
+    height: 28px;
+  }
+
   .nav__menu a[aria-current="page"] {
     color: var(--reaction-orange);
   }
@@ -242,11 +264,11 @@ const { title, description, active = "home" } = Astro.props;
 
   .footer__wordmark {
     display: inline-block;
+    line-height: 0;
   }
 
   .footer__wordmark img {
     height: 24px;
-    width: auto;
   }
 
   .footer__line {
