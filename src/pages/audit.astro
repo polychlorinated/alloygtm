@@ -142,7 +142,13 @@ import Base from "../layouts/Base.astro";
       gaps.
     </p>
 
-    <form class="console__form" data-audit-form novalidate>
+    <form
+      class="console__form"
+      action="https://n8n.srv725961.hstgr.cloud/webhook/08b9c285-d0b5-4929-b57d-9f0fcfa653fa"
+      method="POST"
+      data-audit-form
+      novalidate
+    >
       <label class="label console__label" for="audit-url">Product URL</label>
       <div class="console__row">
         <input
@@ -239,6 +245,8 @@ import Base from "../layouts/Base.astro";
   const error = document.querySelector<HTMLElement>("[data-audit-error]");
   const subject = document.querySelector<HTMLElement>("[data-report-subject]");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const FULL_REPORT_WEBHOOK_URL =
+    "https://n8n.srv725961.hstgr.cloud/webhook/08b9c285-d0b5-4929-b57d-9f0fcfa653fa";
 
   const LOG_LINES = [
     "RESOLVING SUBJECT…",
@@ -266,6 +274,21 @@ import Base from "../layouts/Base.astro";
     if (report) report.hidden = true;
     if (scan) scan.hidden = false;
     if (logList) logList.innerHTML = "";
+
+    const payload = new FormData(form);
+    payload.set("url", value);
+    payload.set("host", host);
+    payload.set("source", "signal-audit");
+    payload.set("submittedAt", new Date().toISOString());
+
+    fetch(FULL_REPORT_WEBHOOK_URL, {
+      method: "POST",
+      body: payload,
+      mode: "no-cors",
+      keepalive: true,
+    }).catch(() => {
+      // The sample report can still render if the notification webhook is unavailable.
+    });
 
     const finish = () => {
       if (scan) scan.hidden = true;
