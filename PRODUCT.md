@@ -8,67 +8,64 @@ web
 
 ## Users
 
-The primary users are B2B founders and growth leaders who found product-market fit once and are now entering a new market, launching a next product, or starting a new company — and discovering that the go-to-market systems that worked for Act I don't transfer to the new segment.
+The primary users are founders and owners of B2B companies who suspect their revenue system is underperforming and are tired of two incomplete options: strategy consultancies that diagnose but can't build, and software vendors that build but don't diagnose. They have a stack already — CRM, outbound tools, content channels — and limited team capacity.
 
-Secondary users are teams preparing a first product-marketing or GTM hire who want a validated foundation before they commit headcount, and founders debating opinions who would rather run concurrent experiments.
+Secondary users are small-business owners without a marketing team, served by the Crucible product.
 
 ## Product Purpose
 
-Alloy GTM is a founder-led go-to-market consultancy that applies signal science and experimental discipline to growth. It audits the gap between the signal a company broadcasts (positioning, content, website) and the signal the market broadcasts (pain expressed on forums, review sites, social media, and competitor reviews), then builds and runs the systems that close that gap.
+Alloy GTM is a hybrid offer: expert GTM diagnosis fused with hands-on implementation — custom playbooks, workflows, integrations, and purpose-built software. The brand metaphor is the alloy: two elements fused into something neither could be alone.
 
-The website — alloygtm.com — helps prospective clients understand the signal-science approach, try the free GTM Signal Resonance Audit, evaluate the Diagnose–Build–Operate engagement ladder and relevant client experience, and start a conversation with Andrew Campbell.
+The website (alloygtm.com, deployed at alloygtm.pages.dev) makes the offer intelligible in seconds — what Alloy sells and why it is different from a consultant or a tool — and routes visitors into one of four ways in: Crucible, the Teardown, the Diagnostic Sprint, or the Build.
 
-Success means a qualified founder recognizes that their growth problem is a signal problem and confidently makes contact.
+Success means a stranger can read the homepage hero and the gap section and correctly state, out loud, what Alloy GTM sells and why it is different.
 
 ## Positioning
 
-Alloy GTM combines Andrew Campbell's Ph.D. training in chemistry with hands-on GTM work across edtech, SaaS, and AI automation. Its differentiating mechanism is measurement before messaging: most consultants fix the message; Alloy measures whether it is landing. The name carries the thesis — product-market fit isn't a pure metal, it's an alloy of the solution, the customer's needs, and the ecosystem they operate in. Shift the product or the segment, and the GTM foundation shifts with it.
+Not a strategy consultancy (diagnoses but can't build). Not a software vendor (builds but doesn't diagnose). Alloy GTM finds what's broken in a revenue system and then builds the fix — working systems inside the stack the client already has. Andrew Campbell's chemistry Ph.D. is relevant as method: hypothesis, instrument, measure, iterate. Most go-to-market problems are measurement problems wearing a strategy costume.
 
 ## Operating Context
 
-Prospective clients typically evaluate the consultancy by reading the home page, running the free signal audit, and reviewing Andrew's background and the client roster before starting a conversation by form, social channel, or a 30-minute no-prep call.
-
-Engagements use one universal ownership ladder: Diagnose, Build, or Operate. The ladder describes how much execution Alloy owns, not separate service brands. Andrew works with 2–3 companies at a time, so engagements are focused and the thinking stays fresh. Most diagnostic work is short-term by design — weeks, not the open-ended commitment of a fractional hire.
+Visitors arrive at the homepage, evaluate the four offers, and convert through the enquiry form (first name, last name, business email, current challenge) or directly into the Crucible application. Andrew works remotely from Austin, Texas.
 
 ## Capabilities and Constraints
 
-- Diagnose (Diagnostic Audit Sprint) isolates signal leakage and constraints, and leaves execution with the client. Deliverable: audit report with a prioritized roadmap playbook.
-- Build (Signal Engineer Build) designs, implements, instruments, and validates the GTM system with the client. Deliverable: operational GTM system, built and validated.
-- Operate (GTM Ops Leadership) provides embedded ownership: continuous optimization, testing, enablement, and support in staffing a permanent team. Deliverable: 6–12 month bespoke partnership.
-- The free GTM Signal Resonance Audit on the audit page is the primary acquisition device. Its analysis backend is not yet integrated in the Astro rebuild; the report UI renders a clearly labeled synthetic sample, and the integration point is marked in code.
-- The public site includes home, contact, and audit routes.
-- The site is built with Astro and deployed through Cloudflare infrastructure.
-- The contact form's production handler and lead-routing process remain open decisions; the current Formspree action is a placeholder.
-- Dedicated case study, pricing, legal, and booking surfaces are not currently part of the site. Their future inclusion is undecided.
+- **Crucible** — self-serve product. An AI content engine for founder-led marketing: record two minutes, get back an edited video and a week of on-brand posts. Early access $19/mo. CTAs link directly to the Crucible application; the production app URL is an open decision and the current href is a marked placeholder.
+- **The Teardown** — 72 hours, $297. A recorded expert review of the buyer's GTM setup: twenty-minute walkthrough of site, funnel, CRM, or outbound, plus a one-page prioritized action list. No call required. Booking routes through the enquiry form.
+- **The Diagnostic Sprint** — two weeks, $2,500. A full map of the lead-to-revenue system, a prioritized roadmap, and one fix built and running before the engagement ends. The recommended tier. Enquiries route through the enquiry form.
+- **The Build** — monthly, from $4,000. Ongoing implementation partnership across the revenue stack: CRM architecture, workflow automation, data pipelines, custom internal tools. Enquiries route through the enquiry form.
+- The public site includes `/`, `/crucible`, and `/about`. `/field-notes` (The 5 GTM Leaks content asset) is deferred.
+- The site is built with Astro and deployed through Cloudflare infrastructure (alloygtm.pages.dev).
+- The enquiry form's production handler and lead-routing process remain open decisions; the current Formspree action is a placeholder.
 - Polychlorinated Ventures LLC is the parent company and appears only as the corporate credit, never as the site's subject.
 
 ## Brand Commitments
 
 - The brand mark is the supplied logo asset (`public/alloy-basic-white-logo.webp`): the gold Λ glyph beside "Alloy" in white. The favicon family (`favicon.svg` plus its PNG/ICO derivatives) renders the Λ glyph on ink. Marks are never split into two words.
 - In copy, the first reference is "Alloy GTM"; subsequent references are "Alloy."
-- Polychlorinated Ventures LLC appears only in the footer credit ("Powered by Polychlorinated Ventures LLC") and legal contexts.
-- Preserve Andrew Campbell's central role as founder and his direct, credible presence in the product.
-- Engagement levels use the plain-language names Diagnose, Build, and Operate. They must not become separate sub-brands.
-- The voice is confident, practical, systems-oriented, and conversational. It favors measurable progress over hype or brute force.
-- Signal science and chemistry are authentic parts of the company's language and point of view, not decorative claims.
-- Founder-facing pages (contact, founder notes) use Andrew's first-person voice; commercial sections may use direct second person.
+- Polychlorinated Ventures LLC appears only in the footer credit.
+- The positioning is "diagnosis fused with build." The retired "signal acquisition / signal intelligence" framing must not return; "signal over noise" survives only as a method statement on the about page.
+- First-person biography lives on `/about` and is required there. The homepage uses no first-person biographical narrative above the Crucible spotlight. First person is permitted in service descriptions.
+- The voice is confident, practical, and direct. It favors measurable progress over hype.
+- No testimonial sliders with placeholder content, stock photography of people in offices, chat widgets, popups, animated counters, or blog index.
+- Preserve Andrew Campbell's central role as founder and his credible, hands-on presence.
 
 ## Evidence on Hand
 
-- Andrew Campbell's chemistry Ph.D. credential and the claim of 12+ client engagements are approved for public use.
-- The current client roster — Quiltt, SS&C Blue Prism, Breakroom, Catalyst Education, GLYNT, Sinfonia, and Ebit — with links and logo permissions is approved. Source data is in `src/data/clients.ts`, with logo assets in `public/logos/`.
-- Approved engagement-level names and descriptions are in `src/data/engagements.ts`.
+- Approved outcome claims (no inflated causation): doubled outbound reply rates in a one-week sprint; 10× B2B integration marketplace adoption growth in twelve months; +10 NPS points at a computer science education platform; 60%+ YoY product revenue growth supported across a 20+ product portfolio; a solution discovery tool still running in production after 2+ years; Crucible designed, built, and running in production.
+- The mechanism details behind each outcome are approved as written on `/about`.
+- Andrew Campbell's chemistry Ph.D., fifteen years of GTM experience, Austin Texas base, and industry span (EdTech, enterprise automation, data, fintech, AI) are approved for public use.
+- Crucible's feature set (brand voice profiles, Director Mode, AI editorial pass, Magic Revision, multi-platform content, captions export, webhook/HighLevel publishing) and its technical stack (React/Vite/Vercel, Fastify, pg-boss, Docker/Fly.io, Supabase, Deepgram, Claude with Kimi and Gemini, ffmpeg, Python sidecar with librosa/spaCy, Expo companion app) are approved as written on `/crucible`.
 - Existing brand assets include `public/alloy-basic-white-logo.webp` (site logo) and `public/favicon.svg` (Λ glyph) with its generated derivatives `favicon-32.png`, `favicon.ico`, and `apple-touch-icon.png`.
-- Copy migrated from the previous alloygtm.com (homepage narrative, audit explanation, FAQ, founder bio) is approved source material.
-- The site does not contain approved testimonials, case-study outcomes, or quantified client results. Future work must not fabricate them. Demonstration data in the audit report UI must be labeled synthetic.
+- The prior client roster (logos in `public/logos/`, data in `src/data/clients.ts`) remains approved but is not currently displayed.
+- Do not fabricate testimonials, case-study outcomes beyond those listed, or quantified results.
 
 ## Product Principles
 
-1. Measure whether the message is landing before rewriting it.
-2. Build systems that compound instead of adding disconnected effort.
-3. Make recommendations testable and results measurable.
-4. Use scientific rigor without losing practical business judgment.
-5. Earn trust through specific experience, transparent thinking, and direct founder access.
+1. Integration over replacement — make the stack the client already pays for work together.
+2. Diagnose before building — the playbook comes second.
+3. Signal over noise — find the few behaviors that predict revenue and instrument for them (method statement, about page only).
+4. Build it rather than recommend it — if something can be built inside the engagement, it gets built.
 
 ## Accessibility & Inclusion
 

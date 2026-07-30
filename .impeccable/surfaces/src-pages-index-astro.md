@@ -2,15 +2,15 @@
 version: 1
 slug: "src-pages-index-astro"
 primary_target: "src/pages/index.astro"
-related_targets: ["src/pages/contact.astro","src/pages/audit.astro"]
+related_targets: ["src/pages/crucible.astro","src/pages/about.astro"]
 ---
 
 # Surface brief — / (alloygtm.com home)
 
-- Mode: Persuade. Visitor: B2B founder whose Act I growth system stopped transferring.
-- Job: recognize the problem as a signal gap, trust the operator, act (free audit or 30-minute call).
-- Direction: Reaction Log (DESIGN.md). Alternating paper/ink fields threaded by a gutter reaction path that thickens 2px→12px as ownership accumulates; contract recorded in src/pages/index.astro opening comment. Seed key 328d8fbc, grounded candidate 7.
-- Sequence: RUN 001 hero + FIG. 1 resonance trace → field observations (OBS-01..03) → calibration set roster → 3-step procedure → Diagnose/Build/Operate ownership tabs → founder (alloy pull statement) → final CTA.
-- Proof: 12+ engagements claim, 7-logo client roster (public/logos/), Andrew's Ph.D. No testimonials/quantified results — do not add without approval (PRODUCT.md).
-- Memorable moment: the interactive ownership route whose segment weight carries the Diagnose→Build→Operate metaphor.
-- Open decisions: contact form production handler (Formspree placeholder); audit analysis backend (sample report labeled synthetic); demo materials "coming soon".
+- Mode: Persuade. Visitor: B2B founder burned by half-solutions (strategy decks, unimplemented tools).
+- Job: state what Alloy GTM sells in seconds (diagnosis fused with build), differentiate from consultants and tools, route into one of four offers.
+- Direction: Reaction Log (DESIGN.md), unchanged from the seed-committed structure (key 328d8fbc); this was a repositioning — content and IA only.
+- Sequence: hero ("Most GTM advice is just homework." + FIG. 1 fusion diagram) → the gap (strategist vs software) → five leaks → four-way offer ladder (Sprint recommended) with enquiry form → selected outcomes → Crucible spotlight → Teardown CTA.
+- Proof: five approved outcome stats; Crucible running in production. No testimonials, no first-person bio above the spotlight (bio lives on /about).
+- Routes: /, /crucible, /about. Nav: Crucible · Services (/#offer) · About · Get a Teardown (/#teardown).
+- Open decisions: enquiry form production handler (Formspree placeholder); Crucible app URL (marked placeholder constant in crucible.astro); /field-notes deferred; /audit and /contact retired with the old positioning.

@@ -1,0 +1,114 @@
+---
+interface Props {
+  id?: string;
+  title?: string;
+  caption?: string;
+}
+
+const {
+  id = "FIG. 1",
+  title = "FUSION — DIAGNOSIS + BUILD → WORKING SYSTEM",
+  caption = "Diagnosis fused with build.",
+} = Astro.props;
+---
+
+<figure class="figure">
+  <figcaption class="figure__title label">
+    <span class="figure__id">{id}</span>
+    <span>{title}</span>
+  </figcaption>
+
+  <svg viewBox="0 0 560 400" role="img" aria-label="Fusion diagram: two input lines labeled diagnosis and build converge at a reaction node and emerge as a single thicker line labeled working revenue system">
+    <defs>
+      <pattern id="fuse-hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+        <rect width="7" height="7" fill="transparent"></rect>
+        <line x1="0" y1="0" x2="0" y2="7" stroke="#f06432" stroke-width="2"></line>
+      </pattern>
+    </defs>
+
+    <!-- frame & grid -->
+    <rect x="40" y="56" width="496" height="288" fill="#fffdf7" stroke="#c7d0d0" stroke-width="1"></rect>
+    <g stroke="#e2e4da" stroke-width="1">
+      <line x1="40" y1="128" x2="536" y2="128"></line>
+      <line x1="40" y1="200" x2="536" y2="200"></line>
+      <line x1="40" y1="272" x2="536" y2="272"></line>
+      <line x1="288" y1="56" x2="288" y2="344"></line>
+    </g>
+
+    <!-- input: diagnosis (measured) -->
+    <path
+      d="M56,140 C120,132 180,160 232,176 C258,184 272,190 288,196"
+      fill="none"
+      stroke="#155eef"
+      stroke-width="3.5"
+      stroke-linecap="round"></path>
+
+    <!-- input: build (execution) -->
+    <path
+      d="M56,260 C120,268 180,240 232,224 C258,216 272,210 288,204"
+      fill="none"
+      stroke="#8ca0a7"
+      stroke-width="3.5"
+      stroke-linecap="round"></path>
+
+    <!-- fusion zone -->
+    <path d="M288,168 L352,200 L288,232 Z" fill="url(#fuse-hatch)" opacity="0.85"></path>
+
+    <!-- output: working system (thicker) -->
+    <path
+      d="M288,200 C360,200 440,198 520,196"
+      fill="none"
+      stroke="#071b24"
+      stroke-width="9"
+      stroke-linecap="round"></path>
+
+    <!-- fusion node -->
+    <circle cx="288" cy="200" r="10" fill="#f06432"></circle>
+
+    <!-- labels -->
+    <text x="56" y="122" font-family="DM Mono, monospace" font-size="11" letter-spacing="1" fill="#155eef">DIAGNOSIS</text>
+    <text x="56" y="290" font-family="DM Mono, monospace" font-size="11" letter-spacing="1" fill="#68797f">BUILD</text>
+    <text x="288" y="158" text-anchor="middle" font-family="DM Mono, monospace" font-size="11" letter-spacing="1" fill="#b5431a">FUSION</text>
+    <text x="520" y="178" text-anchor="end" font-family="DM Mono, monospace" font-size="11" letter-spacing="1" fill="#071b24">WORKING REVENUE SYSTEM</text>
+
+    <!-- axis -->
+    <text x="40" y="376" font-family="DM Mono, monospace" font-size="10" letter-spacing="1.5" fill="#68797f">ELEMENTS</text>
+    <text x="536" y="376" text-anchor="end" font-family="DM Mono, monospace" font-size="10" letter-spacing="1.5" fill="#68797f">ALLOY →</text>
+  </svg>
+
+  <p class="figure__caption">{caption}</p>
+</figure>
+
+<style>
+  .figure {
+    margin: 0;
+    background: var(--paper-bright);
+    border: 1px solid var(--rule-light);
+    border-radius: 2px;
+    padding: 16px;
+    box-shadow: 10px 12px 0 rgba(7, 27, 36, 0.14);
+  }
+
+  .figure__title {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--rule-light);
+    color: var(--ink);
+  }
+
+  .figure__id {
+    color: var(--reaction-orange-ink);
+    white-space: nowrap;
+  }
+
+  .figure__caption {
+    margin: 12px 0 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--ink-subtle);
+    max-width: 52ch;
+  }
+</style>

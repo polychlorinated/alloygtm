@@ -4,10 +4,10 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description: string;
-  active?: "home" | "audit" | "contact";
+  active?: "crucible" | "about";
 }
 
-const { title, description, active = "home" } = Astro.props;
+const { title, description, active } = Astro.props;
 const logoSrc = "/alloy-basic-white-logo.webp";
 const logoAlt = "Alloy GTM home";
 ---
@@ -39,12 +39,12 @@ const logoAlt = "Alloy GTM home";
       </a>
 
       <nav class="nav__links" aria-label="Primary">
-        <a href="/" aria-current={active === "home" ? "page" : undefined}>Home</a>
-        <a href="/audit/" aria-current={active === "audit" ? "page" : undefined}>Audit</a>
-        <a href="/contact/" aria-current={active === "contact" ? "page" : undefined}>Contact</a>
+        <a href="/crucible/" aria-current={active === "crucible" ? "page" : undefined}>Crucible</a>
+        <a href="/#offer">Services</a>
+        <a href="/about/" aria-current={active === "about" ? "page" : undefined}>About</a>
       </nav>
 
-      <a class="button-primary nav__cta" href="/contact/">Start a conversation</a>
+      <a class="button-primary nav__cta" href="/#teardown">Get a Teardown</a>
 
       <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -55,10 +55,10 @@ const logoAlt = "Alloy GTM home";
       <a class="nav__menu-wordmark" href="/">
         <img src={logoSrc} alt={logoAlt} width="674" height="179" />
       </a>
-      <a href="/" aria-current={active === "home" ? "page" : undefined}>Home</a>
-      <a href="/audit/" aria-current={active === "audit" ? "page" : undefined}>Audit</a>
-      <a href="/contact/" aria-current={active === "contact" ? "page" : undefined}>Contact</a>
-      <a class="button-primary" href="/contact/">Start a conversation</a>
+      <a href="/crucible/" aria-current={active === "crucible" ? "page" : undefined}>Crucible</a>
+      <a href="/#offer">Services</a>
+      <a href="/about/" aria-current={active === "about" ? "page" : undefined}>About</a>
+      <a class="button-primary" href="/#teardown">Get a Teardown</a>
     </div>
 
     <main id="content">
@@ -72,14 +72,14 @@ const logoAlt = "Alloy GTM home";
             <img src={logoSrc} alt={logoAlt} width="674" height="179" />
           </a>
           <p class="footer__line label">
-            B2B growth signal engineering<br />
+            Diagnosis fused with build<br />
             Powered by <a href="https://polychlorinated.com">Polychlorinated Ventures LLC</a>
           </p>
         </div>
         <nav class="footer__nav label" aria-label="Footer">
-          <a href="/">Home</a>
-          <a href="/audit/">Audit</a>
-          <a href="/contact/">Contact</a>
+          <a href="/crucible/">Crucible</a>
+          <a href="/#offer">Services</a>
+          <a href="/about/">About</a>
         </nav>
         <p class="footer__copy label">© 2025–2026</p>
       </div>

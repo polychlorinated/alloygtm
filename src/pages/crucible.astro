@@ -1,0 +1,342 @@
+---
+import Base from "../layouts/Base.astro";
+
+// TODO: replace with the production Crucible application URL (open decision in PRODUCT.md)
+const CRUCIBLE_APP_URL = "https://app.crucible.example.com";
+
+const steps = [
+  {
+    n: "01",
+    name: "Onboarding",
+    text: "Enter your website and answer a few questions. Crucible analyzes both to build a brand voice profile: tone, vocabulary, do-and-don't-say lists, audience, and content pillars. You review and approve it before anything gets written.",
+  },
+  {
+    n: "02",
+    name: "Capture",
+    text: "Crucible suggests daily topic prompts based on your business. Record or upload directly in the app. Director Mode coaches you through A-roll and B-roll shooting so the footage is actually usable.",
+  },
+  {
+    n: "03",
+    name: "Process",
+    text: "Your footage is transcribed, then an AI editorial director re-cuts it: hook-first reordering, tangent and stutter removal, B-roll placement. Every edit is validated against runtime budgets and sentence-boundary rules, then rendered with brand cards, loudness normalization, and captions you can edit or export as .vtt or .srt.",
+  },
+  {
+    n: "04",
+    name: "Content",
+    text: "Crucible writes posts in your brand voice for the platforms you actually use — Instagram, Facebook, YouTube, LinkedIn, X, TikTok — plus a full blog post, with optional AI-generated images.",
+  },
+  {
+    n: "05",
+    name: "Ship",
+    text: "Review and edit everything. Not happy with the cut? Magic Revision takes your plain-language feedback and re-edits the video. Then export files or publish directly via webhook or HighLevel.",
+  },
+];
+
+const differentiators = [
+  {
+    name: "Your voice, modeled",
+    text: "Most AI content tools produce the same beige output for everyone. Crucible builds an approved brand voice profile first — vocabulary, tone, and explicit do-not-say rules — and writes against it.",
+  },
+  {
+    name: "Real video editing",
+    text: "Not trimming. An editorial pass: hook restructuring, filler removal, B-roll placement, and audio normalization, driven by transcript and audio-energy analysis.",
+  },
+  {
+    name: "Feedback that works",
+    text: "Magic Revision accepts plain-language notes — “make the opening punchier,” “cut the part about pricing” — and re-cuts accordingly.",
+  },
+];
+---
+
+<Base
+  title="Crucible — Record two minutes. Get a week of content."
+  description="Crucible turns one short talking-head video into an edited, captioned, on-brand video plus publishable posts for every platform you use. Built by Alloy GTM."
+  active="crucible"
+>
+  <!-- HERO -->
+  <section class="field field--paper hero" data-thread style="--thread-w: 2px;">
+    <p class="label hero__run"><span class="accent">CRUCIBLE</span> — AN ALLOY GTM PRODUCT</p>
+    <h1 class="display">Record two minutes. Get a week of content.</h1>
+    <p class="hero__lede">
+      Crucible turns one short talking-head video into an edited, captioned, on-brand video plus
+      publishable posts for every platform you use. Built for owners who don't have a marketing
+      team and don't have time to become one.
+    </p>
+    <div class="hero__actions">
+      <a class="button-primary" href={CRUCIBLE_APP_URL}>Get early access</a>
+      <a class="link-secondary" href="#how-it-works">See how it works →</a>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="field field--ink" data-thread style="--thread-w: 3px;">
+    <p class="label section-kicker"><span class="accent">THE PROBLEM</span></p>
+    <h2 class="title section-title">The content treadmill doesn't end</h2>
+    <div class="prose-ink">
+      <p>
+        You know you should be posting. You know consistency matters. But every post means finding a
+        topic, recording something usable, editing it, writing captions for six platforms, and
+        resizing everything.
+      </p>
+      <p>So it doesn't happen. Or it happens for three weeks and then stops.</p>
+      <p class="prose-ink__point">
+        Crucible removes every step between “I have something to say” and “it's published.”
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="field field--paper" id="how-it-works" data-thread style="--thread-w: 5px;">
+    <p class="label section-kicker"><span class="accent">PROCEDURE</span></p>
+    <h2 class="title section-title">How it works</h2>
+    <ol class="steps" role="list">
+      {
+        steps.map((s) => (
+          <li class="steps__step">
+            <p class="steps__n label">STEP {s.n}</p>
+            <h3 class="steps__name">{s.name}</h3>
+            <p class="steps__text">{s.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <!-- WHAT MAKES IT DIFFERENT -->
+  <section class="field field--ink" data-thread style="--thread-w: 8px;">
+    <p class="label section-kicker"><span class="accent">DIFFERENCE</span></p>
+    <h2 class="title section-title">Not a template generator</h2>
+    <div class="diff__grid">
+      {
+        differentiators.map((d) => (
+          <div class="diff__col">
+            <h3 class="diff__name">{d.name}</h3>
+            <p class="diff__text">{d.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- UNDER THE HOOD -->
+  <section class="field field--paper hood" data-thread style="--thread-w: 10px;">
+    <p class="label section-kicker"><span class="accent">TECHNICAL RECORD</span></p>
+    <h2 class="hood__title">Under the hood</h2>
+    <p class="hood__body">
+      React and Vite on Vercel. Fastify API with pg-boss workers running in Docker on Fly.io.
+      Supabase for Postgres, magic-link auth, and storage. Deepgram for transcription. Claude
+      orchestrated through tool-use schemas for editorial decisions, with Kimi and Gemini in the
+      pipeline. ffmpeg for rendering. A Python sidecar running librosa and spaCy for energy and
+      silence analysis that feeds the edit decisions. Expo companion app for capture.
+    </p>
+    <p class="hood__credit label">DESIGNED AND BUILT BY ALLOY GTM</p>
+  </section>
+
+  <!-- PRICING -->
+  <section class="field field--ink" data-thread="hot" style="--thread-w: 12px;">
+    <p class="label section-kicker"><span class="accent">PRICING</span></p>
+    <h2 class="title section-title">Early access</h2>
+    <div class="pricing">
+      <p class="pricing__price">$19<span class="pricing__per">/mo</span></p>
+      <p class="pricing__terms label">EARLY ACCESS</p>
+      <a class="button-primary" href={CRUCIBLE_APP_URL}>Get early access</a>
+    </div>
+    <p class="pricing__closing">Record two minutes about your business. See what comes back.</p>
+  </section>
+</Base>
+
+<style>
+  .section-kicker {
+    margin: 0 0 20px;
+    color: var(--mist);
+  }
+
+  .field--paper .section-kicker {
+    color: var(--ink-muted);
+  }
+
+  .section-title {
+    margin: 0 0 var(--space-field);
+    max-width: 22ch;
+  }
+
+  /* Hero */
+  .hero__run {
+    margin: 0 0 24px;
+    color: var(--ink-muted);
+  }
+
+  .hero h1 {
+    max-width: 12ch;
+    margin-bottom: 28px;
+  }
+
+  .hero__lede {
+    max-width: 58ch;
+    font-size: 1.0625rem;
+    margin: 0 0 var(--space-field);
+  }
+
+  .hero__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-field);
+    flex-wrap: wrap;
+  }
+
+  /* Problem */
+  .prose-ink {
+    max-width: 62ch;
+  }
+
+  .prose-ink p {
+    margin: 0 0 20px;
+    color: var(--paper-muted);
+  }
+
+  .prose-ink__point {
+    color: var(--paper) !important;
+    font-weight: 700;
+  }
+
+  /* How it works — generous vertical spacing */
+  #how-it-works {
+    scroll-margin-top: 64px;
+  }
+
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--rule-light);
+  }
+
+  .steps__step {
+    display: grid;
+    grid-template-columns: 90px minmax(160px, 0.4fr) 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--rule-light);
+  }
+
+  .steps__n {
+    color: var(--reaction-orange-ink);
+    margin: 0;
+  }
+
+  .steps__name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.375rem;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .steps__text {
+    margin: 0;
+    max-width: 62ch;
+  }
+
+  /* Differentiators */
+  .diff__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-field);
+  }
+
+  .diff__col {
+    background: var(--ink-raised);
+    border: 1px solid var(--rule-dark);
+    border-radius: 2px;
+    padding: var(--space-field);
+  }
+
+  .diff__name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.375rem;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+    color: var(--paper);
+  }
+
+  .diff__text {
+    margin: 0;
+    color: var(--paper-muted);
+    font-size: 0.9375rem;
+  }
+
+  /* Under the hood — understated, technical, secondary */
+  .hood__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.375rem;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+  }
+
+  .hood__body {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--ink-muted);
+    max-width: 78ch;
+    margin: 0 0 20px;
+  }
+
+  .hood__credit {
+    color: var(--ink-subtle);
+    margin: 0;
+  }
+
+  /* Pricing */
+  .pricing {
+    background: var(--ink-raised);
+    border: 1px solid var(--rule-dark);
+    border-radius: 2px;
+    padding: var(--space-field);
+    max-width: 480px;
+    margin-bottom: var(--space-field);
+  }
+
+  .pricing__price {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1;
+    margin: 0 0 8px;
+  }
+
+  .pricing__per {
+    font-size: 1.5rem;
+    color: var(--mist);
+  }
+
+  .pricing__terms {
+    color: var(--reaction-orange);
+    margin: 0 0 28px;
+  }
+
+  .pricing__closing {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.75rem;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    max-width: 24ch;
+    margin: 0;
+  }
+
+  @media (max-width: 1000px) {
+    .steps__step {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 32px 0;
+    }
+    .diff__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

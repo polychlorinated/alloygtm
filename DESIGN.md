@@ -105,19 +105,19 @@ components:
 
 The visual world comes from an active chemistry bench: lab notebooks, analytical run sheets, reaction diagrams, instrument plots, marked-up observations, and the physical evidence of a system being tested. It is technical without becoming a software dashboard and expressive without turning chemistry into costume. For Alloy, the bench instrument is the signal trace: the brand broadcast measured against market friction, with the gap between them made visible.
 
-The system pairs oversized operator-first storytelling with authentic working records. Large editorial fields establish conviction; notebook structures and direct founder language prove who performs the work. The durable signature is a reaction path that gains weight as Alloy assumes more ownership — Diagnose, then Build, then Operate.
+The system pairs oversized operator-first storytelling with authentic working records. Large editorial fields establish conviction; notebook structures and direct founder language prove who performs the work. The durable signature is a reaction path that gains weight as the page moves from problem to offer to action.
 
 **Key Characteristics:**
 
 - Oversized, direct statements paired with dense working evidence.
 - Authentic signal-science artifacts: resonance traces, spectrograms, run sheets, and observations — never clinical pathology metaphors.
 - Human operator proof alongside diagrams, measurements, and process.
-- Diagnose, Build, and Operate expressed as increasing ownership, not branded products.
+- The four offers (Crucible, Teardown, Diagnostic Sprint, Build) expressed as one ladder of ways in, not separate sub-brands.
 - Alternating quiet notebook fields (paper) and decisive dark operational fields (ink), threaded by the reaction path.
 
 ## Naming
 
-The mark is the supplied logo asset (`public/alloy-basic-white-logo.webp`): the gold Λ glyph beside "Alloy" in white, always rendered on ink or dark fields. In body copy, the first reference is "Alloy GTM" and subsequent references are "Alloy." Polychlorinated Ventures LLC appears only as the footer credit. Diagnose, Build, and Operate are never styled as product logos or sub-brands.
+The mark is the supplied logo asset (`public/alloy-basic-white-logo.webp`): the gold Λ glyph beside "Alloy" in white, always rendered on ink or dark fields. In body copy, the first reference is "Alloy GTM" and subsequent references are "Alloy." Polychlorinated Ventures LLC appears only as the footer credit. The four offers are never styled as separate sub-brands.
 
 ## Colors
 
@@ -173,9 +173,9 @@ Controls and records use restrained, nearly square corners. Irregularity comes f
 
 The navigation is an inky fixed bar with the Alloy logo at left, mono links, orange active state, and a square mobile menu. The primary contact action is the only filled control in the bar.
 
-### Ownership Path
+### Offer Ladder
 
-Diagnose, Build, and Operate are circular nodes on a continuous route. Segment thickness increases with ownership. Selecting a node changes the active panel without hiding the alternate levels.
+Offer cards are bright paper records on the ink bench, square with the directional paper shadow. The recommended tier carries a filled orange `RECOMMENDED` tag and an orange-keyed shadow — the only use of reaction orange as a container accent, and it identifies a real role. Enquiry forms that receive offer CTAs are paper records in the same field, with the offer preselected.
 
 ### Figures
 
@@ -197,6 +197,6 @@ The favicon is the gold Λ glyph (`public/favicon.svg`), rendered on ink for the
 ### Don't:
 
 - **Don't** use clinical accession records, pathology language, or medical-lab motifs.
-- **Don't** turn Diagnose, Build, or Operate into separate sub-brands.
+- **Don't** turn the four offers into separate sub-brands.
 - **Don't** split the alloygtm mark into two words, and don't let Polychlorinated Ventures appear as the site's subject.
 - **Don't** fall back to equal rounded cards, generic dashboards, or chemistry-themed decoration without information value.

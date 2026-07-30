@@ -1,0 +1,377 @@
+---
+import Base from "../layouts/Base.astro";
+
+const built = [
+  {
+    result: "Doubled outbound reply rates in a one-week sprint.",
+    mechanism:
+      "Rebuilt targeting around technology-in-use signals and rewrote sequencing around specific technical problems rather than persona assumptions.",
+  },
+  {
+    result: "Grew a B2B integration marketplace 10× in twelve months.",
+    mechanism:
+      "Designed the recommendation engine, rebuilt search and category structure, and launched developer advocacy and community mechanics.",
+  },
+  {
+    result: "Shipped a solution discovery tool still running in production two years later.",
+    mechanism: "Built for an enterprise automation platform's primary web property.",
+  },
+  {
+    result: "Supported 60%+ YoY product revenue growth across a 20+ product portfolio.",
+    mechanism:
+      "Standardized discovery and onboarding flows, built multi-product GTM frameworks, and coached the product marketing team executing them.",
+  },
+  {
+    result: "Raised NPS by 10 points at a computer science education platform.",
+    mechanism:
+      "Rebuilt messaging, redesigned the site around conversion, and launched automated lifecycle campaigns.",
+  },
+  {
+    result: "Designed and built Crucible.",
+    mechanism:
+      "An AI content engine for small businesses, running in production — brand voice modeling, automated video editing, multi-platform content generation.",
+  },
+];
+
+const principles = [
+  {
+    name: "Integration over replacement.",
+    text: "Most companies don't need a new stack. They need the one they're already paying for to actually work together.",
+  },
+  {
+    name: "Diagnose before building.",
+    text: "Agencies run their playbook regardless of fit. The playbook comes second.",
+  },
+  {
+    name: "Signal over noise.",
+    text: "Activity metrics are comfortable and mostly useless. The work is finding the small number of behaviors that actually predict revenue, then instrumenting for those.",
+  },
+  {
+    name: "Build it rather than recommend it.",
+    text: "If something can be built inside the engagement, it gets built.",
+  },
+];
+
+const faqs = [
+  {
+    q: "How is this different from an agency?",
+    a: "Agencies run their playbook regardless of whether it fits. Diagnosis comes first here, and only what your situation needs gets built.",
+  },
+  {
+    q: "How is this different from a fractional CMO?",
+    a: "Most fractional CMOs direct work. I do the work — inside your HubSpot, your n8n, your data.",
+  },
+  {
+    q: "We already have tools. Do we have to switch?",
+    a: "Almost never. Integration over replacement. Half the job is making what you already pay for work together.",
+  },
+  {
+    q: "How technical does this get?",
+    a: "As technical as needed. CRM architecture, workflow automation, SQL-level data cleanup, custom internal tools, API and MCP integrations.",
+  },
+  {
+    q: "Where are you based?",
+    a: "Austin, Texas. Work is remote.",
+  },
+];
+---
+
+<Base
+  title="About Andrew Campbell — Alloy GTM"
+  description="Andrew Campbell has spent fifteen years building go-to-market systems across EdTech, enterprise automation, data, fintech, and AI. Diagnosis fused with build."
+  active="about"
+>
+  <!-- HERO -->
+  <section class="field field--paper" data-thread style="--thread-w: 2px;">
+    <p class="label hero__run"><span class="accent">THE OPERATOR</span></p>
+    <h1 class="display">About</h1>
+    <div class="hero__bio">
+      <p>
+        I'm Andrew Campbell. I've spent fifteen years building go-to-market systems — product
+        marketing, revenue architecture, pipeline design — across EdTech, enterprise automation,
+        data technology, fintech, and AI.
+      </p>
+      <p>
+        I have a PhD in chemistry, which is mostly relevant because of how it makes me work:
+        hypothesis, instrument, measure, iterate. Most go-to-market problems aren't strategy
+        problems. They're measurement problems wearing a strategy costume.
+      </p>
+      <p>
+        For most of my career I was the person inside the company who could see what was broken. Now
+        I do that from outside, and I bring the tools to fix it.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHY THE NAME -->
+  <section class="field field--ink" data-thread style="--thread-w: 4px;">
+    <p class="label section-kicker"><span class="accent">WHY THE NAME</span></p>
+    <blockquote class="name__pull">
+      <p class="name__statement">
+        Iron is soft. Carbon is brittle. Together they're steel.
+      </p>
+    </blockquote>
+    <div class="name__body">
+      <p>
+        An alloy is what you get when two elements fuse into something neither could be alone.
+      </p>
+      <p>
+        Most GTM help arrives as one element or the other. The strategist diagnoses and departs. The
+        software solves a narrow problem and leaves implementation to you.
+      </p>
+      <p>I do both halves. That's the whole idea.</p>
+      <p>
+        Yes, the chemistry background is why the metaphor is there. No, it isn't an accident.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT I'VE BUILT -->
+  <section class="field field--paper" data-thread style="--thread-w: 6px;">
+    <p class="label section-kicker"><span class="accent">EVIDENCE</span></p>
+    <h2 class="title section-title">What I've built</h2>
+    <ul class="built" role="list">
+      {
+        built.map((b, i) => (
+          <li class="built__row">
+            <p class="label built__id">R-{String(i + 1).padStart(2, "0")}</p>
+            <div>
+              <p class="built__result">{b.result}</p>
+              <p class="built__mechanism">{b.mechanism}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <!-- HOW I WORK -->
+  <section class="field field--ink" data-thread style="--thread-w: 9px;">
+    <p class="label section-kicker"><span class="accent">METHOD</span></p>
+    <h2 class="title section-title">How I work</h2>
+    <ul class="principles" role="list">
+      {
+        principles.map((p) => (
+          <li class="principles__row">
+            <h3 class="principles__name">{p.name}</h3>
+            <p class="principles__text">{p.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <!-- FAQ -->
+  <section class="field field--paper" data-thread style="--thread-w: 12px;">
+    <p class="label section-kicker"><span class="accent">CLARIFICATIONS</span></p>
+    <h2 class="title section-title">Frequently asked questions</h2>
+    <div class="faq">
+      {
+        faqs.map((f, i) => (
+          <details class="faq__item">
+            <summary>
+              <span class="label faq__id">Q-{String(i + 1).padStart(2, "0")}</span>
+              <span class="faq__q">{f.q}</span>
+            </summary>
+            <p class="faq__a">{f.a}</p>
+          </details>
+        ))
+      }
+    </div>
+    <p class="faq__cta">
+      <a class="link-secondary" href="/#teardown">Start with a Teardown →</a>
+    </p>
+  </section>
+</Base>
+
+<style>
+  .section-kicker {
+    margin: 0 0 20px;
+    color: var(--mist);
+  }
+
+  .field--paper .section-kicker {
+    color: var(--ink-muted);
+  }
+
+  .section-title {
+    margin: 0 0 var(--space-field);
+  }
+
+  /* Hero */
+  .hero__run {
+    margin: 0 0 24px;
+    color: var(--ink-muted);
+  }
+
+  .hero__bio {
+    max-width: 62ch;
+    margin-top: 28px;
+  }
+
+  .hero__bio p {
+    margin: 0 0 20px;
+    font-size: 1.0625rem;
+  }
+
+  /* Why the name */
+  .name__pull {
+    margin: 0 0 var(--space-field);
+  }
+
+  .name__statement {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    text-wrap: balance;
+    max-width: 16ch;
+    margin: 0;
+  }
+
+  .name__body {
+    max-width: 62ch;
+  }
+
+  .name__body p {
+    margin: 0 0 20px;
+    color: var(--paper-muted);
+  }
+
+  /* What I've built */
+  .built {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--rule-light);
+  }
+
+  .built__row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule-light);
+  }
+
+  .built__id {
+    color: var(--reagent-blue);
+    margin: 0;
+  }
+
+  .built__result {
+    font-weight: 700;
+    margin: 0 0 8px;
+    max-width: 62ch;
+  }
+
+  .built__mechanism {
+    margin: 0;
+    color: var(--ink-subtle);
+    max-width: 62ch;
+  }
+
+  /* How I work */
+  .principles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--rule-dark);
+  }
+
+  .principles__row {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.6fr) 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule-dark);
+  }
+
+  .principles__name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.375rem;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .principles__text {
+    margin: 0;
+    color: var(--paper-muted);
+    max-width: 62ch;
+  }
+
+  /* FAQ */
+  .faq {
+    border-top: 1px solid var(--rule-light);
+    max-width: 860px;
+    margin-bottom: var(--space-field);
+  }
+
+  .faq__item {
+    border-bottom: 1px solid var(--rule-light);
+  }
+
+  .faq__item summary {
+    display: flex;
+    gap: 24px;
+    align-items: baseline;
+    padding: 24px 0;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq__item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq__item summary::after {
+    content: "+";
+    margin-left: auto;
+    font-family: var(--font-mono);
+    color: var(--reaction-orange-ink);
+    font-size: 1.125rem;
+  }
+
+  .faq__item[open] summary::after {
+    content: "–";
+  }
+
+  .faq__id {
+    color: var(--reagent-blue);
+    flex-shrink: 0;
+  }
+
+  .faq__q {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.375rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+
+  .faq__a {
+    margin: 0;
+    padding: 0 0 28px;
+    color: var(--ink-subtle);
+    max-width: 68ch;
+  }
+
+  .faq__cta {
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .built__row,
+    .principles__row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>

@@ -1,206 +1,261 @@
 ---
 // DIRECTION CONTRACT — alloygtm.com home (Persuade)
-// THESIS: Growth failure is framed as a measurable signal gap, not a messaging
-//   problem; the page refuses the consulting category's hero-plus-logo-plus-cards
-//   arrangement and instead reads as one continuous lab run.
-// OWN-WORLD: The Reaction Log (DESIGN.md). Off-white notebook fields alternate
-//   with deep-ink operational fields; Barlow Condensed declarations, Manrope
-//   evidence, DM Mono run identifiers; reaction orange = intervention, reagent
-//   blue = measurement; square records, ruled rows, authored SVG instrument
-//   figures; a gutter reaction path thickens 2px→12px down the page as
-//   ownership accumulates toward Diagnose→Build→Operate.
-// STORY: A founder who won Act I recognizes the Act II problem in the first
-//   viewport (declaration + resonance figure), sees their chaos named as three
-//   field observations, trusts the calibration set, understands the 3-step
-//   procedure, chooses an ownership level, meets Andrew, and acts.
-// FIRST VIEWPORT: Ink fixed bar (alloygtm wordmark + reaction-path underline).
-//   Paper field: RUN 001 mono kicker, 4-line display "FIND THE SIGNAL. AMPLIFY
-//   THE GROWTH.", lede, orange primary CTA "Run a free signal audit" +
-//   secondary "Work with Andrew →"; right column FIG. 1 resonance trace in a
-//   shadowed paper record.
-// FORM: Grounded candidate 7 (alternating paper/ink fields threaded by a
-//   continuous, weight-gaining reaction path), assigned by concept-seed
-//   (key 328d8fbc); the dealt roving-sweep staging was rejected — timed
-//   attention steals the self-qualification reading this page depends on.
+// THESIS: Alloy GTM sells diagnosis fused with build — the offer is stated in
+//   the first viewport and differentiated from consultants and tools by section
+//   two. Refuses the category's vague "growth partner" hero.
+// OWN-WORLD: The Reaction Log (DESIGN.md), unchanged. Alternating paper/ink
+//   fields threaded by the gutter reaction path (2px→12px); Barlow Condensed
+//   declarations, Manrope evidence, DM Mono run labels; orange = action,
+//   blue = measurement; square records, ruled rows, authored SVG figures.
+// STORY: A founder burned by half-solutions reads the hero, sees the
+//   strategist/software gap named, recognizes their five leaks, picks one of
+//   four ways in (Sprint recommended), checks outcomes, believes the proof
+//   (Crucible runs in production), and books a Teardown.
+// FIRST VIEWPORT: Ink nav (Alloy logo, Crucible · Services · About, Get a
+//   Teardown CTA). Paper field: mono kicker DIAGNOSIS + BUILD, display "MOST
+//   GTM ADVICE IS JUST HOMEWORK.", subhead, orange primary CTA + Crucible
+//   secondary, muted trust line; right column FIG. 1 fusion diagram.
+// FORM: Grounded candidate 7 (alternating fields threaded by the reaction
+//   path), retained from the seed-committed structure (key 328d8fbc); only
+//   content and IA change in this repositioning.
 
 import Base from "../layouts/Base.astro";
-import SignalFigure from "../components/SignalFigure.astro";
-import OwnershipPath from "../components/OwnershipPath.astro";
-import { clients } from "../data/clients";
+import FusionFigure from "../components/FusionFigure.astro";
+import { offers, offerOptions } from "../data/offers";
 
-const observations = [
+const leaks = [
   {
-    id: "OBS-01",
-    name: "Customer Intel Gaps",
-    text: "Growth engines struggle to keep producing the same results when new prospects are different from early adopters.",
+    n: "01",
+    name: "Your CRM is a graveyard, not a system of record.",
+    text: "Fields nobody fills in. Stages nobody agrees on. Reporting nobody trusts.",
   },
   {
-    id: "OBS-02",
-    name: "Signal Limitations",
-    text: "Your buyer journey has leaks you can't see without proper instrumentation.",
+    n: "02",
+    name: "You're measuring activity, not signal.",
+    text: "Emails sent. Posts published. Meetings booked. None of it tells you which behaviors actually predict revenue.",
   },
   {
-    id: "OBS-03",
-    name: "Rapid Validation",
-    text: "Teams debate opinions instead of running concurrent experiments.",
+    n: "03",
+    name: "Your outbound sounds like everyone else's outbound.",
+    text: "Same tools, same templates, same personalization tokens. Buyers pattern-match it into the trash in under a second.",
+  },
+  {
+    n: "04",
+    name: "Your discovery call isn't a process.",
+    text: "Every rep runs it differently. Nothing is captured consistently. You can't improve what you can't compare.",
+  },
+  {
+    n: "05",
+    name: "Your content is built for search engines, not buyers.",
+    text: "Ranking for terms your buyers don't use, while the questions they actually ask go unanswered.",
   },
 ];
 
-const steps = [
-  {
-    n: "1",
-    name: "Connect",
-    text: "Reach out. Let's talk about your goals, your challenges, and how signal science can bridge the gap. Bring your questions too — no prep needed.",
-  },
-  {
-    n: "2",
-    name: "Preview",
-    text: "Once we've met, you'll know more about the approach. Demo materials — excerpts from real client audits with company- and industry-specific details removed — are in preparation.",
-    note: "Demo materials coming soon",
-  },
-  {
-    n: "3",
-    name: "Audit",
-    text: "The partnership begins. Your custom research portal enriches market insights with your own pipeline, and in 2–4 weeks you hold a direct, actionable report: where your signal gaps are, what they're costing, and the proposed corrections. Hand it to your product marketer — or talk to Andrew about a deeper partnership.",
-  },
+const outcomes = [
+  { stat: "2×", label: "Outbound reply rates, improved in a one-week sprint" },
+  { stat: "10×", label: "B2B integration marketplace adoption growth in twelve months" },
+  { stat: "+10", label: "NPS points at a computer science education platform" },
+  { stat: "60%+", label: "YoY product revenue growth supported across a 20+ product portfolio" },
+  { stat: "2 yrs+", label: "A solution discovery tool still running in production" },
 ];
 ---
 
 <Base
-  title="Alloy GTM — Find & Amplify Your B2B Growth Signal"
-  description="Alloy GTM audits the gap between the signal your company broadcasts and the signal your market broadcasts, then builds and runs the GTM systems that close it. Diagnose, Build, Operate."
-  active="home"
+  title="Alloy GTM — Diagnosis fused with build"
+  description="Alloy GTM finds what's broken in your revenue system — then builds the fix. Not a deck. Not another tool. Working systems inside the stack you already have."
 >
-  <!-- HERO -->
+  <!-- 1 · HERO -->
   <section class="field field--paper hero" data-thread style="--thread-w: 2px;">
     <div class="hero__grid">
       <div class="hero__copy">
-        <p class="label hero__run"><span class="accent">RUN 001</span> — SIGNAL ACQUISITION</p>
-        <h1 class="display">Find the signal. Amplify the growth.</h1>
+        <p class="label hero__run"><span class="accent">DIAGNOSIS</span> + <span class="accent">BUILD</span></p>
+        <h1 class="display">Most GTM advice is just homework.</h1>
         <p class="hero__lede">
-          You crushed growth on your first product — prospects just <em>got it</em>. But the systems
-          that worked for Act I don't always transfer to the next segment, the next product, or the
-          next company. Alloy GTM audits signal from real customer behavior across the entire
-          lifecycle — discovery, acquisition, retention — then rapidly tests theories and tunes GTM
-          motions to amplify high-signal actions. Inbound, outbound, human-bound.
+          Alloy GTM finds what's broken in your revenue system — then builds the fix. Not a deck.
+          Not another tool you have to implement yourself. Working systems inside the stack you
+          already have.
         </p>
         <div class="hero__actions">
-          <a class="button-primary" href="/audit/">Run a free signal audit</a>
-          <a class="link-secondary" href="/contact/">Work with Andrew →</a>
+          <a class="button-primary" href="#teardown">Get a Teardown — $297</a>
+          <a class="link-secondary" href="/crucible/">See Crucible →</a>
         </div>
+        <p class="hero__trust">
+          Revenue systems built across EdTech, enterprise automation, data, fintech, and AI.
+        </p>
       </div>
       <div class="hero__figure">
-        <SignalFigure />
+        <FusionFigure />
       </div>
     </div>
   </section>
 
-  <!-- OBSERVATIONS -->
+  <!-- 2 · THE GAP -->
   <section class="field field--ink" data-thread style="--thread-w: 3px;">
-    <p class="label section-kicker"><span class="accent">FIELD OBSERVATIONS</span></p>
-    <h2 class="title section-title">It's hard to process chaos when you're growing fast.</h2>
-    <div class="obs">
-      {
-        observations.map((o) => (
-          <div class="obs__row">
-            <p class="label obs__id">{o.id}</p>
-            <h3 class="obs__name">{o.name}</h3>
-            <p class="obs__text">{o.text}</p>
-          </div>
-        ))
-      }
+    <p class="label section-kicker"><span class="accent">THE GAP</span></p>
+    <h2 class="title section-title">You've been sold half a solution.</h2>
+    <div class="gap__grid">
+      <div class="gap__col">
+        <h3 class="gap__name">The strategist</h3>
+        <p>Sharp diagnosis. A forty-page roadmap. Then they leave.</p>
+        <p>You now have a document and the same team that was already at capacity.</p>
+      </div>
+      <div class="gap__col">
+        <h3 class="gap__name">The software</h3>
+        <p>Real capability. No context.</p>
+        <p>You get a login, a documentation site, and a six-week implementation you didn't budget for.</p>
+      </div>
+    </div>
+    <div class="gap__closing">
+      <p class="gap__statement">Neither is wrong. Both are incomplete.</p>
+      <p class="gap__alloy">
+        An alloy is what happens when two elements fuse into something neither could be alone. Iron
+        is soft. Carbon is brittle. Together they're steel.
+      </p>
+      <p class="gap__fused label"><span class="accent">ALLOY GTM</span> IS DIAGNOSIS FUSED WITH BUILD</p>
     </div>
   </section>
 
-  <!-- CLIENT ROSTER -->
-  <section class="field field--ink roster" data-thread style="--thread-w: 4px;">
-    <p class="label section-kicker"><span class="accent">CALIBRATION SET</span> — GTM SYSTEMS AUDITED & ENGINEERED ACROSS 12+ ENGAGEMENTS</p>
-    <ul class="roster__grid" role="list">
+  <!-- 3 · WHAT'S USUALLY BROKEN -->
+  <section class="field field--paper" data-thread style="--thread-w: 4px;">
+    <p class="label section-kicker"><span class="accent">WHAT'S USUALLY BROKEN</span></p>
+    <h2 class="title section-title">Five leaks, in almost every company</h2>
+    <p class="section-lede-paper">Different industries. Same pathology.</p>
+    <ol class="leaks" role="list">
       {
-        clients.map((c) => (
-          <li class="roster__cell">
-            <a href={c.url} target="_blank" rel="noopener noreferrer" aria-label={`${c.name} (opens in new tab)`}>
-              <img src={c.logo} alt={`${c.name} logo`} loading="lazy" />
-            </a>
-          </li>
-        ))
-      }
-      <li class="roster__cell roster__cell--cta">
-        <a href="/contact/">
-          <span class="label">Your company →</span>
-        </a>
-      </li>
-    </ul>
-  </section>
-
-  <!-- PROTOCOL -->
-  <section class="field field--paper" data-thread style="--thread-w: 5px;">
-    <p class="label section-kicker"><span class="accent">PROCEDURE</span></p>
-    <h2 class="title section-title">Three steps to better pipeline.</h2>
-    <ol class="protocol" role="list">
-      {
-        steps.map((s) => (
-          <li class="protocol__step">
-            <p class="protocol__n label">STEP {s.n}</p>
-            <h3 class="protocol__name">{s.name}</h3>
-            <p class="protocol__text">{s.text}</p>
-            {s.note && <p class="label protocol__note">{s.note}</p>}
+        leaks.map((l) => (
+          <li class="leaks__row">
+            <p class="label leaks__n">{l.n}</p>
+            <h3 class="leaks__name">{l.name}</h3>
+            <p class="leaks__text">{l.text}</p>
           </li>
         ))
       }
     </ol>
-    <p class="protocol__foot">
-      No long, repetitive surveys. In an era when so much data is accessible through a simple API
-      request, the entire process — not only the results — should be seamless and efficient.
-    </p>
+    <p class="leaks__closing">Finding these is the easy part. Fixing them is the work.</p>
   </section>
 
-  <!-- OWNERSHIP PATH -->
-  <section class="field field--ink" data-thread="hot" style="--thread-w: 8px;">
-    <p class="label section-kicker"><span class="accent">THE OWNERSHIP LADDER</span></p>
-    <h2 class="title section-title">How we work.</h2>
-    <p class="section-lede">
-      One ladder, three levels of ownership. Each rung describes how much execution Alloy owns —
-      never a separate product, never a sub-brand. Select a level to see what changes hands.
-    </p>
-    <OwnershipPath />
-  </section>
+  <!-- 4 · THE OFFER LADDER -->
+  <section class="field field--ink" id="offer" data-thread="hot" style="--thread-w: 8px;">
+    <p class="label section-kicker"><span class="accent">THE OFFER LADDER</span></p>
+    <h2 class="title section-title">Four ways in</h2>
+    <div class="offers">
+      {
+        offers.map((o) => (
+          <article class:list={["offer", { "offer--recommended": o.recommended }]} id={o.id === "teardown" ? "teardown" : undefined}>
+            {o.recommended && <p class="label offer__tag">RECOMMENDED</p>}
+            <p class="label offer__terms">{o.terms}</p>
+            <h3 class="offer__name">{o.name}</h3>
+            <p class="offer__body">{o.body}</p>
+            {o.note && <p class="offer__note">{o.note}</p>}
+            <p class="offer__price label">{o.price}</p>
+            <a class="link-secondary offer__cta" href={o.cta.href} data-offer={o.id !== "crucible" ? o.id : undefined}>
+              → {o.cta.label}
+            </a>
+          </article>
+        ))
+      }
+    </div>
 
-  <!-- FOUNDER -->
-  <section class="field field--paper" data-thread style="--thread-w: 10px;">
-    <p class="label section-kicker"><span class="accent">THE OPERATOR</span></p>
-    <blockquote class="founder__pull">
-      <p class="founder__statement">Product-market fit isn't a pure metal. It's an alloy.</p>
-    </blockquote>
-    <div class="founder__body">
-      <p>
-        The compound of your solution, your customer's needs, and the broader ecosystem they operate
-        in. Shift the product or the segment, and the entire GTM foundation shifts with it — that's
-        where I come in.
-      </p>
-      <p>
-        I'm Andrew Campbell. I journeyed from the chemistry lab to edtech, SaaS, and AI automation,
-        touching every stage of growth along the way. Most of the time, when something that
-        <em>should</em> work isn't landing, the problem is the context, not the product. The right
-        customers exist; they just haven't been shown why your solution fits their world yet. I map
-        your customer journey and GTM motions to find that signal, then work backwards into the
-        systems and messaging that make the connection undeniable.
-      </p>
-      <p class="founder__sig label">— Andrew Campbell, Ph.D. · Founder, Alloy GTM · 2–3 companies at a time</p>
-      <a class="link-secondary" href="/contact/">Work with Andrew →</a>
+    <!-- Enquiry form: Teardown / Sprint / Build CTAs land here -->
+    <div class="enquire" id="enquire">
+      <p class="label enquire__title"><span class="accent">ENQUIRY</span> — TEARDOWN · SPRINT · BUILD</p>
+      <!-- TODO: replace the Formspree placeholder action with the production handler (open decision in PRODUCT.md) -->
+      <form class="enquire__form" action="https://formspree.io/f/FORMSPREE_PLACEHOLDER" method="POST" data-enquire-form>
+        <div class="enquire__row">
+          <div class="field-group">
+            <label class="label" for="first-name">First name</label>
+            <input class="input" id="first-name" name="first-name" type="text" autocomplete="given-name" required />
+          </div>
+          <div class="field-group">
+            <label class="label" for="last-name">Last name</label>
+            <input class="input" id="last-name" name="last-name" type="text" autocomplete="family-name" required />
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="label" for="email">Business email</label>
+          <input class="input" id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field-group">
+          <label class="label" for="offer-select">I'm interested in</label>
+          <select class="input" id="offer-select" name="offer" data-offer-select>
+            {offerOptions.map((opt) => <option value={opt.value}>{opt.label}</option>)}
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="label" for="challenge">Current challenge</label>
+          <textarea class="input" id="challenge" name="challenge" rows="5" required></textarea>
+        </div>
+        <button class="button-primary" type="submit">Send enquiry</button>
+      </form>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
-  <section class="field field--ink cta" data-thread="hot" style="--thread-w: 12px;">
+  <!-- 5 · OUTCOMES -->
+  <section class="field field--paper" data-thread style="--thread-w: 10px;">
+    <p class="label section-kicker"><span class="accent">EVIDENCE</span></p>
+    <h2 class="title section-title">Selected outcomes</h2>
+    <ul class="outcomes" role="list">
+      {
+        outcomes.map((o) => (
+          <li class="outcomes__cell">
+            <p class="outcomes__stat">{o.stat}</p>
+            <p class="outcomes__label">{o.label}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="outcomes__foot">
+      <a class="link-secondary" href="/about/">Context and detail on the about page →</a>
+    </p>
+  </section>
+
+  <!-- 6 · CRUCIBLE SPOTLIGHT -->
+  <section class="field field--ink" data-thread style="--thread-w: 10px;">
+    <p class="label section-kicker"><span class="accent">PROOF OF BUILD</span></p>
+    <h2 class="title section-title">Built, not recommended</h2>
+    <div class="spotlight__body">
+      <p>
+        Crucible is an AI content engine for small businesses — brand voice modeling, automated
+        video editing, and multi-platform content generation from a single short recording.
+      </p>
+      <p>
+        It runs in production. It was designed, engineered, and shipped by the same person who would
+        run your engagement.
+      </p>
+      <p class="spotlight__point">
+        That's the point. Advice is easy to give. This is what the other half looks like.
+      </p>
+      <a class="button-primary" href="/crucible/">Explore Crucible →</a>
+    </div>
+  </section>
+
+  <!-- 7 · FINAL CTA -->
+  <section class="field field--paper cta" data-thread="hot" style="--thread-w: 12px;">
     <p class="label section-kicker"><span class="accent">NEXT ACTION</span></p>
-    <h2 class="display cta__display">Bring the problem. We'll find the signal.</h2>
+    <h2 class="display cta__display">Start with a Teardown.</h2>
+    <p class="cta__body">
+      $297. Seventy-two hours. No call, no proposal, no discovery process. Send your setup, get an
+      expert review and a prioritized list of what to fix first.
+    </p>
     <div class="cta__actions">
-      <a class="button-primary" href="/contact/">Start a conversation</a>
-      <a class="link-secondary" href="/audit/">Run the free audit →</a>
+      <a class="button-primary" href="#teardown">Get a Teardown — $297</a>
     </div>
   </section>
 </Base>
+
+<script>
+  // Route offer-card CTAs into the enquiry form's offer selector.
+  const select = document.querySelector<HTMLSelectElement>("[data-offer-select]");
+  const param = new URLSearchParams(window.location.search).get("offer");
+  if (select && param && select.querySelector(`option[value="${param}"]`)) {
+    select.value = param;
+  }
+  document.querySelectorAll<HTMLAnchorElement>("a[data-offer]").forEach((a) => {
+    a.addEventListener("click", () => {
+      if (select) select.value = a.dataset.offer!;
+    });
+  });
+</script>
 
 <style>
   .section-kicker {
@@ -214,13 +269,13 @@ const steps = [
 
   .section-title {
     margin: 0 0 var(--space-field);
-    max-width: 18ch;
+    max-width: 22ch;
   }
 
-  .section-lede {
-    max-width: 62ch;
-    color: var(--paper-muted);
-    margin: 0 0 var(--space-field);
+  .section-lede-paper {
+    max-width: 56ch;
+    color: var(--ink-subtle);
+    margin: -16px 0 var(--space-field);
   }
 
   /* Hero */
@@ -237,7 +292,7 @@ const steps = [
   }
 
   .hero h1 {
-    max-width: 9ch;
+    max-width: 10ch;
     margin-bottom: 28px;
   }
 
@@ -252,144 +307,64 @@ const steps = [
     align-items: center;
     gap: var(--space-field);
     flex-wrap: wrap;
+    margin-bottom: 24px;
   }
 
-  /* Observations */
-  .obs {
-    border-top: 1px solid var(--rule-dark);
-  }
-
-  .obs__row {
-    display: grid;
-    grid-template-columns: 110px minmax(180px, 0.6fr) 1fr;
-    gap: 24px;
-    align-items: baseline;
-    padding: 24px 0;
-    border-bottom: 1px solid var(--rule-dark);
-  }
-
-  .obs__id {
-    color: var(--reagent-blue-bright);
+  .hero__trust {
+    font-size: 0.875rem;
+    color: var(--ink-muted);
     margin: 0;
+    max-width: 58ch;
   }
 
-  .obs__name {
+  @media (min-width: 1000px) {
+    .hero__trust {
+      white-space: nowrap;
+      max-width: none;
+    }
+  }
+
+  /* The Gap */
+  .gap__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-field);
+    margin-bottom: var(--space-section);
+  }
+
+  .gap__col {
+    background: var(--ink-raised);
+    border: 1px solid var(--rule-dark);
+    border-radius: 2px;
+    padding: var(--space-field);
+  }
+
+  .gap__name {
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: 1.375rem;
+    font-size: 1.75rem;
     text-transform: uppercase;
     letter-spacing: -0.01em;
-    margin: 0;
+    margin: 0 0 20px;
+    color: var(--paper);
   }
 
-  .obs__text {
-    margin: 0;
+  .gap__col p {
     color: var(--paper-muted);
-    max-width: 56ch;
+    margin: 0 0 12px;
+    max-width: 46ch;
   }
 
-  /* Roster */
-  .roster {
-    padding-top: 0;
+  .gap__col p:last-child {
+    margin-bottom: 0;
   }
 
-  .roster__grid {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+  .gap__closing {
     border-top: 1px solid var(--rule-dark);
-    border-left: 1px solid var(--rule-dark);
+    padding-top: var(--space-field);
   }
 
-  .roster__cell {
-    border-right: 1px solid var(--rule-dark);
-    border-bottom: 1px solid var(--rule-dark);
-  }
-
-  .roster__cell a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 120px;
-    padding: 20px 28px;
-    transition: background-color 160ms ease;
-  }
-
-  .roster__cell a:hover {
-    background: var(--ink-raised);
-  }
-
-  .roster__cell img {
-    max-height: 56px;
-    max-width: 100%;
-    object-fit: contain;
-  }
-
-  .roster__cell--cta a {
-    color: var(--mist);
-    text-decoration: none;
-  }
-
-  .roster__cell--cta a:hover {
-    color: var(--reaction-orange);
-  }
-
-  /* Protocol */
-  .protocol {
-    list-style: none;
-    margin: 0 0 var(--space-field);
-    padding: 0;
-    border-top: 1px solid var(--rule-light);
-  }
-
-  .protocol__step {
-    display: grid;
-    grid-template-columns: 90px minmax(140px, 0.4fr) 1fr;
-    gap: 24px;
-    align-items: baseline;
-    padding: 24px 0;
-    border-bottom: 1px solid var(--rule-light);
-  }
-
-  .protocol__n {
-    color: var(--reaction-orange-ink);
-    margin: 0;
-  }
-
-  .protocol__name {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.375rem;
-    text-transform: uppercase;
-    margin: 0;
-  }
-
-  .protocol__text {
-    margin: 0;
-    max-width: 62ch;
-  }
-
-  .protocol__note {
-    grid-column: 3;
-    color: var(--reagent-blue);
-    margin: 0;
-  }
-
-  .protocol__foot {
-    max-width: 62ch;
-    color: var(--ink-subtle);
-    font-size: 0.9375rem;
-    margin: 0;
-  }
-
-  /* Founder */
-  .founder__pull {
-    margin: 0 0 var(--space-field);
-  }
-
-  .founder__statement {
+  .gap__statement {
     font-family: var(--font-display);
     font-weight: 900;
     font-size: clamp(2rem, 5vw, 4rem);
@@ -397,27 +372,253 @@ const steps = [
     letter-spacing: -0.03em;
     text-transform: uppercase;
     text-wrap: balance;
-    max-width: 16ch;
+    max-width: 18ch;
+    margin: 0 0 24px;
+  }
+
+  .gap__alloy {
+    max-width: 62ch;
+    color: var(--paper-muted);
+    margin: 0 0 24px;
+  }
+
+  .gap__fused {
+    color: var(--paper);
     margin: 0;
   }
 
-  .founder__body {
-    max-width: 68ch;
+  /* Leaks */
+  .leaks {
+    list-style: none;
+    margin: 0 0 var(--space-field);
+    padding: 0;
+    border-top: 1px solid var(--rule-light);
   }
 
-  .founder__body p {
+  .leaks__row {
+    display: grid;
+    grid-template-columns: 70px minmax(220px, 0.8fr) 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule-light);
+  }
+
+  .leaks__n {
+    color: var(--reagent-blue);
+    margin: 0;
+  }
+
+  .leaks__name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.375rem;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .leaks__text {
+    margin: 0;
+    color: var(--ink-subtle);
+    max-width: 56ch;
+  }
+
+  .leaks__closing {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.75rem;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin: 0;
+    max-width: 24ch;
+  }
+
+  /* Offer ladder */
+  #offer {
+    scroll-margin-top: 64px;
+  }
+
+  .offers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: var(--space-section);
+  }
+
+  .offer {
+    position: relative;
+    background: var(--paper-bright);
+    color: var(--ink);
+    border: 1px solid var(--rule-dark);
+    border-radius: 2px;
+    padding: 24px;
+    box-shadow: 8px 10px 0 rgba(7, 27, 36, 0.5);
+    display: flex;
+    flex-direction: column;
+    scroll-margin-top: 80px;
+  }
+
+  .offer--recommended {
+    box-shadow: 12px 14px 0 rgba(240, 100, 50, 0.25);
+    border-color: var(--reaction-orange);
+  }
+
+  .offer__tag {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    background: var(--reaction-orange);
+    color: var(--ink);
+    padding: 6px 12px;
+    margin: 0;
+  }
+
+  .offer__terms {
+    color: var(--ink-muted);
+    margin: 0 0 16px;
+  }
+
+  .offer__name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+  }
+
+  .offer__body {
+    margin: 0 0 16px;
+    font-size: 0.9375rem;
+    flex: 1;
+  }
+
+  .offer__note {
+    margin: 0 0 16px;
+    font-size: 0.9375rem;
+    font-weight: 700;
+  }
+
+  .offer__price {
+    color: var(--reaction-orange-ink);
     margin: 0 0 20px;
   }
 
-  .founder__sig {
+  .offer__cta {
+    margin-top: auto;
+  }
+
+  /* Enquiry form */
+  .enquire {
+    background: var(--paper-bright);
+    color: var(--ink);
+    border: 1px solid var(--rule-dark);
+    border-radius: 2px;
+    padding: var(--space-field);
+    box-shadow: 12px 14px 0 rgba(7, 27, 36, 0.5);
+    max-width: 720px;
+    scroll-margin-top: 80px;
+  }
+
+  .enquire__title {
+    margin: 0 0 28px;
     color: var(--ink-muted);
-    margin-bottom: 28px !important;
+  }
+
+  .enquire__title .accent {
+    color: var(--reaction-orange-ink);
+  }
+
+  .enquire__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .enquire__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .field-group .label {
+    color: var(--ink-subtle);
+  }
+
+  /* Outcomes */
+  .outcomes {
+    list-style: none;
+    margin: 0 0 var(--space-field);
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-top: 1px solid var(--rule-light);
+    border-left: 1px solid var(--rule-light);
+  }
+
+  .outcomes__cell {
+    border-right: 1px solid var(--rule-light);
+    border-bottom: 1px solid var(--rule-light);
+    padding: 24px;
+  }
+
+  .outcomes__stat {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+
+  .outcomes__label {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--ink-subtle);
+  }
+
+  .outcomes__foot {
+    margin: 0;
+  }
+
+  /* Crucible spotlight */
+  .spotlight__body {
+    max-width: 62ch;
+  }
+
+  .spotlight__body p {
+    margin: 0 0 20px;
+    color: var(--paper-muted);
+  }
+
+  .spotlight__point {
+    color: var(--paper) !important;
+    font-weight: 700;
+  }
+
+  .spotlight__body .button-primary {
+    margin-top: 12px;
   }
 
   /* Final CTA */
   .cta__display {
     max-width: 12ch;
-    margin-bottom: var(--space-field);
+    margin-bottom: 24px;
+  }
+
+  .cta__body {
+    max-width: 52ch;
+    font-size: 1.0625rem;
+    margin: 0 0 var(--space-field);
   }
 
   .cta__actions {
@@ -427,6 +628,15 @@ const steps = [
     flex-wrap: wrap;
   }
 
+  @media (max-width: 1100px) {
+    .offers {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .outcomes {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
   @media (max-width: 1000px) {
     .hero__grid {
       grid-template-columns: 1fr;
@@ -434,19 +644,24 @@ const steps = [
     .hero h1 {
       max-width: 12ch;
     }
-    .obs__row {
+    .leaks__row {
       grid-template-columns: 1fr;
       gap: 8px;
     }
-    .protocol__step {
+    .gap__grid {
       grid-template-columns: 1fr;
-      gap: 8px;
     }
-    .protocol__note {
-      grid-column: 1;
+  }
+
+  @media (max-width: 640px) {
+    .offers {
+      grid-template-columns: 1fr;
     }
-    .roster__grid {
-      grid-template-columns: repeat(2, 1fr);
+    .outcomes {
+      grid-template-columns: 1fr;
+    }
+    .enquire__row {
+      grid-template-columns: 1fr;
     }
   }
 </style>
