@@ -8,7 +8,7 @@ const steps = [
   {
     n: "01",
     name: "Onboarding",
-    text: "Enter your website and answer a few questions. Crucible analyzes both to build a brand voice profile: tone, vocabulary, do-and-don't-say lists, audience, and content pillars. You review and approve it before anything gets written.",
+    text: "Enter your website and answer a few questions. Crucible analyzes both to build a brand voice profile — tone, vocabulary, do-and-don't-say lists, audience, and content pillars. You review and approve it before anything gets written.",
   },
   {
     n: "02",
@@ -18,7 +18,7 @@ const steps = [
   {
     n: "03",
     name: "Process",
-    text: "Your footage is transcribed, then an AI editorial director re-cuts it: hook-first reordering, tangent and stutter removal, B-roll placement. Every edit is validated against runtime budgets and sentence-boundary rules, then rendered with brand cards, loudness normalization, and captions you can edit or export as .vtt or .srt.",
+    text: "Your footage is transcribed, then an AI editorial director re-cuts it — hook-first reordering, tangent and stutter removal, B-roll placement. Every edit is validated against runtime budgets and sentence-boundary rules, then rendered with brand cards, loudness normalization, and captions you can edit or export as .vtt or .srt.",
   },
   {
     n: "04",
@@ -31,26 +31,11 @@ const steps = [
     text: "Review and edit everything. Not happy with the cut? Magic Revision takes your plain-language feedback and re-edits the video. Then export files or publish directly via webhook or HighLevel.",
   },
 ];
-
-const differentiators = [
-  {
-    name: "Your voice, modeled",
-    text: "Most AI content tools produce the same beige output for everyone. Crucible builds an approved brand voice profile first — vocabulary, tone, and explicit do-not-say rules — and writes against it.",
-  },
-  {
-    name: "Real video editing",
-    text: "Not trimming. An editorial pass: hook restructuring, filler removal, B-roll placement, and audio normalization, driven by transcript and audio-energy analysis.",
-  },
-  {
-    name: "Feedback that works",
-    text: "Magic Revision accepts plain-language notes — “make the opening punchier,” “cut the part about pricing” — and re-cuts accordingly.",
-  },
-];
 ---
 
 <Base
   title="Crucible — Record two minutes. Get a week of content."
-  description="Crucible turns one short talking-head video into an edited, captioned, on-brand video plus publishable posts for every platform you use. Built by Alloy GTM."
+  description="Crucible bridges the gap between having something to say and actually publishing it — an AI content engine built by Alloy GTM. Record two minutes, get an edited video and a week of posts."
   active="crucible"
 >
   <!-- HERO -->
@@ -59,28 +44,43 @@ const differentiators = [
     <h1 class="display">Record two minutes. Get a week of content.</h1>
     <p class="hero__lede">
       Crucible turns one short talking-head video into an edited, captioned, on-brand video plus
-      publishable posts for every platform you use. Built for owners who don't have a marketing
-      team and don't have time to become one.
+      publishable posts for every platform you use. It exists because I kept seeing the same gap
+      across clients — and honestly, in myself.
     </p>
     <div class="hero__actions">
-      <a class="button-primary" href={CRUCIBLE_APP_URL}>Get early access</a>
-      <a class="link-secondary" href="#how-it-works">See how it works →</a>
+      <a class="button-primary" href={CRUCIBLE_APP_URL}>Get early access — $19/mo</a>
+      <a class="link-secondary" href="#why-i-built-it">Why I built it →</a>
     </div>
   </section>
 
-  <!-- THE PROBLEM -->
-  <section class="field field--ink" data-thread style="--thread-w: 3px;">
-    <p class="label section-kicker"><span class="accent">THE PROBLEM</span></p>
-    <h2 class="title section-title">The content treadmill doesn't end</h2>
+  <!-- WHY I BUILT IT -->
+  <section class="field field--ink" id="why-i-built-it" data-thread style="--thread-w: 3px;">
+    <p class="label section-kicker"><span class="accent">WHY I BUILT IT</span></p>
+    <h2 class="title section-title">The gap between having something to say and actually saying it</h2>
     <div class="prose-ink">
       <p>
-        You know you should be posting. You know consistency matters. But every post means finding a
-        topic, recording something usable, editing it, writing captions for six platforms, and
-        resizing everything.
+        Clients would rattle off brilliant ideas when the cameras weren't rolling — sharp takes on
+        their industry, hard-won lessons, the kind of insight that builds real authority. But as soon
+        as I asked them to commit to a time and topic, they froze or delayed.
       </p>
-      <p>So it doesn't happen. Or it happens for three weeks and then stops.</p>
+      <p>
+        I'm the same way. I avoid the camera. I overthink every post. And I know I'm not alone.
+      </p>
+      <p>
+        The tools that exist — OpusClip, Hootsuite, and the rest — are built for people who already
+        love being on camera. Influencers. Creators. People who don't flinch at the record button.
+        For everyone else, those tools solve a problem they never reach.
+      </p>
+      <p>
+        The alternative is hiring someone: a coach to hold you accountable, or a ghostwriter to do
+        the actual work — interview you, prepare drafts, revise and execute. Either one runs
+        $1,000–$5,000 a month. And there's still inertia: coordinating interview times, trading
+        revisions back and forth, trying to get the tone right through a middleman. A coach won't
+        prepare content. A ghostwriter won't edit video on top of the drafts.
+      </p>
       <p class="prose-ink__point">
-        Crucible removes every step between “I have something to say” and “it's published.”
+        So I built Crucible to bridge that gap. Open it when inspiration hits, talk for ten minutes,
+        and get back an edited video and a week of posts — in your voice, using your actual words.
       </p>
     </div>
   </section>
@@ -102,19 +102,35 @@ const differentiators = [
     </ol>
   </section>
 
-  <!-- WHAT MAKES IT DIFFERENT -->
+  <!-- THE GAP IT FILLS -->
   <section class="field field--ink" data-thread style="--thread-w: 8px;">
-    <p class="label section-kicker"><span class="accent">DIFFERENCE</span></p>
-    <h2 class="title section-title">Not a template generator</h2>
+    <p class="label section-kicker"><span class="accent">THE GAP IT FILLS</span></p>
+    <h2 class="title section-title">Your actual face and voice, on your schedule</h2>
     <div class="diff__grid">
-      {
-        differentiators.map((d) => (
-          <div class="diff__col">
-            <h3 class="diff__name">{d.name}</h3>
-            <p class="diff__text">{d.text}</p>
-          </div>
-        ))
-      }
+      <div class="diff__col">
+        <h3 class="diff__name">You, not an interpreter</h3>
+        <p class="diff__text">
+          Ghostwriters strip out the nuances that make you credible. Crucible works from your
+          exact words and your actual face on camera — no middleman filtering or sanitizing your
+          takes.
+        </p>
+      </div>
+      <div class="diff__col">
+        <h3 class="diff__name">Whenever inspiration hits</h3>
+        <p class="diff__text">
+          No scheduling calls with an account team. No waiting days for drafts. Open Crucible
+          when the idea is fresh — Tuesday night walk, Saturday morning coffee — and get content
+          back in minutes.
+        </p>
+      </div>
+      <div class="diff__col">
+        <h3 class="diff__name">Video + text, not just text</h3>
+        <p class="diff__text">
+          Ghostwriters deliver posts. Coaches deliver accountability. Neither delivers an edited,
+          captioned video with your face in it. Crucible does all three — because seeing a founder
+          actually speak builds 10x more trust than another text post.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -141,7 +157,7 @@ const differentiators = [
       <p class="pricing__terms label">EARLY ACCESS</p>
       <a class="button-primary" href={CRUCIBLE_APP_URL}>Get early access</a>
     </div>
-    <p class="pricing__closing">Record two minutes about your business. See what comes back.</p>
+    <p class="pricing__closing">For founders who want the tool directly. But the real point is how Alloy GTM approaches a problem.</p>
   </section>
 </Base>
 
