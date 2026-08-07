@@ -14,9 +14,9 @@ export const offers: Offer[] = [
     id: "crucible",
     name: "Crucible",
     terms: "Self-serve product",
-    body: "An AI content engine for founder-led marketing. Record two minutes about your business, get back an edited video and a week of on-brand posts.",
-    price: "From $19/mo",
-    cta: { label: "See Crucible", href: "/crucible/" },
+    body: "An AI content engine for founder-led marketing. Record two minutes about your business, get back an edited video and a week of on-brand posts. First project free.",
+    price: "$19/mo",
+    cta: { label: "Try Crucible", href: "https://trycrucible.com" },
   },
   {
     id: "teardown",

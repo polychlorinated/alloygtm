@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 
 // TODO: replace with the production Crucible application URL (open decision in PRODUCT.md)
-const CRUCIBLE_APP_URL = "https://app.crucible.example.com";
+const CRUCIBLE_APP_URL = "https://trycrucible.com";
 
 const steps = [
   {
@@ -13,7 +13,7 @@ const steps = [
   {
     n: "02",
     name: "Capture",
-    text: "Crucible suggests daily topic prompts based on your business. Record or upload directly in the app. Director Mode coaches you through A-roll and B-roll shooting so the footage is actually usable.",
+    text: "Two ways in. When you know what to say, Crucible suggests topic prompts and Director Mode coaches your A-roll and B-roll. When you're stuck, step into the Podcast Studio — an AI interviewer studies your brand profile, knowledge base, and research, then asks directed questions to pull the right take out of you. Record or upload directly in the app.",
   },
   {
     n: "03",
@@ -48,7 +48,7 @@ const steps = [
       across clients — and honestly, in myself.
     </p>
     <div class="hero__actions">
-      <a class="button-primary" href={CRUCIBLE_APP_URL}>Get early access — $19/mo</a>
+      <a class="button-primary" href={CRUCIBLE_APP_URL}>Start free — first project on us</a>
       <a class="link-secondary" href="#why-i-built-it">Why I built it →</a>
     </div>
   </section>
@@ -79,8 +79,11 @@ const steps = [
         prepare content. A ghostwriter won't edit video on top of the drafts.
       </p>
       <p class="prose-ink__point">
-        So I built Crucible to bridge that gap. Open it when inspiration hits, talk for ten minutes,
-        and get back an edited video and a week of posts — in your voice, using your actual words.
+        So I built Crucible to bridge that gap — two ways in. When inspiration hits, open it and
+        talk. When you're stuck staring at a blank screen, step into the Podcast Studio where an AI
+        interviewer, armed with your brand profile, knowledge base, and research, asks the questions
+        that unlock what you actually want to say. Either way, ten minutes gets you an edited video
+        and a week of posts — in your voice, using your actual words.
       </p>
     </div>
   </section>
@@ -116,11 +119,12 @@ const steps = [
         </p>
       </div>
       <div class="diff__col">
-        <h3 class="diff__name">Whenever inspiration hits</h3>
+        <h3 class="diff__name">Two ways in</h3>
         <p class="diff__text">
-          No scheduling calls with an account team. No waiting days for drafts. Open Crucible
-          when the idea is fresh — Tuesday night walk, Saturday morning coffee — and get content
-          back in minutes.
+          Got a take right now? Open Crucible and record. Blank screen? Step into the Podcast
+          Studio — an AI interviewer studies your material, then asks the same kind of questions
+          a ghostwriter or marketing hire would. It pulls the right content out of you without a
+          scheduled call or a retainer.
         </p>
       </div>
       <div class="diff__col">
@@ -151,13 +155,13 @@ const steps = [
   <!-- PRICING -->
   <section class="field field--ink" data-thread="hot" style="--thread-w: 12px;">
     <p class="label section-kicker"><span class="accent">PRICING</span></p>
-    <h2 class="title section-title">Early access</h2>
+    <h2 class="title section-title">Try it free</h2>
     <div class="pricing">
       <p class="pricing__price">$19<span class="pricing__per">/mo</span></p>
-      <p class="pricing__terms label">EARLY ACCESS</p>
-      <a class="button-primary" href={CRUCIBLE_APP_URL}>Get early access</a>
+      <p class="pricing__terms label">FIRST PROJECT FREE — ALL FEATURES, NO WATERMARKS</p>
+      <a class="button-primary" href={CRUCIBLE_APP_URL}>Start free</a>
     </div>
-    <p class="pricing__closing">For founders who want the tool directly. But the real point is how Alloy GTM approaches a problem.</p>
+    <p class="pricing__closing">One full project at no cost. See if it fits before you commit.</p>
   </section>
 </Base>
 
