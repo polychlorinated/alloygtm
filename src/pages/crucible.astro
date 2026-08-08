@@ -138,20 +138,6 @@ const steps = [
     </div>
   </section>
 
-  <!-- UNDER THE HOOD -->
-  <section class="field field--paper hood" data-thread style="--thread-w: 10px;">
-    <p class="label section-kicker"><span class="accent">TECHNICAL RECORD</span></p>
-    <h2 class="hood__title">Under the hood</h2>
-    <p class="hood__body">
-      React and Vite on Vercel. Fastify API with pg-boss workers running in Docker on Fly.io.
-      Supabase for Postgres, magic-link auth, and storage. Deepgram for transcription. Claude
-      orchestrated through tool-use schemas for editorial decisions, with Kimi and Gemini in the
-      pipeline. ffmpeg for rendering. A Python sidecar running librosa and spaCy for energy and
-      silence analysis that feeds the edit decisions. Expo companion app for capture.
-    </p>
-    <p class="hood__credit label">DESIGNED AND BUILT BY ALLOY GTM</p>
-  </section>
-
   <!-- PRICING -->
   <section class="field field--ink" data-thread="hot" style="--thread-w: 12px;">
     <p class="label section-kicker"><span class="accent">PRICING</span></p>
@@ -286,29 +272,6 @@ const steps = [
     margin: 0;
     color: var(--paper-muted);
     font-size: 0.9375rem;
-  }
-
-  /* Under the hood — understated, technical, secondary */
-  .hood__title {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.375rem;
-    text-transform: uppercase;
-    margin: 0 0 20px;
-  }
-
-  .hood__body {
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-    line-height: 1.7;
-    color: var(--ink-muted);
-    max-width: 78ch;
-    margin: 0 0 20px;
-  }
-
-  .hood__credit {
-    color: var(--ink-subtle);
-    margin: 0;
   }
 
   /* Pricing */
