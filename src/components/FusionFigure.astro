@@ -20,162 +20,135 @@ const {
 
   <svg
     class="fig__svg"
-    viewBox="0 0 800 500"
+    viewBox="0 0 800 460"
     role="img"
-    aria-label="Interactive GTM system architecture schematic showing debt recovery through strategy and tooling integration"
-    data-state="debt"
+    aria-label="Forge schematic: two metals — Alloy (Tools + Experience) and Client (Data + Team + Market) — melt via Diagnose and Build into a crucible, producing Scalable GTM System"
+    data-phase="0"
   >
     <defs>
-      <pattern id="fuse-hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
-        <rect width="7" height="7" fill="transparent"/>
-        <line x1="0" y1="0" x2="0" y2="7" stroke="#f06432" stroke-width="2"/>
+      <pattern id="metal-hatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+        <rect width="8" height="8" fill="transparent"/>
+        <line x1="0" y1="0" x2="0" y2="8" stroke="#071b24" stroke-width="1.5" opacity="0.25"/>
       </pattern>
-      <filter id="glow">
-        <feGaussianBlur stdDeviation="3" result="blur"/>
+      <pattern id="metal-hatch-orange" width="8" height="8" patternTransform="rotate(-30)" patternUnits="userSpaceOnUse">
+        <rect width="8" height="8" fill="transparent"/>
+        <line x1="0" y1="0" x2="0" y2="8" stroke="#f06432" stroke-width="2" opacity="0.3"/>
+      </pattern>
+      <pattern id="alloy-hatch" width="6" height="6" patternTransform="rotate(60)" patternUnits="userSpaceOnUse">
+        <rect width="6" height="6" fill="transparent"/>
+        <line x1="0" y1="0" x2="0" y2="6" stroke="#155eef" stroke-width="1.5" opacity="0.35"/>
+      </pattern>
+      <filter id="fire-glow">
+        <feGaussianBlur stdDeviation="4" result="blur"/>
         <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
       </filter>
     </defs>
 
-    <!-- background frame -->
-    <rect x="30" y="20" width="740" height="420" fill="var(--paper-bright, #fffdf7)" stroke="#c7d0d0" stroke-width="1" rx="2"/>
+    <!-- background -->
+    <rect x="20" y="20" width="760" height="420" fill="#fffdf7" stroke="#c7d0d0" stroke-width="1" rx="2"/>
 
-    <!-- grid lines -->
-    <g stroke="#e2e4da" stroke-width="0.5" opacity="0.6">
-      <line x1="30" y1="160" x2="770" y2="160"/>
-      <line x1="30" y1="300" x2="770" y2="300"/>
-      <line x1="400" y1="20" x2="400" y2="440"/>
-    </g>
-
-    <!-- ====== CONNECTING LINES ====== -->
-    <g class="connectors" fill="none" stroke-linecap="round">
-      <!-- INPUT → ENGINE -->
-      <path d="M190,120 L290,120" class="conn conn--lead" stroke-width="3"/>
-      <path d="M190,280 L290,200" class="conn conn--signal-c" stroke-width="2.5"/>
-      <path d="M190,280 L290,320" class="conn conn--signal-a" stroke-width="2.5"/>
-      <!-- ENGINE → OUTPUT -->
-      <path d="M430,120 L530,180" class="conn conn--crm-out" stroke-width="3"/>
-      <path d="M430,200 L530,220" class="conn conn--content-out" stroke-width="3"/>
-      <path d="M430,320 L530,260" class="conn conn--auto-out" stroke-width="2.5"/>
-      <!-- Alloy docking lines -->
-      <path d="M220,60 L300,100" class="conn conn--sa" stroke-width="2" stroke-dasharray="6 3" opacity="0"/>
-      <path d="M260,260 L300,260" class="conn conn--cu" stroke-width="2" stroke-dasharray="6 3" opacity="0"/>
-    </g>
-
-    <!-- ====== NODES ====== -->
-    <g class="nodes" font-family="DM Mono, monospace" font-size="11" letter-spacing="0.08em">
-
-      <!-- INPUT: LEADS -->
-      <rect x="90" y="96" width="100" height="48" rx="2" class="node-box node--lead" fill="#fffdf7" stroke="#c7d0d0" stroke-width="1.5"/>
-      <text x="140" y="118" text-anchor="middle" class="node-label" fill="#071b24">LEADS</text>
-      <text x="140" y="134" text-anchor="middle" class="node-sub" fill="#8ca0a7" font-size="9">Input</text>
-
-      <!-- INPUT: SIGNAL -->
-      <rect x="90" y="256" width="100" height="48" rx="2" class="node-box node--signal" fill="#fffdf7" stroke="#c7d0d0" stroke-width="1.5"/>
-      <text x="140" y="278" text-anchor="middle" class="node-label" fill="#071b24">SIGNAL</text>
-      <text x="140" y="294" text-anchor="middle" class="node-sub" fill="#8ca0a7" font-size="9">Input</text>
-
-      <!-- ENGINE: CRM -->
-      <rect x="300" y="96" width="130" height="48" rx="2" class="node-box node--crm" fill="#fffdf7" stroke="#c7d0d0" stroke-width="1.5"/>
-      <text x="365" y="118" text-anchor="middle" class="node-label" fill="#071b24">CRM</text>
-      <text x="365" y="134" text-anchor="middle" class="node-sub" fill="#8ca0a7" font-size="9">Engine</text>
-
-      <!-- ENGINE: CONTENT -->
-      <rect x="300" y="176" width="130" height="48" rx="2" class="node-box node--content" fill="#fffdf7" stroke="#c7d0d0" stroke-width="1.5"/>
-      <text x="365" y="198" text-anchor="middle" class="node-label" fill="#071b24">CONTENT</text>
-      <text x="365" y="214" text-anchor="middle" class="node-sub" fill="#8ca0a7" font-size="9">Engine</text>
-
-      <!-- ENGINE: AUTOMATION -->
-      <rect x="300" y="296" width="130" height="48" rx="2" class="node-box node--auto" fill="#fffdf7" stroke="#c7d0d0" stroke-width="1.5"/>
-      <text x="365" y="318" text-anchor="middle" class="node-label" fill="#071b24">AUTOMATION</text>
-      <text x="365" y="334" text-anchor="middle" class="node-sub" fill="#8ca0a7" font-size="9">Engine</text>
-
-      <!-- OUTPUT: REVENUE -->
-      <rect x="530" y="196" width="120" height="48" rx="2" class="node-box node--revenue" fill="#fffdf7" stroke="#071b24" stroke-width="2"/>
-      <text x="590" y="218" text-anchor="middle" class="node-label" fill="#071b24">REVENUE</text>
-      <text x="590" y="234" text-anchor="middle" class="node-sub" fill="#8ca0a7" font-size="9">Output</text>
-    </g>
-
-    <!-- ====== WARNING / STATUS BADGES ====== -->
-    <g class="badges" font-family="DM Mono, monospace" font-size="9" letter-spacing="0.06em">
-      <!-- CRM GRAVEYARD (attached to CRM node) -->
-      <g class="badge badge--crm-warn" transform="translate(305, 74)">
-        <rect x="0" y="0" width="135" height="20" rx="2" fill="#fff0e8" stroke="#f06432" stroke-width="1"/>
-        <text x="67" y="13" text-anchor="middle" fill="#b5431a">CRM GRAVEYARD</text>
-        <line x1="50" y1="20" x2="55" y2="28" stroke="#f06432" stroke-width="1"/>
-        <circle cx="55" cy="28" r="2" fill="#f06432"/>
-      </g>
-
-      <!-- FLYING BLIND (attached to SIGNAL node) -->
-      <g class="badge badge--signal-warn" transform="translate(95, 240)">
-        <rect x="0" y="0" width="115" height="20" rx="2" fill="#fff0e8" stroke="#f06432" stroke-width="1"/>
-        <text x="57" y="13" text-anchor="middle" fill="#b5431a">FLYING BLIND</text>
-        <line x1="40" y1="0" x2="45" y2="-6" stroke="#f06432" stroke-width="1"/>
-        <circle cx="45" cy="-6" r="2" fill="#f06432"/>
-      </g>
-
-      <!-- WRONG ICP (attached to CONTENT node) -->
-      <g class="badge badge--content-warn" transform="translate(305, 154)">
-        <rect x="0" y="0" width="100" height="20" rx="2" fill="#fff0e8" stroke="#f06432" stroke-width="1"/>
-        <text x="50" y="13" text-anchor="middle" fill="#b5431a">WRONG ICP</text>
-        <line x1="30" y1="20" x2="35" y2="28" stroke="#f06432" stroke-width="1"/>
-        <circle cx="35" cy="28" r="2" fill="#f06432"/>
-      </g>
-
-      <!-- ====== GREEN STATUS BADGES (hidden in debt state) ====== -->
-      <g class="badge badge--green badge--crm-ok" transform="translate(305, 74)" opacity="0">
-        <rect x="0" y="0" width="155" height="20" rx="2" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1"/>
-        <text x="77" y="13" text-anchor="middle" fill="#2e7d32">TRUSTED SYSTEM OF RECORD</text>
-        <line x1="50" y1="20" x2="55" y2="28" stroke="#2e7d32" stroke-width="1"/>
-        <circle cx="55" cy="28" r="2" fill="#2e7d32"/>
-      </g>
-
-      <g class="badge badge--green badge--signal-ok" transform="translate(95, 240)" opacity="0">
-        <rect x="0" y="0" width="130" height="20" rx="2" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1"/>
-        <text x="65" y="13" text-anchor="middle" fill="#2e7d32">LIVE SIGNAL CAPTURE</text>
-        <line x1="40" y1="0" x2="45" y2="-6" stroke="#2e7d32" stroke-width="1"/>
-        <circle cx="45" cy="-6" r="2" fill="#2e7d32"/>
-      </g>
-
-      <g class="badge badge--green badge--content-ok" transform="translate(305, 154)" opacity="0">
-        <rect x="0" y="0" width="140" height="20" rx="2" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1"/>
-        <text x="70" y="13" text-anchor="middle" fill="#2e7d32">AUTOMATED AUTHORITY</text>
-        <line x1="30" y1="20" x2="35" y2="28" stroke="#2e7d32" stroke-width="1"/>
-        <circle cx="35" cy="28" r="2" fill="#2e7d32"/>
+    <!-- ====== CRUCIBLE / FORGE VESSEL ====== -->
+    <g class="crucible">
+      <!-- bowl shape -->
+      <path d="M310,240 L490,240 L460,340 L340,340 Z" fill="#f2f2ec" stroke="#071b24" stroke-width="2.5" stroke-linejoin="round"/>
+      <!-- rim -->
+      <rect x="300" y="232" width="200" height="16" rx="3" fill="#cfdbdb" stroke="#071b24" stroke-width="2"/>
+      <!-- interior molten area (hidden initially) -->
+      <g class="crucible__melt" opacity="0">
+        <ellipse cx="400" cy="290" rx="60" ry="20" fill="#f06432" opacity="0.6"/>
+        <ellipse cx="400" cy="290" rx="45" ry="14" fill="#ff8a5c" opacity="0.5"/>
       </g>
     </g>
 
-    <!-- ====== ALLOY ELEMENTS (hidden in debt state) ====== -->
-    <g class="alloy-elements" opacity="0">
-      <!-- [Sa] Strategy Blueprint -->
-      <g transform="translate(170, 40)">
-        <rect x="0" y="0" width="60" height="36" rx="2" fill="#155eef" opacity="0.9"/>
-        <text x="12" y="16" font-family="DM Mono, monospace" font-size="10" font-weight="500" fill="#fff" letter-spacing="0.1em">Sa</text>
-        <text x="12" y="30" font-family="DM Mono, monospace" font-size="8" fill="#a0c4ff" letter-spacing="0.06em">STRATEGY</text>
+    <!-- ====== FIRE / FLAMES ====== -->
+    <g class="fire" opacity="0">
+      <!-- Diagnose flame (left) -->
+      <g filter="url(#fire-glow)">
+        <path d="M360,340 Q370,360 365,390 Q360,410 355,390 Q350,360 360,340" fill="#f06432" opacity="0.8">
+          <animate attributeName="d" dur="1.2s" repeatCount="indefinite" values="
+            M360,340 Q370,360 365,390 Q360,410 355,390 Q350,360 360,340;
+            M360,340 Q375,355 367,388 Q360,415 352,388 Q345,355 360,340;
+            M360,340 Q370,360 365,390 Q360,410 355,390 Q350,360 360,340
+          "/>
+        </path>
       </g>
+      <text x="362" y="420" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" letter-spacing="0.08em" fill="#b5431a">DIAGNOSE</text>
 
-      <!-- [Cu] Crucible -->
-      <g transform="translate(210, 240)">
-        <rect x="0" y="0" width="60" height="36" rx="2" fill="#f06432" opacity="0.9"/>
-        <text x="12" y="16" font-family="DM Mono, monospace" font-size="10" font-weight="500" fill="#fff" letter-spacing="0.1em">Cu</text>
-        <text x="12" y="30" font-family="DM Mono, monospace" font-size="8" fill="#ffccb0" letter-spacing="0.06em">CRUCIBLE</text>
+      <!-- Build flame (right) -->
+      <g filter="url(#fire-glow)">
+        <path d="M440,340 Q450,360 445,390 Q440,410 435,390 Q430,360 440,340" fill="#155eef" opacity="0.8">
+          <animate attributeName="d" dur="1.4s" repeatCount="indefinite" values="
+            M440,340 Q450,360 445,390 Q440,410 435,390 Q430,360 440,340;
+            M440,340 Q455,355 447,388 Q440,415 432,388 Q425,355 440,340;
+            M440,340 Q450,360 445,390 Q440,410 435,390 Q430,360 440,340
+          "/>
+        </path>
       </g>
+      <text x="440" y="420" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" letter-spacing="0.08em" fill="#155eef">BUILD</text>
     </g>
 
-    <!-- ====== PULSE DOT (optimized state) ====== -->
-    <g class="pulse-group" opacity="0">
-      <circle cx="590" cy="220" r="6" fill="#2e7d32" filter="url(#glow)">
-        <animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
-      </circle>
+    <!-- ====== ALLOY METAL (Tools + Experience) — left ====== -->
+    <g class="metal metal--alloy">
+      <rect x="60" y="160" width="130" height="110" rx="3" fill="url(#metal-hatch-orange)" stroke="#f06432" stroke-width="2.5"/>
+      <rect x="60" y="160" width="130" height="110" rx="3" fill="none" stroke="#071b24" stroke-width="1" opacity="0.3"/>
+      <line x1="60" y1="180" x2="190" y2="180" stroke="#071b24" stroke-width="0.5" opacity="0.15"/>
+      <line x1="60" y1="230" x2="190" y2="230" stroke="#071b24" stroke-width="0.5" opacity="0.15"/>
+      <text x="125" y="200" text-anchor="middle" font-family="DM Mono, monospace" font-size="12" font-weight="500" letter-spacing="0.08em" fill="#071b24">ALLOY</text>
+      <text x="125" y="222" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" letter-spacing="0.06em" fill="#68797f">TOOLS</text>
+      <text x="125" y="240" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" letter-spacing="0.06em" fill="#68797f">EXPERIENCE</text>
+      <text x="125" y="262" text-anchor="middle" font-family="DM Mono, monospace" font-size="8" fill="#8ca0a7" letter-spacing="0.06em">ELEMENT A</text>
     </g>
+
+    <!-- ====== CLIENT METAL (Data + Team + Market) — right ====== -->
+    <g class="metal metal--client">
+      <rect x="610" y="160" width="130" height="110" rx="3" fill="url(#metal-hatch)" stroke="#5a6c74" stroke-width="2.5"/>
+      <rect x="610" y="160" width="130" height="110" rx="3" fill="none" stroke="#071b24" stroke-width="1" opacity="0.3"/>
+      <line x1="610" y1="180" x2="740" y2="180" stroke="#071b24" stroke-width="0.5" opacity="0.15"/>
+      <line x1="610" y1="230" x2="740" y2="230" stroke="#071b24" stroke-width="0.5" opacity="0.15"/>
+      <text x="675" y="200" text-anchor="middle" font-family="DM Mono, monospace" font-size="12" font-weight="500" letter-spacing="0.08em" fill="#071b24">CLIENT</text>
+      <text x="675" y="220" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" letter-spacing="0.06em" fill="#68797f">DATA</text>
+      <text x="675" y="236" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" letter-spacing="0.06em" fill="#68797f">TEAM</text>
+      <text x="675" y="252" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" letter-spacing="0.06em" fill="#68797f">MARKET</text>
+      <text x="675" y="268" text-anchor="middle" font-family="DM Mono, monospace" font-size="8" fill="#8ca0a7" letter-spacing="0.06em">ELEMENT B</text>
+    </g>
+
+    <!-- ====== MOLTEN DRIPS (hidden initially) ====== -->
+    <g class="drips" opacity="0">
+      <!-- alloy drips -->
+      <circle cx="180" cy="280" r="4" fill="#f06432" opacity="0.7"/>
+      <circle cx="220" cy="300" r="5" fill="#f06432" opacity="0.8"/>
+      <circle cx="200" cy="260" r="3" fill="#f06432" opacity="0.5"/>
+      <!-- client drips -->
+      <circle cx="620" cy="280" r="4" fill="#5a6c74" opacity="0.7"/>
+      <circle cx="580" cy="300" r="5" fill="#5a6c74" opacity="0.8"/>
+      <circle cx="600" cy="260" r="3" fill="#5a6c74" opacity="0.5"/>
+    </g>
+
+    <!-- ====== FLOW ARROWS FROM METALS TO CRUCIBLE ====== -->
+    <g class="flow-arrows" opacity="0">
+      <!-- alloy → crucible -->
+      <path d="M190,215 L250,240" fill="none" stroke="#f06432" stroke-width="2" stroke-dasharray="4 3"/>
+      <polygon points="255,238 248,244 252,236" fill="#f06432"/>
+      <!-- client → crucible -->
+      <path d="M610,215 L550,240" fill="none" stroke="#5a6c74" stroke-width="2" stroke-dasharray="4 3"/>
+      <polygon points="545,238 548,236 552,244" fill="#5a6c74"/>
+    </g>
+
+    <!-- ====== ALLOY OUTPUT (hidden initially) ====== -->
+    <g class="alloy-output" opacity="0">
+      <!-- spout stream -->
+      <path d="M400,340 L400,370" stroke="#155eef" stroke-width="3" opacity="0.7"/>
+      <!-- output block -->
+      <rect x="310" y="374" width="180" height="50" rx="3" fill="url(#alloy-hatch)" stroke="#155eef" stroke-width="2.5"/>
+      <rect x="310" y="374" width="180" height="50" rx="3" fill="none" stroke="#071b24" stroke-width="1" opacity="0.3"/>
+      <text x="400" y="394" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" font-weight="500" letter-spacing="0.06em" fill="#071b24">SCALABLE GTM</text>
+      <text x="400" y="412" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" font-weight="500" letter-spacing="0.06em" fill="#071b24">SYSTEM</text>
+      <text x="400" y="444" text-anchor="middle" font-family="DM Mono, monospace" font-size="8" fill="#155eef" letter-spacing="0.06em">THE ALLOY</text>
+    </g>
+
+    <!-- ====== PHASE LABEL (bottom) ====== -->
+    <text x="400" y="16" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" letter-spacing="0.12em" fill="#8ca0a7" class="phase-label">ELEMENTS A + B — SOLID</text>
   </svg>
-
-  <!-- Slider -->
-  <div class="fig__slider">
-    <span class="fig__slider-label label">Tooling</span>
-    <input type="range" class="fig__slider-input" min="0" max="100" value="50" data-composition-slider aria-label="Adjust tooling to strategy ratio"/>
-    <span class="fig__slider-label label">Strategy</span>
-  </div>
 
   <p class="fig__caption">{caption}</p>
 </figure>
@@ -220,183 +193,96 @@ const {
     max-width: 52ch;
   }
 
-  /* ---------- Slider ---------- */
-  .fig__slider {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 0 0;
-    margin-bottom: 8px;
-    border-top: 1px solid var(--rule-light);
+  /* Phase transitions */
+  .fire,
+  .drips,
+  .flow-arrows,
+  .crucible__melt,
+  .alloy-output {
+    transition: opacity 800ms ease;
   }
 
-  .fig__slider-label {
-    color: var(--ink-muted);
-    white-space: nowrap;
-  }
-
-  .fig__slider-input {
-    flex: 1;
-    -webkit-appearance: none;
-    appearance: none;
-    height: 4px;
-    background: var(--rule-light);
-    border-radius: 0;
-    outline: none;
-  }
-
-  .fig__slider-input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    border-radius: 2px;
-    background: var(--reaction-orange);
-    cursor: pointer;
-    border: none;
-  }
-
-  .fig__slider-input::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
-    border-radius: 2px;
-    background: var(--reaction-orange);
-    cursor: pointer;
-    border: none;
-  }
-
-  /* ---------- Connector lines ---------- */
-  .conn {
-    transition: stroke 600ms ease, stroke-dashoffset 800ms ease, opacity 600ms ease;
-  }
-
-  /* State 1 — debt: fragmented, orange */
-  [data-state="debt"] .conn {
-    stroke: #f06432;
-    stroke-dasharray: 8 6;
-  }
-  [data-state="debt"] .conn--lead,
-  [data-state="debt"] .conn--crm-out,
-  [data-state="debt"] .conn--content-out {
-    stroke-width: 2.5;
-  }
-  [data-state="debt"] .conn--signal-c,
-  [data-state="debt"] .conn--signal-a,
-  [data-state="debt"] .conn--auto-out {
-    stroke-width: 2;
-    stroke-dasharray: 4 8;
-  }
-
-  /* State 2 — integrating: blue, solidifying */
-  [data-state="integrating"] .conn {
-    stroke: #155eef;
-    stroke-dasharray: 4 4;
-  }
-  [data-state="integrating"] .conn--sa,
-  [data-state="integrating"] .conn--cu {
+  [data-phase="1"] .fire {
     opacity: 1;
-    stroke: #155eef;
   }
 
-  /* State 3 — optimized: green, solid */
-  [data-state="optimized"] .conn {
-    stroke: #2e7d32;
-    stroke-dasharray: none;
-    stroke-width: 3;
+  [data-phase="1"] .metal--alloy {
+    opacity: 0.5;
+    transition: opacity 1200ms ease;
   }
 
-  /* ---------- Warning badges ---------- */
-  .badge {
+  [data-phase="1"] .drips {
+    opacity: 1;
+  }
+
+  [data-phase="2"] .fire {
+    opacity: 1;
+  }
+
+  [data-phase="2"] .metal--alloy {
+    opacity: 0.2;
+  }
+
+  [data-phase="2"] .metal--client {
+    opacity: 0.5;
+    transition: opacity 1200ms ease;
+  }
+
+  [data-phase="2"] .drips {
+    opacity: 1;
+  }
+
+  [data-phase="2"] .flow-arrows {
+    opacity: 1;
+  }
+
+  [data-phase="3"] .fire {
+    opacity: 1;
+  }
+
+  [data-phase="3"] .metal--alloy,
+  [data-phase="3"] .metal--client {
+    opacity: 0.1;
+  }
+
+  [data-phase="3"] .drips {
+    opacity: 0;
     transition: opacity 500ms ease;
   }
 
-  [data-state="optimized"] .badge--crm-warn,
-  [data-state="optimized"] .badge--signal-warn,
-  [data-state="optimized"] .badge--content-warn {
-    opacity: 0;
-  }
-
-  [data-state="optimized"] .badge--green {
+  [data-phase="3"] .flow-arrows {
     opacity: 1;
   }
 
-  /* ---------- Alloy elements ---------- */
-  .alloy-elements {
-    transition: opacity 500ms ease 300ms;
-  }
-
-  [data-state="integrating"] .alloy-elements,
-  [data-state="optimized"] .alloy-elements {
+  [data-phase="3"] .crucible__melt {
     opacity: 1;
+    transition: opacity 1000ms ease 400ms;
   }
 
-  /* ---------- Pulse ---------- */
-  .pulse-group {
-    transition: opacity 500ms ease 600ms;
-  }
-
-  [data-state="optimized"] .pulse-group {
+  [data-phase="3"] .alloy-output {
     opacity: 1;
-  }
-
-  /* ---------- Node borders ---------- */
-  .node-box {
-    transition: stroke 600ms ease, fill 400ms ease;
-  }
-
-  [data-state="optimized"] .node--revenue {
-    stroke: #2e7d32;
-    fill: #f0faf0;
+    transition: opacity 1000ms ease 800ms;
   }
 </style>
 
 <script>
   const figure = document.querySelector("[data-fusion-figure]") as HTMLElement;
   const svg = figure?.querySelector(".fig__svg") as SVGElement;
-  const slider = figure?.querySelector("[data-composition-slider]") as HTMLInputElement;
+  const label = svg?.querySelector(".phase-label") as SVGTextElement;
 
-  if (svg) {
-    const states = ["debt", "integrating", "optimized"] as const;
+  if (svg && label) {
+    const phases = [
+      { phase: "0", label: "ELEMENTS A + B — SOLID" },
+      { phase: "1", label: "PHASE 1 — ALLOY MELTING (DIAGNOSE + BUILD)" },
+      { phase: "2", label: "PHASE 2 — CLIENT MELTING" },
+      { phase: "3", label: "PHASE 3 — ALLOY FORMED: SCALABLE GTM SYSTEM" },
+    ];
     let idx = 0;
 
-    function nextState() {
-      idx = (idx + 1) % states.length;
-      svg!.setAttribute("data-state", states[idx]);
-    }
-
-    svg.addEventListener("click", nextState);
-
-    // Auto-advance to integrating when scrolled into view
-    let advanced = false;
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && !advanced) {
-        advanced = true;
-        setTimeout(() => {
-          if (svg!.getAttribute("data-state") === "debt") {
-            svg!.setAttribute("data-state", "integrating");
-            idx = 1;
-          }
-        }, 800);
-      }
-    }, { threshold: 0.6 });
-    observer.observe(svg);
-  }
-
-  // Composition slider adjusts the [Sa] vs [Cu] prominence
-  if (slider && svg) {
-    slider.addEventListener("input", () => {
-      const v = parseInt(slider.value);
-      const saEl = svg.querySelector(".alloy-elements g:first-child") as SVGGElement;
-      const cuEl = svg.querySelector(".alloy-elements g:last-child") as SVGGElement;
-      if (saEl && cuEl) {
-        const toolingPct = v / 100;
-        saEl.style.opacity = String(1 - toolingPct * 0.6);
-        cuEl.style.opacity = String(0.4 + toolingPct * 0.6);
-        saEl.style.transform = `scale(${0.8 + toolingPct * 0.4})`;
-        cuEl.style.transform = `scale(${1.2 - toolingPct * 0.4})`;
-        saEl.style.transformOrigin = "top left";
-        cuEl.style.transformOrigin = "top left";
-      }
+    svg.addEventListener("click", () => {
+      idx = (idx + 1) % phases.length;
+      svg.setAttribute("data-phase", phases[idx].phase);
+      label.textContent = phases[idx].label;
     });
   }
 </script>
