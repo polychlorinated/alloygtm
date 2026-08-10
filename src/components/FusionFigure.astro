@@ -7,80 +7,181 @@ interface Props {
 
 const {
   id = "FIG. 1",
-  title = "FUSION — DIAGNOSIS + BUILD → WORKING SYSTEM",
-  caption = "Diagnosis fused with build.",
+  title = "SCHEMATIC — GTM DEBT RECOVERY VIA TECHNICAL SYNTHESIS",
+  caption = "Integrating GTM architecture with custom tooling to eliminate friction across your revenue stack.",
 } = Astro.props;
 ---
 
-<figure class="figure">
-  <figcaption class="figure__title label">
-    <span class="figure__id">{id}</span>
+<figure class="fig" data-fusion-figure>
+  <figcaption class="fig__title label">
+    <span class="fig__id">{id}</span>
     <span>{title}</span>
   </figcaption>
 
-  <svg viewBox="0 0 560 400" role="img" aria-label="Fusion diagram: two input lines labeled diagnosis and build converge at a reaction node and emerge as a single thicker line labeled working revenue system">
+  <svg
+    class="fig__svg"
+    viewBox="0 0 800 500"
+    role="img"
+    aria-label="Interactive GTM system architecture schematic showing debt recovery through strategy and tooling integration"
+    data-state="debt"
+  >
     <defs>
       <pattern id="fuse-hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
-        <rect width="7" height="7" fill="transparent"></rect>
-        <line x1="0" y1="0" x2="0" y2="7" stroke="#f06432" stroke-width="2"></line>
+        <rect width="7" height="7" fill="transparent"/>
+        <line x1="0" y1="0" x2="0" y2="7" stroke="#f06432" stroke-width="2"/>
       </pattern>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="3" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
     </defs>
 
-    <!-- frame & grid -->
-    <rect x="40" y="56" width="496" height="288" fill="#fffdf7" stroke="#c7d0d0" stroke-width="1"></rect>
-    <g stroke="#e2e4da" stroke-width="1">
-      <line x1="40" y1="128" x2="536" y2="128"></line>
-      <line x1="40" y1="200" x2="536" y2="200"></line>
-      <line x1="40" y1="272" x2="536" y2="272"></line>
-      <line x1="288" y1="56" x2="288" y2="344"></line>
+    <!-- background frame -->
+    <rect x="30" y="20" width="740" height="420" fill="var(--paper-bright, #fffdf7)" stroke="#c7d0d0" stroke-width="1" rx="2"/>
+
+    <!-- grid lines -->
+    <g stroke="#e2e4da" stroke-width="0.5" opacity="0.6">
+      <line x1="30" y1="160" x2="770" y2="160"/>
+      <line x1="30" y1="300" x2="770" y2="300"/>
+      <line x1="400" y1="20" x2="400" y2="440"/>
     </g>
 
-    <!-- input: diagnosis (measured) -->
-    <path
-      d="M56,140 C120,132 180,160 232,176 C258,184 272,190 288,196"
-      fill="none"
-      stroke="#155eef"
-      stroke-width="3.5"
-      stroke-linecap="round"></path>
+    <!-- ====== CONNECTING LINES ====== -->
+    <g class="connectors" fill="none" stroke-linecap="round">
+      <!-- INPUT → ENGINE -->
+      <path d="M190,120 L290,120" class="conn conn--lead" stroke-width="3"/>
+      <path d="M190,280 L290,200" class="conn conn--signal-c" stroke-width="2.5"/>
+      <path d="M190,280 L290,320" class="conn conn--signal-a" stroke-width="2.5"/>
+      <!-- ENGINE → OUTPUT -->
+      <path d="M430,120 L530,180" class="conn conn--crm-out" stroke-width="3"/>
+      <path d="M430,200 L530,220" class="conn conn--content-out" stroke-width="3"/>
+      <path d="M430,320 L530,260" class="conn conn--auto-out" stroke-width="2.5"/>
+      <!-- Alloy docking lines -->
+      <path d="M220,60 L300,100" class="conn conn--sa" stroke-width="2" stroke-dasharray="6 3" opacity="0"/>
+      <path d="M260,260 L300,260" class="conn conn--cu" stroke-width="2" stroke-dasharray="6 3" opacity="0"/>
+    </g>
 
-    <!-- input: build (execution) -->
-    <path
-      d="M56,260 C120,268 180,240 232,224 C258,216 272,210 288,204"
-      fill="none"
-      stroke="#8ca0a7"
-      stroke-width="3.5"
-      stroke-linecap="round"></path>
+    <!-- ====== NODES ====== -->
+    <g class="nodes" font-family="DM Mono, monospace" font-size="11" letter-spacing="0.08em">
 
-    <!-- fusion zone -->
-    <path d="M288,168 L352,200 L288,232 Z" fill="url(#fuse-hatch)" opacity="0.85"></path>
+      <!-- INPUT: LEADS -->
+      <rect x="90" y="96" width="100" height="48" rx="2" class="node-box node--lead" fill="#fffdf7" stroke="#c7d0d0" stroke-width="1.5"/>
+      <text x="140" y="118" text-anchor="middle" class="node-label" fill="#071b24">LEADS</text>
+      <text x="140" y="134" text-anchor="middle" class="node-sub" fill="#8ca0a7" font-size="9">Input</text>
 
-    <!-- output: working system (thicker) -->
-    <path
-      d="M288,200 C360,200 440,198 520,196"
-      fill="none"
-      stroke="#071b24"
-      stroke-width="9"
-      stroke-linecap="round"></path>
+      <!-- INPUT: SIGNAL -->
+      <rect x="90" y="256" width="100" height="48" rx="2" class="node-box node--signal" fill="#fffdf7" stroke="#c7d0d0" stroke-width="1.5"/>
+      <text x="140" y="278" text-anchor="middle" class="node-label" fill="#071b24">SIGNAL</text>
+      <text x="140" y="294" text-anchor="middle" class="node-sub" fill="#8ca0a7" font-size="9">Input</text>
 
-    <!-- fusion node -->
-    <circle cx="288" cy="200" r="10" fill="#f06432"></circle>
+      <!-- ENGINE: CRM -->
+      <rect x="300" y="96" width="130" height="48" rx="2" class="node-box node--crm" fill="#fffdf7" stroke="#c7d0d0" stroke-width="1.5"/>
+      <text x="365" y="118" text-anchor="middle" class="node-label" fill="#071b24">CRM</text>
+      <text x="365" y="134" text-anchor="middle" class="node-sub" fill="#8ca0a7" font-size="9">Engine</text>
 
-    <!-- labels -->
-    <text x="56" y="122" font-family="DM Mono, monospace" font-size="11" letter-spacing="1" fill="#155eef">DIAGNOSIS</text>
-    <text x="56" y="290" font-family="DM Mono, monospace" font-size="11" letter-spacing="1" fill="#68797f">BUILD</text>
-    <text x="288" y="158" text-anchor="middle" font-family="DM Mono, monospace" font-size="11" letter-spacing="1" fill="#b5431a">FUSION</text>
-    <text x="520" y="178" text-anchor="end" font-family="DM Mono, monospace" font-size="11" letter-spacing="1" fill="#071b24">WORKING REVENUE SYSTEM</text>
+      <!-- ENGINE: CONTENT -->
+      <rect x="300" y="176" width="130" height="48" rx="2" class="node-box node--content" fill="#fffdf7" stroke="#c7d0d0" stroke-width="1.5"/>
+      <text x="365" y="198" text-anchor="middle" class="node-label" fill="#071b24">CONTENT</text>
+      <text x="365" y="214" text-anchor="middle" class="node-sub" fill="#8ca0a7" font-size="9">Engine</text>
 
-    <!-- axis -->
-    <text x="40" y="376" font-family="DM Mono, monospace" font-size="10" letter-spacing="1.5" fill="#68797f">ELEMENTS</text>
-    <text x="536" y="376" text-anchor="end" font-family="DM Mono, monospace" font-size="10" letter-spacing="1.5" fill="#68797f">ALLOY →</text>
+      <!-- ENGINE: AUTOMATION -->
+      <rect x="300" y="296" width="130" height="48" rx="2" class="node-box node--auto" fill="#fffdf7" stroke="#c7d0d0" stroke-width="1.5"/>
+      <text x="365" y="318" text-anchor="middle" class="node-label" fill="#071b24">AUTOMATION</text>
+      <text x="365" y="334" text-anchor="middle" class="node-sub" fill="#8ca0a7" font-size="9">Engine</text>
+
+      <!-- OUTPUT: REVENUE -->
+      <rect x="530" y="196" width="120" height="48" rx="2" class="node-box node--revenue" fill="#fffdf7" stroke="#071b24" stroke-width="2"/>
+      <text x="590" y="218" text-anchor="middle" class="node-label" fill="#071b24">REVENUE</text>
+      <text x="590" y="234" text-anchor="middle" class="node-sub" fill="#8ca0a7" font-size="9">Output</text>
+    </g>
+
+    <!-- ====== WARNING / STATUS BADGES ====== -->
+    <g class="badges" font-family="DM Mono, monospace" font-size="9" letter-spacing="0.06em">
+      <!-- CRM GRAVEYARD (attached to CRM node) -->
+      <g class="badge badge--crm-warn" transform="translate(305, 74)">
+        <rect x="0" y="0" width="135" height="20" rx="2" fill="#fff0e8" stroke="#f06432" stroke-width="1"/>
+        <text x="67" y="13" text-anchor="middle" fill="#b5431a">CRM GRAVEYARD</text>
+        <line x1="50" y1="20" x2="55" y2="28" stroke="#f06432" stroke-width="1"/>
+        <circle cx="55" cy="28" r="2" fill="#f06432"/>
+      </g>
+
+      <!-- FLYING BLIND (attached to SIGNAL node) -->
+      <g class="badge badge--signal-warn" transform="translate(95, 240)">
+        <rect x="0" y="0" width="115" height="20" rx="2" fill="#fff0e8" stroke="#f06432" stroke-width="1"/>
+        <text x="57" y="13" text-anchor="middle" fill="#b5431a">FLYING BLIND</text>
+        <line x1="40" y1="0" x2="45" y2="-6" stroke="#f06432" stroke-width="1"/>
+        <circle cx="45" cy="-6" r="2" fill="#f06432"/>
+      </g>
+
+      <!-- WRONG ICP (attached to CONTENT node) -->
+      <g class="badge badge--content-warn" transform="translate(305, 154)">
+        <rect x="0" y="0" width="100" height="20" rx="2" fill="#fff0e8" stroke="#f06432" stroke-width="1"/>
+        <text x="50" y="13" text-anchor="middle" fill="#b5431a">WRONG ICP</text>
+        <line x1="30" y1="20" x2="35" y2="28" stroke="#f06432" stroke-width="1"/>
+        <circle cx="35" cy="28" r="2" fill="#f06432"/>
+      </g>
+
+      <!-- ====== GREEN STATUS BADGES (hidden in debt state) ====== -->
+      <g class="badge badge--green badge--crm-ok" transform="translate(305, 74)" opacity="0">
+        <rect x="0" y="0" width="155" height="20" rx="2" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1"/>
+        <text x="77" y="13" text-anchor="middle" fill="#2e7d32">TRUSTED SYSTEM OF RECORD</text>
+        <line x1="50" y1="20" x2="55" y2="28" stroke="#2e7d32" stroke-width="1"/>
+        <circle cx="55" cy="28" r="2" fill="#2e7d32"/>
+      </g>
+
+      <g class="badge badge--green badge--signal-ok" transform="translate(95, 240)" opacity="0">
+        <rect x="0" y="0" width="130" height="20" rx="2" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1"/>
+        <text x="65" y="13" text-anchor="middle" fill="#2e7d32">LIVE SIGNAL CAPTURE</text>
+        <line x1="40" y1="0" x2="45" y2="-6" stroke="#2e7d32" stroke-width="1"/>
+        <circle cx="45" cy="-6" r="2" fill="#2e7d32"/>
+      </g>
+
+      <g class="badge badge--green badge--content-ok" transform="translate(305, 154)" opacity="0">
+        <rect x="0" y="0" width="140" height="20" rx="2" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1"/>
+        <text x="70" y="13" text-anchor="middle" fill="#2e7d32">AUTOMATED AUTHORITY</text>
+        <line x1="30" y1="20" x2="35" y2="28" stroke="#2e7d32" stroke-width="1"/>
+        <circle cx="35" cy="28" r="2" fill="#2e7d32"/>
+      </g>
+    </g>
+
+    <!-- ====== ALLOY ELEMENTS (hidden in debt state) ====== -->
+    <g class="alloy-elements" opacity="0">
+      <!-- [Sa] Strategy Blueprint -->
+      <g transform="translate(170, 40)">
+        <rect x="0" y="0" width="60" height="36" rx="2" fill="#155eef" opacity="0.9"/>
+        <text x="12" y="16" font-family="DM Mono, monospace" font-size="10" font-weight="500" fill="#fff" letter-spacing="0.1em">Sa</text>
+        <text x="12" y="30" font-family="DM Mono, monospace" font-size="8" fill="#a0c4ff" letter-spacing="0.06em">STRATEGY</text>
+      </g>
+
+      <!-- [Cu] Crucible -->
+      <g transform="translate(210, 240)">
+        <rect x="0" y="0" width="60" height="36" rx="2" fill="#f06432" opacity="0.9"/>
+        <text x="12" y="16" font-family="DM Mono, monospace" font-size="10" font-weight="500" fill="#fff" letter-spacing="0.1em">Cu</text>
+        <text x="12" y="30" font-family="DM Mono, monospace" font-size="8" fill="#ffccb0" letter-spacing="0.06em">CRUCIBLE</text>
+      </g>
+    </g>
+
+    <!-- ====== PULSE DOT (optimized state) ====== -->
+    <g class="pulse-group" opacity="0">
+      <circle cx="590" cy="220" r="6" fill="#2e7d32" filter="url(#glow)">
+        <animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
   </svg>
 
-  <p class="figure__caption">{caption}</p>
+  <!-- Slider -->
+  <div class="fig__slider">
+    <span class="fig__slider-label label">Tooling</span>
+    <input type="range" class="fig__slider-input" min="0" max="100" value="50" data-composition-slider aria-label="Adjust tooling to strategy ratio"/>
+    <span class="fig__slider-label label">Strategy</span>
+  </div>
+
+  <p class="fig__caption">{caption}</p>
 </figure>
 
 <style>
-  .figure {
+  .fig {
     margin: 0;
     background: var(--paper-bright);
     border: 1px solid var(--rule-light);
@@ -89,7 +190,7 @@ const {
     box-shadow: 10px 12px 0 rgba(7, 27, 36, 0.14);
   }
 
-  .figure__title {
+  .fig__title {
     display: flex;
     gap: 12px;
     align-items: baseline;
@@ -99,16 +200,203 @@ const {
     color: var(--ink);
   }
 
-  .figure__id {
+  .fig__id {
     color: var(--reaction-orange-ink);
     white-space: nowrap;
   }
 
-  .figure__caption {
+  .fig__svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
+
+  .fig__caption {
     margin: 12px 0 0;
     font-size: 0.875rem;
     line-height: 1.5;
     color: var(--ink-subtle);
     max-width: 52ch;
   }
+
+  /* ---------- Slider ---------- */
+  .fig__slider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0 0;
+    margin-bottom: 8px;
+    border-top: 1px solid var(--rule-light);
+  }
+
+  .fig__slider-label {
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+
+  .fig__slider-input {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: var(--rule-light);
+    border-radius: 0;
+    outline: none;
+  }
+
+  .fig__slider-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    background: var(--reaction-orange);
+    cursor: pointer;
+    border: none;
+  }
+
+  .fig__slider-input::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    background: var(--reaction-orange);
+    cursor: pointer;
+    border: none;
+  }
+
+  /* ---------- Connector lines ---------- */
+  .conn {
+    transition: stroke 600ms ease, stroke-dashoffset 800ms ease, opacity 600ms ease;
+  }
+
+  /* State 1 — debt: fragmented, orange */
+  [data-state="debt"] .conn {
+    stroke: #f06432;
+    stroke-dasharray: 8 6;
+  }
+  [data-state="debt"] .conn--lead,
+  [data-state="debt"] .conn--crm-out,
+  [data-state="debt"] .conn--content-out {
+    stroke-width: 2.5;
+  }
+  [data-state="debt"] .conn--signal-c,
+  [data-state="debt"] .conn--signal-a,
+  [data-state="debt"] .conn--auto-out {
+    stroke-width: 2;
+    stroke-dasharray: 4 8;
+  }
+
+  /* State 2 — integrating: blue, solidifying */
+  [data-state="integrating"] .conn {
+    stroke: #155eef;
+    stroke-dasharray: 4 4;
+  }
+  [data-state="integrating"] .conn--sa,
+  [data-state="integrating"] .conn--cu {
+    opacity: 1;
+    stroke: #155eef;
+  }
+
+  /* State 3 — optimized: green, solid */
+  [data-state="optimized"] .conn {
+    stroke: #2e7d32;
+    stroke-dasharray: none;
+    stroke-width: 3;
+  }
+
+  /* ---------- Warning badges ---------- */
+  .badge {
+    transition: opacity 500ms ease;
+  }
+
+  [data-state="optimized"] .badge--crm-warn,
+  [data-state="optimized"] .badge--signal-warn,
+  [data-state="optimized"] .badge--content-warn {
+    opacity: 0;
+  }
+
+  [data-state="optimized"] .badge--green {
+    opacity: 1;
+  }
+
+  /* ---------- Alloy elements ---------- */
+  .alloy-elements {
+    transition: opacity 500ms ease 300ms;
+  }
+
+  [data-state="integrating"] .alloy-elements,
+  [data-state="optimized"] .alloy-elements {
+    opacity: 1;
+  }
+
+  /* ---------- Pulse ---------- */
+  .pulse-group {
+    transition: opacity 500ms ease 600ms;
+  }
+
+  [data-state="optimized"] .pulse-group {
+    opacity: 1;
+  }
+
+  /* ---------- Node borders ---------- */
+  .node-box {
+    transition: stroke 600ms ease, fill 400ms ease;
+  }
+
+  [data-state="optimized"] .node--revenue {
+    stroke: #2e7d32;
+    fill: #f0faf0;
+  }
 </style>
+
+<script>
+  const figure = document.querySelector("[data-fusion-figure]") as HTMLElement;
+  const svg = figure?.querySelector(".fig__svg") as SVGElement;
+  const slider = figure?.querySelector("[data-composition-slider]") as HTMLInputElement;
+
+  if (svg) {
+    const states = ["debt", "integrating", "optimized"] as const;
+    let idx = 0;
+
+    function nextState() {
+      idx = (idx + 1) % states.length;
+      svg!.setAttribute("data-state", states[idx]);
+    }
+
+    svg.addEventListener("click", nextState);
+
+    // Auto-advance to integrating when scrolled into view
+    let advanced = false;
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !advanced) {
+        advanced = true;
+        setTimeout(() => {
+          if (svg!.getAttribute("data-state") === "debt") {
+            svg!.setAttribute("data-state", "integrating");
+            idx = 1;
+          }
+        }, 800);
+      }
+    }, { threshold: 0.6 });
+    observer.observe(svg);
+  }
+
+  // Composition slider adjusts the [Sa] vs [Cu] prominence
+  if (slider && svg) {
+    slider.addEventListener("input", () => {
+      const v = parseInt(slider.value);
+      const saEl = svg.querySelector(".alloy-elements g:first-child") as SVGGElement;
+      const cuEl = svg.querySelector(".alloy-elements g:last-child") as SVGGElement;
+      if (saEl && cuEl) {
+        const toolingPct = v / 100;
+        saEl.style.opacity = String(1 - toolingPct * 0.6);
+        cuEl.style.opacity = String(0.4 + toolingPct * 0.6);
+        saEl.style.transform = `scale(${0.8 + toolingPct * 0.4})`;
+        cuEl.style.transform = `scale(${1.2 - toolingPct * 0.4})`;
+        saEl.style.transformOrigin = "top left";
+        cuEl.style.transformOrigin = "top left";
+      }
+    });
+  }
+</script>

@@ -62,6 +62,8 @@ const logoAlt = "Alloy GTM home";
     </div>
 
     <main id="content">
+      <div class="reaction-line"></div>
+      <div class="reaction-dot" id="reaction-dot"></div>
       <slot />
     </main>
 
@@ -94,6 +96,23 @@ const logoAlt = "Alloy GTM home";
         toggle.setAttribute("aria-label", open ? "Open menu" : "Close menu");
         if (menu) menu.hidden = open;
       });
+
+      const dot = document.getElementById("reaction-dot");
+      const main = document.querySelector("main");
+      const navH = 64;
+
+      function updateDot() {
+        const mainRect = main.getBoundingClientRect();
+        const viewH = window.innerHeight;
+        const total = mainRect.height - viewH;
+        const scrolled = -mainRect.top;
+        const progress = Math.min(Math.max(scrolled / total, 0), 1);
+        const range = viewH - navH - 32;
+        dot.style.top = navH + range * progress + "px";
+      }
+
+      window.addEventListener("scroll", updateDot, { passive: true });
+      updateDot();
     </script>
   </body>
 </html>

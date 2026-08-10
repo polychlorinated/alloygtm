@@ -120,7 +120,7 @@ a {
   max-width: 68ch;
 }
 
-/* ---------- Fields (paper / ink) threaded by the reaction path ---------- */
+/* ---------- Fields (paper / ink) ---------- */
 
 .field {
   position: relative;
@@ -131,45 +131,53 @@ a {
   background: var(--paper);
   color: var(--ink);
   --rule: var(--rule-light);
-  --thread: var(--rule-dark);
 }
 
 .field--ink {
   background: var(--ink);
   color: var(--paper);
   --rule: var(--rule-dark);
-  --thread: var(--rule-dark);
 }
 
-/* The continuous reaction path: a gutter line that gains weight as
-   ownership accumulates down the page. Wide screens only. */
+/* Wide-screen left rail offset (preserved for layout, line handled globally) */
 @media (min-width: 1100px) {
   .field[data-thread] {
     padding-left: calc(var(--rail) + var(--gutter));
   }
-  .field[data-thread]::before {
-    content: "";
-    position: absolute;
-    left: var(--rail);
-    top: 0;
-    bottom: 0;
-    width: var(--thread-w, 2px);
-    background: var(--thread);
+}
+
+/* ---------- Reaction path (fixed line + scroll-driven dot) ---------- */
+
+.reaction-line {
+  position: fixed;
+  left: var(--rail);
+  top: 64px;
+  bottom: 0;
+  width: 2px;
+  background: var(--rule-dark);
+  z-index: 1;
+  pointer-events: none;
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .reaction-line {
+    display: block;
   }
-  .field[data-thread]::after {
-    content: "";
-    position: absolute;
-    left: calc(var(--rail) + (var(--thread-w, 2px) / 2));
-    top: var(--space-section);
-    translate: -50% 0;
-    width: 12px;
-    height: 12px;
-    border-radius: 9999px;
-    background: var(--thread);
-  }
-  .field[data-thread="hot"]::after {
-    background: var(--reaction-orange);
-  }
+}
+
+.reaction-dot {
+  position: fixed;
+  left: var(--rail);
+  top: 64px;
+  translate: -50% 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--reaction-orange);
+  z-index: 2;
+  pointer-events: none;
+  will-change: top;
 }
 
 /* ---------- Buttons & links ---------- */
