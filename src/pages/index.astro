@@ -147,7 +147,10 @@ const outcomes = [
             <h3 class="offer__name">{o.name}</h3>
             <p class="offer__body">{o.body}</p>
             {o.note && <p class="offer__note">{o.note}</p>}
-            <p class="offer__price label">{o.price}</p>
+            <p class="offer__price label">
+              {o.originalPrice && <s class="offer__price-strike">{o.originalPrice}</s>}
+              {o.price}
+            </p>
             <a class="link-secondary offer__cta" href={o.cta.href} data-offer={o.id !== "crucible" ? o.id : undefined}>
               → {o.cta.label}
             </a>
@@ -510,6 +513,14 @@ const outcomes = [
   .offer__price {
     color: var(--reaction-orange-ink);
     margin: 0 0 20px;
+  }
+
+  .offer__price-strike {
+    margin-right: 6px;
+    color: var(--ink-muted);
+    text-decoration: line-through;
+    text-decoration-color: #c0392b;
+    text-decoration-thickness: 2px;
   }
 
   .offer__cta {

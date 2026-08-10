@@ -141,9 +141,12 @@ const steps = [
   <!-- PRICING -->
   <section class="field field--ink" data-thread="hot" style="--thread-w: 12px;">
     <p class="label section-kicker"><span class="accent">PRICING</span></p>
-    <h2 class="title section-title">Try it free</h2>
+    <h2 class="title section-title">Limited launch deal</h2>
     <div class="pricing">
-      <p class="pricing__price">$19<span class="pricing__per">/mo</span></p>
+      <p class="pricing__price">
+        <s class="pricing__strike">$299</s>
+        $199<span class="pricing__per">/mo</span>
+      </p>
       <p class="pricing__terms label">FIRST PROJECT FREE — ALL FEATURES, NO WATERMARKS</p>
       <a class="button-primary" href={CRUCIBLE_APP_URL}>Start free</a>
     </div>
@@ -290,6 +293,14 @@ const steps = [
     font-size: 3rem;
     line-height: 1;
     margin: 0 0 8px;
+  }
+
+  .pricing__strike {
+    margin-right: 8px;
+    color: var(--mist);
+    text-decoration: line-through;
+    text-decoration-color: #c0392b;
+    text-decoration-thickness: 2px;
   }
 
   .pricing__per {
