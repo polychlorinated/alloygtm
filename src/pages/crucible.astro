@@ -145,12 +145,12 @@ const steps = [
     <div class="pricing">
       <p class="pricing__price">
         <s class="pricing__strike">$299</s>
-        $199<span class="pricing__per">/mo</span>
+        $199<span class="pricing__per">/mo <span class="pricing__launch">Launch Deal</span></span>
       </p>
       <p class="pricing__terms label">FIRST PROJECT FREE — ALL FEATURES, NO WATERMARKS</p>
       <a class="button-primary" href={CRUCIBLE_APP_URL}>Start free</a>
     </div>
-    <p class="pricing__closing">One full project at no cost. See if it fits before you commit.</p>
+    <p class="pricing__closing">No credit card. First week free.</p>
   </section>
 </Base>
 
@@ -306,6 +306,18 @@ const steps = [
   .pricing__per {
     font-size: 1.5rem;
     color: var(--mist);
+  }
+
+  .pricing__launch {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 2px 6px;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.06em;
+    color: var(--paper);
+    background: var(--reaction-orange);
+    vertical-align: middle;
   }
 
   .pricing__terms {

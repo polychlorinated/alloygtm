@@ -150,6 +150,7 @@ const outcomes = [
             <p class="offer__price label">
               {o.originalPrice && <s class="offer__price-strike">{o.originalPrice}</s>}
               {o.price}
+              {o.originalPrice && <span class="offer__launch-badge">Launch Deal</span>}
             </p>
             <a class="link-secondary offer__cta" href={o.cta.href} data-offer={o.id !== "crucible" ? o.id : undefined}>
               → {o.cta.label}
@@ -521,6 +522,19 @@ const outcomes = [
     text-decoration: line-through;
     text-decoration-color: #c0392b;
     text-decoration-thickness: 2px;
+  }
+
+  .offer__launch-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 6px;
+    font-size: 0.625rem;
+    letter-spacing: 0.06em;
+    color: var(--paper);
+    background: var(--reaction-orange);
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
   }
 
   .offer__cta {
