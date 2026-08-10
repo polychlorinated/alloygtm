@@ -51,7 +51,7 @@ export const offers: Offer[] = [
 ];
 
 export const offerOptions = [
-  { value: "learn-more", label: "Learn more" },
+  { value: "learn-more", label: "Learning more about Alloy" },
   { value: "teardown", label: "The Teardown — $297" },
   { value: "sprint", label: "The Diagnostic Sprint — $2,500" },
   { value: "build", label: "The Build — from $4,000/mo" },
