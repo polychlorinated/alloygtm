@@ -102,6 +102,7 @@ const logoAlt = "Alloy GTM home";
       const navH = 64;
 
       function updateDot() {
+        if (window.innerWidth < 1100) return;
         const mainRect = main.getBoundingClientRect();
         const viewH = window.innerHeight;
         const total = mainRect.height - viewH;
@@ -112,6 +113,7 @@ const logoAlt = "Alloy GTM home";
       }
 
       window.addEventListener("scroll", updateDot, { passive: true });
+      window.addEventListener("resize", updateDot, { passive: true });
       updateDot();
     </script>
   </body>
