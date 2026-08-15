@@ -12,17 +12,15 @@
 //   four ways in (Sprint recommended), checks outcomes, believes the proof
 //   (Crucible runs in production), and books a Teardown.
 // FIRST VIEWPORT: Ink nav (Alloy logo, Crucible · Services · About, Get a
-//   Teardown CTA). Molten-alloy photo field where the inverted sequence would
-//   open with ink: mono kicker MARKETING DEBT RECOVERY, display "YOUR GTM
-//   STACK IS BRITTLE. FORGE IT INTO STEEL.", subhead, orange primary CTA +
-//   Crucible secondary, muted trust line layered bottom-left; right column
-//   FIG. 1 fusion diagram.
+//   Teardown CTA). Full-bleed molten-alloy photo field where the inverted
+//   sequence would open with ink: display "YOUR GTM STACK IS BRITTLE. FORGE
+//   IT INTO STEEL.", subhead, orange primary CTA + Crucible secondary, muted
+//   trust line layered bottom-left on the dark charcoal quadrant.
 // FORM: Grounded candidate 7 (alternating fields threaded by the reaction
 //   path), retained from the seed-committed structure (key 328d8fbc); only
 //   content and IA change in this repositioning.
 
 import Base from "../layouts/Base.astro";
-import FusionFigure from "../components/FusionFigure.astro";
 import { offers, offerOptions } from "../data/offers";
 
 const leaks = [
@@ -68,27 +66,21 @@ const outcomes = [
 >
   <!-- 1 · HERO -->
   <section class="field field--ink hero" data-thread style="--thread-w: 2px;">
-    <div class="hero__grid">
-      <div class="hero__copy">
-        <p class="label hero__run"><span class="accent">MARKETING DEBT RECOVERY</span></p>
-        <h1 class="display">Your GTM Stack Is Brittle. Forge It Into Steel.</h1>
-        <p class="hero__lede">
-          Most technical founders are drowning in GTM debt, patched together with the glue of past
-          agencies and contractors, along with bloated tools and unmeasured guesswork. Alloy strips
-          away the operational noise to build repeatable, hardened revenue systems inside the stack
-          you already own.
-        </p>
-        <div class="hero__actions">
-          <a class="button-primary" href="#teardown">Get a Teardown — $297</a>
-          <a class="link-secondary" href="/crucible/">See Crucible →</a>
-        </div>
-        <p class="hero__trust">
-          Revenue systems built across EdTech, enterprise automation, data, fintech, and AI.
-        </p>
+    <div class="hero__copy">
+      <h1 class="display">Your GTM Stack Is Brittle. Forge It Into Steel.</h1>
+      <p class="hero__lede">
+        Most technical founders are drowning in GTM debt, patched together with the glue of past
+        agencies and contractors, along with bloated tools and unmeasured guesswork. Alloy strips
+        away the operational noise to build repeatable, hardened revenue systems inside the stack
+        you already own.
+      </p>
+      <div class="hero__actions">
+        <a class="button-primary" href="#teardown">Get a Teardown — $297</a>
+        <a class="link-secondary" href="/crucible/">See Crucible →</a>
       </div>
-      <div class="hero__figure">
-        <FusionFigure />
-      </div>
+      <p class="hero__trust">
+        Revenue systems built across EdTech, enterprise automation, data, fintech, and AI.
+      </p>
     </div>
   </section>
 
@@ -294,9 +286,10 @@ const outcomes = [
     color: var(--paper-muted);
   }
 
-  /* Hero — molten photo field, text layered bottom-left */
+  /* Hero — full-viewport molten photo field, text layered bottom-left */
   .hero {
-    min-height: clamp(640px, 92vh, 960px);
+    min-height: calc(100vh - 64px);
+    min-height: calc(100svh - 64px);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -312,20 +305,8 @@ const outcomes = [
     background-position: center;
   }
 
-  .hero__grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: clamp(32px, 6vw, 88px);
-    align-items: end;
-  }
-
-  .hero__figure {
-    align-self: center;
-  }
-
-  .hero__run {
-    margin: 0 0 24px;
-    color: var(--mist);
+  .hero__copy {
+    max-width: 62ch;
   }
 
   .hero h1 {
@@ -707,9 +688,6 @@ const outcomes = [
   }
 
   @media (max-width: 1000px) {
-    .hero__grid {
-      grid-template-columns: 1fr;
-    }
     .hero h1 {
       max-width: 16ch;
     }
