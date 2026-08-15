@@ -12,9 +12,11 @@
 //   four ways in (Sprint recommended), checks outcomes, believes the proof
 //   (Crucible runs in production), and books a Teardown.
 // FIRST VIEWPORT: Ink nav (Alloy logo, Crucible · Services · About, Get a
-//   Teardown CTA). Paper field: mono kicker DIAGNOSIS + BUILD, display "MOST
-//   GTM ADVICE IS JUST HOMEWORK.", subhead, orange primary CTA + Crucible
-//   secondary, muted trust line; right column FIG. 1 fusion diagram.
+//   Teardown CTA). Molten-alloy photo field where the inverted sequence would
+//   open with ink: mono kicker MARKETING DEBT RECOVERY, display "YOUR GTM
+//   STACK IS BRITTLE. FORGE IT INTO STEEL.", subhead, orange primary CTA +
+//   Crucible secondary, muted trust line layered bottom-left; right column
+//   FIG. 1 fusion diagram.
 // FORM: Grounded candidate 7 (alternating fields threaded by the reaction
 //   path), retained from the seed-committed structure (key 328d8fbc); only
 //   content and IA change in this repositioning.
@@ -65,15 +67,16 @@ const outcomes = [
   description="Alloy GTM finds what's broken in your revenue system — then builds the fix. Not a deck. Not another tool. Working systems inside the stack you already have."
 >
   <!-- 1 · HERO -->
-  <section class="field field--paper hero" data-thread style="--thread-w: 2px;">
+  <section class="field field--ink hero" data-thread style="--thread-w: 2px;">
     <div class="hero__grid">
       <div class="hero__copy">
-        <p class="label hero__run"><span class="accent">DIAGNOSIS</span> + <span class="accent">BUILD</span></p>
-        <h1 class="display">Most GTM advice is just homework.</h1>
+        <p class="label hero__run"><span class="accent">MARKETING DEBT RECOVERY</span></p>
+        <h1 class="display">Your GTM Stack Is Brittle. Forge It Into Steel.</h1>
         <p class="hero__lede">
-          Alloy GTM finds what's broken in your revenue system — then builds the fix. Not a deck.
-          Not another tool you have to implement yourself. Working systems inside the stack you
-          already have.
+          Most technical founders are drowning in GTM debt, patched together with the glue of past
+          agencies and contractors, along with bloated tools and unmeasured guesswork. Alloy strips
+          away the operational noise to build repeatable, hardened revenue systems inside the stack
+          you already own.
         </p>
         <div class="hero__actions">
           <a class="button-primary" href="#teardown">Get a Teardown — $297</a>
@@ -90,7 +93,7 @@ const outcomes = [
   </section>
 
   <!-- 2 · THE GAP -->
-  <section class="field field--ink" data-thread style="--thread-w: 3px;">
+  <section class="field field--paper" data-thread style="--thread-w: 3px;">
     <p class="label section-kicker"><span class="accent">THE GAP</span></p>
     <h2 class="title section-title">You've been sold half a solution.</h2>
     <div class="gap__grid">
@@ -116,7 +119,7 @@ const outcomes = [
   </section>
 
   <!-- 3 · WHAT'S USUALLY BROKEN -->
-  <section class="field field--paper" data-thread style="--thread-w: 4px;">
+  <section class="field field--ink" data-thread style="--thread-w: 4px;">
     <p class="label section-kicker"><span class="accent">WHAT'S USUALLY BROKEN</span></p>
     <h2 class="title section-title">Five leaks, in almost every company</h2>
     <p class="section-lede-paper">Different industries. Same pathology.</p>
@@ -135,7 +138,7 @@ const outcomes = [
   </section>
 
   <!-- 4 · THE OFFER LADDER -->
-  <section class="field field--ink" id="offer" data-thread="hot" style="--thread-w: 8px;">
+  <section class="field field--paper" id="offer" data-thread="hot" style="--thread-w: 8px;">
     <p class="label section-kicker"><span class="accent">THE OFFER LADDER</span></p>
     <h2 class="title section-title">Four ways in</h2>
     <div class="offers">
@@ -195,7 +198,7 @@ const outcomes = [
   </section>
 
   <!-- 5 · OUTCOMES -->
-  <section class="field field--paper" data-thread style="--thread-w: 10px;">
+  <section class="field field--ink" data-thread style="--thread-w: 10px;">
     <p class="label section-kicker"><span class="accent">EVIDENCE</span></p>
     <h2 class="title section-title">Selected outcomes</h2>
     <ul class="outcomes" role="list">
@@ -214,7 +217,7 @@ const outcomes = [
   </section>
 
   <!-- 6 · CRUCIBLE SPOTLIGHT -->
-  <section class="field field--ink" data-thread style="--thread-w: 10px;">
+  <section class="field field--paper" data-thread style="--thread-w: 10px;">
     <p class="label section-kicker"><span class="accent">PROOF OF BUILD</span></p>
     <h2 class="title section-title">Built, not recommended</h2>
     <div class="spotlight__body">
@@ -239,7 +242,7 @@ const outcomes = [
   </section>
 
   <!-- 7 · FINAL CTA -->
-  <section class="field field--paper cta" data-thread="hot" style="--thread-w: 12px;">
+  <section class="field field--ink cta" data-thread="hot" style="--thread-w: 12px;">
     <p class="label section-kicker"><span class="accent">NEXT ACTION</span></p>
     <h2 class="display cta__display">Start with a Teardown.</h2>
     <p class="cta__body">
@@ -287,21 +290,46 @@ const outcomes = [
     margin: -16px 0 var(--space-field);
   }
 
-  /* Hero */
+  .field--ink .section-lede-paper {
+    color: var(--paper-muted);
+  }
+
+  /* Hero — molten photo field, text layered bottom-left */
+  .hero {
+    min-height: clamp(640px, 92vh, 960px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-image:
+      linear-gradient(
+        to top,
+        rgba(7, 27, 36, 0.85) 0%,
+        rgba(7, 27, 36, 0.28) 42%,
+        rgba(7, 27, 36, 0.38) 100%
+      ),
+      url("/molten-alloy.webp");
+    background-size: cover;
+    background-position: center;
+  }
+
   .hero__grid {
     display: grid;
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
     gap: clamp(32px, 6vw, 88px);
-    align-items: center;
+    align-items: end;
+  }
+
+  .hero__figure {
+    align-self: center;
   }
 
   .hero__run {
     margin: 0 0 24px;
-    color: var(--ink-muted);
+    color: var(--mist);
   }
 
   .hero h1 {
-    max-width: 10ch;
+    max-width: 14ch;
     margin-bottom: 28px;
   }
 
@@ -309,6 +337,7 @@ const outcomes = [
     max-width: 58ch;
     font-size: 1.0625rem;
     margin: 0 0 var(--space-field);
+    color: var(--paper-muted);
   }
 
   .hero__actions {
@@ -321,7 +350,7 @@ const outcomes = [
 
   .hero__trust {
     font-size: 0.875rem;
-    color: var(--ink-muted);
+    color: var(--mist);
     margin: 0;
     max-width: 58ch;
   }
@@ -369,7 +398,7 @@ const outcomes = [
   }
 
   .gap__closing {
-    border-top: 1px solid var(--rule-dark);
+    border-top: 1px solid var(--rule-light);
     padding-top: var(--space-field);
   }
 
@@ -387,12 +416,12 @@ const outcomes = [
 
   .gap__alloy {
     max-width: 62ch;
-    color: var(--paper-muted);
+    color: var(--ink-subtle);
     margin: 0 0 24px;
   }
 
   .gap__fused {
-    color: var(--paper);
+    color: var(--ink);
     margin: 0;
   }
 
@@ -401,7 +430,7 @@ const outcomes = [
     list-style: none;
     margin: 0 0 var(--space-field);
     padding: 0;
-    border-top: 1px solid var(--rule-light);
+    border-top: 1px solid var(--rule);
   }
 
   .leaks__row {
@@ -410,11 +439,11 @@ const outcomes = [
     gap: 24px;
     align-items: baseline;
     padding: 24px 0;
-    border-bottom: 1px solid var(--rule-light);
+    border-bottom: 1px solid var(--rule);
   }
 
   .leaks__n {
-    color: var(--reagent-blue);
+    color: var(--reagent-blue-bright);
     margin: 0;
   }
 
@@ -430,7 +459,7 @@ const outcomes = [
 
   .leaks__text {
     margin: 0;
-    color: var(--ink-subtle);
+    color: var(--paper-muted);
     max-width: 56ch;
   }
 
@@ -458,12 +487,12 @@ const outcomes = [
 
   .offer {
     position: relative;
-    background: var(--paper-bright);
-    color: var(--ink);
+    background: var(--ink);
+    color: var(--paper);
     border: 1px solid var(--rule-dark);
     border-radius: 2px;
     padding: 24px;
-    box-shadow: 8px 10px 0 rgba(7, 27, 36, 0.5);
+    box-shadow: 8px 10px 0 rgba(7, 27, 36, 0.35);
     display: flex;
     flex-direction: column;
     scroll-margin-top: 80px;
@@ -490,7 +519,7 @@ const outcomes = [
   }
 
   .offer__terms {
-    color: var(--ink-muted);
+    color: var(--mist);
     margin: 0 0 16px;
   }
 
@@ -517,13 +546,13 @@ const outcomes = [
   }
 
   .offer__price {
-    color: var(--reaction-orange-ink);
+    color: var(--reaction-orange-bright);
     margin: 0 0 20px;
   }
 
   .offer__price-strike {
     margin-right: 6px;
-    color: var(--ink-muted);
+    color: var(--mist);
     text-decoration: line-through;
     text-decoration-color: #c0392b;
     text-decoration-thickness: 2px;
@@ -548,29 +577,34 @@ const outcomes = [
 
   /* Enquiry form */
   .enquire {
-    background: var(--paper-bright);
-    color: var(--ink);
+    background: var(--ink);
+    color: var(--paper);
     border: 1px solid var(--rule-dark);
     border-radius: 2px;
     padding: var(--space-field);
-    box-shadow: 12px 14px 0 rgba(7, 27, 36, 0.5);
+    box-shadow: 12px 14px 0 rgba(7, 27, 36, 0.35);
     max-width: 720px;
     scroll-margin-top: 80px;
   }
 
   .enquire__title {
     margin: 0 0 28px;
-    color: var(--ink-muted);
+    color: var(--mist);
   }
 
   .enquire__title .accent {
-    color: var(--reaction-orange-ink);
+    color: var(--reaction-orange-bright);
   }
 
   .enquire__form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+
+  .enquire .button-primary:hover {
+    color: var(--reaction-orange);
+    border-color: var(--reaction-orange);
   }
 
   .enquire__row {
@@ -586,7 +620,7 @@ const outcomes = [
   }
 
   .field-group .label {
-    color: var(--ink-subtle);
+    color: var(--paper-muted);
   }
 
   /* Outcomes */
@@ -596,13 +630,13 @@ const outcomes = [
     padding: 0;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    border-top: 1px solid var(--rule-light);
-    border-left: 1px solid var(--rule-light);
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
   }
 
   .outcomes__cell {
-    border-right: 1px solid var(--rule-light);
-    border-bottom: 1px solid var(--rule-light);
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
     padding: 24px;
   }
 
@@ -618,7 +652,7 @@ const outcomes = [
   .outcomes__label {
     margin: 0;
     font-size: 0.875rem;
-    color: var(--ink-subtle);
+    color: var(--paper-muted);
   }
 
   .outcomes__foot {
@@ -632,11 +666,11 @@ const outcomes = [
 
   .spotlight__body p {
     margin: 0 0 20px;
-    color: var(--paper-muted);
+    color: var(--ink-subtle);
   }
 
   .spotlight__point {
-    color: var(--paper) !important;
+    color: var(--ink) !important;
     font-weight: 700;
   }
 
@@ -677,7 +711,7 @@ const outcomes = [
       grid-template-columns: 1fr;
     }
     .hero h1 {
-      max-width: 12ch;
+      max-width: 16ch;
     }
     .leaks__row {
       grid-template-columns: 1fr;
