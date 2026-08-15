@@ -22,15 +22,6 @@ export const offers: Offer[] = [
     cta: { label: "Try Crucible", href: "https://trycrucible.com" },
   },
   {
-    id: "teardown",
-    name: "The Teardown",
-    terms: "72 hours · $297",
-    body: "A recorded expert review of your GTM setup. Twenty-minute walkthrough of your site, funnel, CRM, or outbound — plus a one-page prioritized action list.",
-    note: "No call required.",
-    price: "$297",
-    cta: { label: "Book a Teardown", href: "#enquire" },
-  },
-  {
     id: "sprint",
     name: "The Diagnostic Sprint",
     terms: "Two weeks · $2,500",
@@ -52,7 +43,6 @@ export const offers: Offer[] = [
 
 export const offerOptions = [
   { value: "learn-more", label: "Learning more about Alloy" },
-  { value: "teardown", label: "The Teardown — $297" },
   { value: "sprint", label: "The Diagnostic Sprint — $2,500" },
   { value: "build", label: "The Build — from $4,000/mo" },
 ];

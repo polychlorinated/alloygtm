@@ -9,10 +9,10 @@
 //   blue = measurement; square records, ruled rows, authored SVG figures.
 // STORY: A founder burned by half-solutions reads the hero, sees the
 //   strategist/software gap named, recognizes their five leaks, picks one of
-//   four ways in (Sprint recommended), checks outcomes, believes the proof
-//   (Crucible runs in production), and books a Teardown.
-// FIRST VIEWPORT: Ink nav (Alloy logo, Crucible · Services · About, Get a
-//   Teardown CTA). Full-bleed molten-alloy photo field where the inverted
+//   three ways in (Sprint recommended), checks outcomes, believes the proof
+//   (Crucible runs in production), and books an enquiry.
+// FIRST VIEWPORT: Ink nav (Alloy logo, Crucible · Services · About, Start an
+//   Enquiry CTA). Full-bleed molten-alloy photo field where the inverted
 //   sequence would open with ink: display "YOUR GTM STACK IS BRITTLE. FORGE
 //   IT INTO STEEL.", subhead, orange primary CTA + Crucible secondary, muted
 //   trust line layered bottom-left on the dark charcoal quadrant.
@@ -67,17 +67,17 @@ const outcomes = [
   <!-- 1 · HERO -->
   <section class="field field--ink hero" data-thread style="--thread-w: 2px;">
     <div class="hero__copy">
-      <h1 class="display">Your GTM Stack Is Brittle. Forge It Into Steel.</h1>
+        <h1 class="display">Your Marketing Is Brittle. Forge It Into Steel.</h1>
       <p class="hero__lede">
         Most technical founders are drowning in GTM debt, patched together with the glue of past
         agencies and contractors, along with bloated tools and unmeasured guesswork. Alloy strips
         away the operational noise to build repeatable, hardened revenue systems inside the stack
         you already own.
       </p>
-      <div class="hero__actions">
-        <a class="button-primary" href="#teardown">Get a Teardown — $297</a>
-        <a class="link-secondary" href="/crucible/">See Crucible →</a>
-      </div>
+        <div class="hero__actions">
+          <a class="button-primary" href="#enquire">Start an Enquiry</a>
+          <a class="link-secondary" href="/crucible/">See Crucible →</a>
+        </div>
       <p class="hero__trust">
         Revenue systems built across EdTech, enterprise automation, data, fintech, and AI.
       </p>
@@ -132,11 +132,11 @@ const outcomes = [
   <!-- 4 · THE OFFER LADDER -->
   <section class="field field--paper" id="offer" data-thread="hot" style="--thread-w: 8px;">
     <p class="label section-kicker"><span class="accent">THE OFFER LADDER</span></p>
-    <h2 class="title section-title">Four ways in</h2>
+    <h2 class="title section-title">Three ways in</h2>
     <div class="offers">
       {
         offers.map((o) => (
-          <article class:list={["offer", { "offer--recommended": o.recommended }]} id={o.id === "teardown" ? "teardown" : undefined}>
+          <article class:list={["offer", { "offer--recommended": o.recommended }]}>
             {o.recommended && <p class="label offer__tag">RECOMMENDED</p>}
             <p class="label offer__terms">{o.terms}</p>
             <h3 class="offer__name">{o.name}</h3>
@@ -155,9 +155,9 @@ const outcomes = [
       }
     </div>
 
-    <!-- Enquiry form: Teardown / Sprint / Build CTAs land here -->
+    <!-- Enquiry form: Sprint / Build CTAs land here -->
     <div class="enquire" id="enquire">
-      <p class="label enquire__title"><span class="accent">ENQUIRY</span> — TEARDOWN · SPRINT · BUILD</p>
+      <p class="label enquire__title"><span class="accent">ENQUIRY</span> — SPRINT · BUILD</p>
       <!-- TODO: replace the Formspree placeholder action with the production handler (open decision in PRODUCT.md) -->
       <form class="enquire__form" action="https://formspree.io/f/FORMSPREE_PLACEHOLDER" method="POST" data-enquire-form>
         <div class="enquire__row">
@@ -236,13 +236,13 @@ const outcomes = [
   <!-- 7 · FINAL CTA -->
   <section class="field field--ink cta" data-thread="hot" style="--thread-w: 12px;">
     <p class="label section-kicker"><span class="accent">NEXT ACTION</span></p>
-    <h2 class="display cta__display">Start with a Teardown.</h2>
+    <h2 class="display cta__display">Start with an enquiry.</h2>
     <p class="cta__body">
-      $297. Seventy-two hours. No call, no proposal, no discovery process. Send your setup, get an
-      expert review and a prioritized list of what to fix first.
+      Tell us what's broken. Share your stack, your challenge, and where you want to go — you'll get
+      a direct reply, not a sales sequence.
     </p>
     <div class="cta__actions">
-      <a class="button-primary" href="#teardown">Get a Teardown — $297</a>
+      <a class="button-primary" href="#enquire">Start an Enquiry</a>
     </div>
   </section>
 </Base>
@@ -461,7 +461,7 @@ const outcomes = [
 
   .offers {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin-bottom: var(--space-section);
   }
