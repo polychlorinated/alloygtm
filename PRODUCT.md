@@ -30,7 +30,7 @@ Visitors arrive at the homepage, evaluate the four offers, and convert through t
 
 ## Capabilities and Constraints
 
-- **Crucible** — self-serve product. An AI content engine for founder-led marketing: record two minutes, get back an edited video and a week of on-brand posts. Early access $19/mo. CTAs link directly to the Crucible application; the production app URL is an open decision and the current href is a marked placeholder.
+- **Crucible** — self-serve product. An AI content engine for founder-led marketing: record two minutes, get back an edited video and a week of on-brand posts. Plans start at $49/mo and scale with the number of projects. CTAs link directly to the Crucible application; the production app URL is an open decision and the current href is a marked placeholder.
 - **The Teardown** — 72 hours, $297. A recorded expert review of the buyer's GTM setup: twenty-minute walkthrough of site, funnel, CRM, or outbound, plus a one-page prioritized action list. No call required. Booking routes through the enquiry form.
 - **The Diagnostic Sprint** — two weeks, $2,500. A full map of the lead-to-revenue system, a prioritized roadmap, and one fix built and running before the engagement ends. The recommended tier. Enquiries route through the enquiry form.
 - **The Build** — monthly, from $4,000. Ongoing implementation partnership across the revenue stack: CRM architecture, workflow automation, data pipelines, custom internal tools. Enquiries route through the enquiry form.

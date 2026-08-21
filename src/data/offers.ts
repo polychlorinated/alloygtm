@@ -5,7 +5,6 @@ export interface Offer {
   body: string;
   note?: string;
   price: string;
-  originalPrice?: string;
   cta: { label: string; href: string };
   recommended?: boolean;
 }
@@ -17,8 +16,7 @@ export const offers: Offer[] = [
     terms: "Self-serve product",
     body: "The social content engine for founder-led marketing. Turn a quick 10-minute braindump or live interview into a weekly multi-channel campaign. Record your thoughts and get edited video shorts, LinkedIn posts, newsletter drafts, etc. — all using your own words. Your authentic voice polished, not generative AI slop.",
     note: "No credit card. First week free.",
-    price: "$199/mo",
-    originalPrice: "$299/mo",
+    price: "From $49/mo",
     cta: { label: "Try Crucible", href: "https://trycrucible.com" },
   },
   {

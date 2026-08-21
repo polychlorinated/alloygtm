@@ -143,9 +143,7 @@ const outcomes = [
             <p class="offer__body">{o.body}</p>
             {o.note && <p class="offer__note">{o.note}</p>}
             <p class="offer__price label">
-              {o.originalPrice && <s class="offer__price-strike">{o.originalPrice}</s>}
               {o.price}
-              {o.originalPrice && <span class="offer__launch-badge">Launch Deal</span>}
             </p>
             <a class="link-secondary offer__cta" href={o.cta.href} data-offer={o.id !== "crucible" ? o.id : undefined}>
               → {o.cta.label}
@@ -225,7 +223,7 @@ const outcomes = [
         the same person who would run your engagement.
       </p>
       <p class="spotlight__point">
-        We sell Crucible to other customers for $299/month. Alloy clients get it and every other
+        We sell Crucible to other customers starting at $49/month. Alloy clients get it and every other
         product we build at no additional cost. We don't use client resources to develop these
         solutions — they're part of our system for removing friction from your revenue engine.
       </p>
@@ -529,27 +527,6 @@ const outcomes = [
   .offer__price {
     color: var(--reaction-orange-bright);
     margin: 0 0 20px;
-  }
-
-  .offer__price-strike {
-    margin-right: 6px;
-    color: var(--mist);
-    text-decoration: line-through;
-    text-decoration-color: #c0392b;
-    text-decoration-thickness: 2px;
-  }
-
-  .offer__launch-badge {
-    display: inline-block;
-    margin-left: 8px;
-    padding: 2px 6px;
-    font-size: 0.625rem;
-    letter-spacing: 0.06em;
-    color: var(--paper);
-    background: var(--reaction-orange);
-    vertical-align: middle;
-    position: relative;
-    top: -1px;
   }
 
   .offer__cta {
