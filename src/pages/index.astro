@@ -23,6 +23,43 @@
 import Base from "../layouts/Base.astro";
 import { offers, offerOptions } from "../data/offers";
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://alloygtm.com/#website",
+  url: "https://alloygtm.com/",
+  name: "Alloy GTM",
+  description:
+    "Alloy GTM finds what's broken in your revenue system — then builds the fix. Not a deck. Not another tool. Working systems inside the stack you already have.",
+  publisher: { "@id": "https://alloygtm.com/#organization" },
+};
+
+const servicesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Alloy GTM offers",
+  itemListElement: offers.map((o, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Service",
+      name: o.name,
+      description: o.body,
+      provider: { "@id": "https://alloygtm.com/#organization" },
+      areaServed: "Worldwide",
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "USD",
+        price: Number(o.price.replace(/[^0-9]/g, "")),
+        availability: "https://schema.org/InStock",
+        url: o.cta.href.startsWith("http")
+          ? o.cta.href
+          : `https://alloygtm.com/${o.cta.href.replace(/^#/, "")}`,
+      },
+    },
+  })),
+};
+
 const leaks = [
   {
     n: "01",
@@ -63,6 +100,7 @@ const outcomes = [
 <Base
   title="Alloy GTM — Diagnosis fused with build"
   description="Alloy GTM finds what's broken in your revenue system — then builds the fix. Not a deck. Not another tool. Working systems inside the stack you already have."
+  jsonLd={[websiteJsonLd, servicesJsonLd]}
 >
   <!-- 1 · HERO -->
   <section class="field field--ink hero" data-thread style="--thread-w: 2px;">

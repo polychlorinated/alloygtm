@@ -74,12 +74,49 @@ const faqs = [
     a: "Austin, Texas. Work is remote.",
   },
 ];
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://alloygtm.com/about/#andrew-campbell",
+  name: "Andrew Campbell",
+  jobTitle: "Founder",
+  worksFor: { "@id": "https://alloygtm.com/#organization" },
+  homeLocation: {
+    "@type": "Place",
+    name: "Austin, Texas",
+  },
+  description:
+    "Andrew Campbell has spent fifteen years building go-to-market systems — product marketing, revenue architecture, pipeline design — across EdTech, enterprise automation, data technology, fintech, and AI.",
+  knowsAbout: [
+    "Go-to-market strategy",
+    "CRM architecture",
+    "Revenue operations",
+    "Workflow automation",
+    "Product marketing",
+  ],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.a,
+    },
+  })),
+};
 ---
 
 <Base
   title="About Andrew Campbell — Alloy GTM"
   description="Andrew Campbell has spent fifteen years building go-to-market systems across EdTech, enterprise automation, data, fintech, and AI. Diagnosis fused with build."
   active="about"
+  canonicalPath="/about/"
+  ogType="profile"
+  jsonLd={[personJsonLd, faqJsonLd]}
 >
   <!-- HERO -->
   <section class="field field--paper" data-thread style="--thread-w: 2px;">

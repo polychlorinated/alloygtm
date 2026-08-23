@@ -4,6 +4,27 @@ import Base from "../layouts/Base.astro";
 // TODO: replace with the production Crucible application URL (open decision in PRODUCT.md)
 const CRUCIBLE_APP_URL = "https://trycrucible.com";
 
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Crucible",
+  description:
+    "An AI content engine for founder-led marketing built by Alloy GTM. Record two minutes, get an edited, captioned, on-brand video plus publishable posts for every platform you use. Plans start at $49/month and scale with the number of projects.",
+  brand: { "@id": "https://alloygtm.com/#organization" },
+  manufacturer: { "@id": "https://alloygtm.com/#organization" },
+  category: "Content creation software",
+  image: "https://alloygtm.com/molten-alloy.webp",
+  url: "https://trycrucible.com",
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "USD",
+    lowPrice: "49",
+    availability: "https://schema.org/InStock",
+    url: "https://trycrucible.com",
+    description: "Plans start at $49/month and scale with the number of projects. First project free. No credit card.",
+  },
+};
+
 const steps = [
   {
     n: "01",
@@ -37,6 +58,9 @@ const steps = [
   title="Crucible — Record two minutes. Get a week of content."
   description="Crucible bridges the gap between having something to say and actually publishing it — an AI content engine built by Alloy GTM. Record two minutes, get an edited video and a week of posts."
   active="crucible"
+  canonicalPath="/crucible/"
+  ogType="product"
+  jsonLd={[productJsonLd]}
 >
   <!-- HERO -->
   <section class="field field--paper hero" data-thread style="--thread-w: 2px;">

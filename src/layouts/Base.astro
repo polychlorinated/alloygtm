@@ -5,11 +5,87 @@ interface Props {
   title: string;
   description: string;
   active?: "crucible" | "about";
+  canonicalPath?: string;
+  ogImage?: string;
+  ogType?: "website" | "article" | "profile" | "product";
+  jsonLd?: Record<string, unknown>[];
 }
 
-const { title, description, active } = Astro.props;
+const {
+  title,
+  description,
+  active,
+  canonicalPath = "/",
+  ogImage = "/molten-alloy.webp",
+  ogType = "website",
+  jsonLd = [],
+} = Astro.props;
 const logoSrc = "/alloy-basic-white-logo.webp";
 const logoAlt = "Alloy GTM home";
+const SITE_URL = "https://alloygtm.com";
+const canonicalUrl = new URL(canonicalPath, SITE_URL).href;
+const ogImageUrl = new URL(ogImage, SITE_URL).href;
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${SITE_URL}/#organization`,
+  name: "Alloy GTM",
+  url: `${SITE_URL}/`,
+  logo: {
+    "@type": "ImageObject",
+    url: `${SITE_URL}/alloy-basic-white-logo.webp`,
+    width: 674,
+    height: 179,
+  },
+  image: {
+    "@type": "ImageObject",
+    url: ogImageUrl,
+    width: 2752,
+    height: 1536,
+  },
+  description:
+    "Alloy GTM finds what's broken in your revenue system — then builds the fix. Diagnosis fused with build, inside the stack you already own.",
+  founder: {
+    "@type": "Person",
+    name: "Andrew Campbell",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Austin",
+    addressRegion: "TX",
+    addressCountry: "US",
+  },
+  areaServed: "Worldwide",
+  parentOrganization: {
+    "@type": "Organization",
+    name: "Polychlorinated Ventures LLC",
+    url: "https://polychlorinated.com",
+  },
+};
+
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${canonicalUrl}#webpage`,
+  url: canonicalUrl,
+  name: title,
+  description,
+  inLanguage: "en-US",
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+  about: { "@id": `${SITE_URL}/#organization` },
+  primaryImageOfPage: { "@id": `${SITE_URL}/#primary-image` },
+};
+
+const imageObjectJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "@id": `${SITE_URL}/#primary-image`,
+  url: ogImageUrl,
+  width: 2752,
+  height: 1536,
+  caption: "Alloy GTM — diagnosis fused with build",
+};
 ---
 
 <html lang="en">
@@ -36,6 +112,27 @@ const logoAlt = "Alloy GTM home";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#071b24" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:site_name" content="Alloy GTM" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="2752" />
+    <meta property="og:image:height" content="1536" />
+    <meta property="og:image:alt" content="Alloy GTM — diagnosis fused with build" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(webPageJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(imageObjectJsonLd)} />
+    {jsonLd.map((block) => <script type="application/ld+json" set:html={JSON.stringify(block)} />)}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

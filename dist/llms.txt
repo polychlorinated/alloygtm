@@ -1,0 +1,24 @@
+# Alloy GTM
+
+> Alloy GTM finds what's broken in your revenue system — then builds the fix. Not a deck. Not another tool. Working systems inside the stack you already own. Diagnosis fused with build, operated by Andrew Campbell out of Austin, Texas.
+
+Alloy GTM sells diagnosis fused with build: a full map of a company's lead-to-revenue system, a prioritized roadmap, and fixes built and running inside the stack the client already owns. Services span CRM architecture, workflow automation, data pipelines, and custom internal tools.
+
+## Key pages
+
+- [Home](https://alloygtm.com/): What Alloy GTM does, the four ways in (Crucible, the Diagnostic Sprint, the Build, and the Teardown), the five GTM leaks, selected outcomes, and the enquiry form.
+- [Crucible](https://alloygtm.com/crucible/): An AI content engine built by Alloy GTM. Record two minutes, get an edited, captioned video plus a week of on-brand posts. Plans start at $49/month and scale with the number of projects.
+- [About](https://alloygtm.com/about/): Andrew Campbell's fifteen years building go-to-market systems, the working method, evidence of results, and FAQ.
+
+## Offers
+
+- **Crucible** — self-serve AI content engine for founder-led marketing. Plans from $49/month. App: https://trycrucible.com
+- **The Diagnostic Sprint** — two weeks, $2,500. A full map of your lead-to-revenue system, a prioritized roadmap, and one fix built and running before the engagement ends. Recommended.
+- **The Build** — monthly, from $4,000. Ongoing implementation partnership across the revenue stack.
+- **The Teardown** — 72 hours, $297. A recorded expert review of your GTM setup with a prioritized action list.
+
+## Notes
+
+- Enquiries: https://alloygtm.com/#enquire
+- Remote-first; based in Austin, Texas.
+- Parent company: Polychlorinated Ventures LLC.
