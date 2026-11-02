@@ -152,8 +152,8 @@ a {
   position: fixed;
   left: var(--rail);
   top: 64px;
-  bottom: 0;
   width: 2px;
+  height: 0;
   background: var(--rule-dark);
   z-index: 1;
   pointer-events: none;

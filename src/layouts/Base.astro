@@ -222,7 +222,9 @@ const imageObjectJsonLd = {
       });
 
       const dot = document.getElementById("reaction-dot");
+      const line = document.querySelector(".reaction-line");
       const main = document.querySelector("main");
+      const footerLogo = document.querySelector(".footer__wordmark");
       const navH = 64;
 
       function updateDot() {
@@ -232,7 +234,13 @@ const imageObjectJsonLd = {
         const total = mainRect.height - viewH;
         const scrolled = -mainRect.top;
         const progress = Math.min(Math.max(scrolled / total, 0), 1);
-        const range = viewH - navH - 32;
+
+        const logoTop = footerLogo ? footerLogo.getBoundingClientRect().top : viewH;
+        const endY = Math.min(logoTop, viewH);
+        line.style.height = Math.max(endY - navH - 8, 0) + "px";
+
+        const dotEnd = endY - 24;
+        const range = Math.max(dotEnd - navH, 0);
         dot.style.top = navH + range * progress + "px";
       }
 
