@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import SocialLinks from "../components/SocialLinks.astro";
 
 const built = [
   {
@@ -87,6 +88,10 @@ const personJsonLd = {
   },
   description:
     "Andrew Campbell has spent fifteen years building go-to-market systems — product marketing, revenue architecture, pipeline design — across EdTech, enterprise automation, data technology, fintech, and AI.",
+  sameAs: [
+    "https://www.linkedin.com/in/andrewscottcampbell/",
+    "https://github.com/polychlorinated",
+  ],
   knowsAbout: [
     "Go-to-market strategy",
     "CRM architecture",
@@ -137,6 +142,9 @@ const faqJsonLd = {
           For most of my career I was the person inside the company who could see what was broken. Now
           I do that from outside, and I bring the tools to fix it.
         </p>
+        <div class="hero__social">
+          <SocialLinks tone="paper" />
+        </div>
       </div>
       <img
         class="hero__headshot"
@@ -253,6 +261,10 @@ const faqJsonLd = {
   .hero__bio p {
     margin: 0 0 20px;
     font-size: 1.0625rem;
+  }
+
+  .hero__social {
+    margin-top: 28px;
   }
 
   /* Why the name */

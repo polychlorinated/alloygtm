@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import SocialLinks from "../components/SocialLinks.astro";
 
 interface Props {
   title: string;
@@ -203,6 +204,9 @@ const imageObjectJsonLd = {
           <a href="/#offer">Services</a>
           <a href="/about/">About</a>
         </nav>
+        <div class="footer__social">
+          <SocialLinks tone="ink" />
+        </div>
         <p class="footer__copy label">© 2025–2026</p>
       </div>
     </footer>
@@ -447,5 +451,18 @@ const imageObjectJsonLd = {
   .footer__copy {
     color: var(--mist);
     margin: 0;
+  }
+
+  .footer__social {
+    color: var(--mist);
+  }
+
+  .footer__social :global(.social__link) {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer__social :global(.social__link):hover {
+    color: var(--reaction-orange);
   }
 </style>
